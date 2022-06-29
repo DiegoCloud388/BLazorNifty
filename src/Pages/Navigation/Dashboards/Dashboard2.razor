@@ -1,0 +1,30 @@
+﻿@page "/dashboard-2"
+
+<PageTitle>Counter</PageTitle>
+
+<div class="content_header">
+</div>
+
+<div class="content-boxed mx-6 my-4 pt-4">
+
+    <MudText Typo="Typo.h3" Style="color:white" GutterBottom="true">Counter 2</MudText>
+
+    <MudCard Class="py-4 px-5" Style="min-height: 600px">
+        <MudText Class="mb-4">Current count: @currentCount</MudText>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+    </MudCard>
+
+
+
+</div>
+
+
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

@@ -1,0 +1,28 @@
+<style>
+    .mud-icon-size-medium.bi-house-door, .mud-icon-size-medium.bi-alarm, .mud-icon-size-medium.bi-columns, .mud-icon-size-medium.bi-pencil,
+    .mud-icon-size-medium.bi-table, .mud-icon-size-medium.bi-tools,.mud-icon-size-medium.bi-bar-chart-line, 
+    .mud-icon-size-medium.bi-toggles, .mud-icon-size-medium.bi-envelope, .mud-icon-size-medium.bi-chat-square, .mud-icon-size-medium.bi-cast,
+    .mud-icon-size-medium.bi-window-fullscreen, .mud-icon-size-medium.bi-filetype-html, .mud-icon-size-medium.bi-list-nested {
+        font-size: 1.0rem;
+        margin-top: -2px;
+    }
+</style>
+
+
+<MudNavMenu Rounded="true" Margin="Margin.Dense" Color="Color.Primary" Class="pa-2">
+
+    
+        <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center" Spacing="0" Class="my-6">
+            <MudAvatar Color="Color.Primary" Style="height:70px; width:70px; font-size:2rem;" Image="images/avatars/male1.png" Class="border-solid border-2" Elevation="0" />
+            <MudText Typo="Typo.subtitle2" Class="mt-2">Aaron Chavez</MudText>
+            <MudText Typo="Typo.caption">Administrator</MudText>
+        </MudStack>
+
+        @foreach (var item in menuItems)
+        {
+            <NavMenuItem MenuItem="item"></NavMenuItem>
+        }
+
+
+
+</MudNavMenu>

@@ -1,0 +1,61 @@
+﻿@page "/sticky-header"
+@using BlazorNifty.Data
+@inject WeatherForecastService ForecastService
+
+<PageTitle>Sticky Header</PageTitle>
+
+<PageShell Rounded="rounded" Overlapping="overlapping">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Sticky Header</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">Keep your header fixed at the top of pages.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        <MudContainer>
+            <MudCard Class="py-4 px-5" Style="min-height: 600px">
+                <MudCardHeader>
+                     <MudText Typo="Typo.caption">Header</MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudStack>
+                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
+                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
+                        <MudStack Row="true">
+                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
+                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
+                        </MudStack>
+                    </MudStack>
+
+                </MudCardContent>
+
+
+            </MudCard>
+        </MudContainer>
+    </ShellBody>
+</PageShell>
+
+
+
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Layouts", href: "#"),
+        new BreadcrumbItem("Sticky Header", href: null, disabled: true)
+    };
+
+    private bool rounded = false;
+    private bool overlapping = false;
+
+    private void ToggleRounded()
+    {
+        rounded = !rounded;
+    }
+
+    private void ToggleOverlapping()
+    {
+        overlapping = !overlapping;
+    }
+}
