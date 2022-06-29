@@ -1,0 +1,90 @@
+﻿@page "/ui-elements/cards"
+
+<PageTitle>Cards</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h5" GutterBottom="true">Sticky Header</MudText>
+        <MudText Typo="Typo.body2" Class="mb-2">Keep your header fixed at the top of pages.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 180px">
+                    <MudCardContent>
+                        <MudText>Basic card example</MudText>
+                        <MudText Typo="Typo.body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, odit?</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true" Style="min-height: 180px">
+                    <MudCardHeader>
+                        <MudText>Card header</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, odit?</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true" Style="min-height: 180px">
+                    <MudCardContent>
+                        <MudText>Story of the day</MudText>
+                        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="false" Elevation="4" Style="min-height: 160px">
+                    <MudCardContent>
+                        <MudText>Story of the day</MudText>
+                        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="false" Elevation="4" Style="min-height: 160px">
+                    <MudCardContent>
+                        <MudText>Story of the day</MudText>
+                        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="false" Elevation="4" Style="min-height: 160px">
+                    <MudCardContent>
+                        <MudText>Story of the day</MudText>
+                        <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Ui Elements", href: "#"),
+        new BreadcrumbItem("Cards", href: null, disabled: true)
+    };
+
+
+
+}

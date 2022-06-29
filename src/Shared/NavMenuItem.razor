@@ -1,0 +1,26 @@
+﻿@if (MenuItem.Type == MenuItemType.NavGroup)
+{
+    string groupClass = MenuItem.State + " " + MenuItem.Class;
+    <MudNavGroup Title="@MenuItem.Title" Icon="@MenuItem.Icon" ExpandIcon="@Icons.Outlined.KeyboardArrowRight" Class="@groupClass" @bind-Expanded="@MenuItem.Expanded">
+        @foreach (var childItem in MenuItem.ChildItems)
+        {
+            <NavMenuItem MenuItem="childItem" />
+        }
+    </MudNavGroup>
+}
+else if (MenuItem.Type == MenuItemType.NavCategory)
+{
+    <MudText Typo="Typo.subtitle2" Color="Color.Inherit" Class="ml-4 my-3 main-menu-header" Style="font-weight: bolder; font-size: 12px;">@MenuItem.Title</MudText>
+    @foreach (var childItem in MenuItem.ChildItems)
+    {
+        <NavMenuItem MenuItem="childItem" />
+    }
+}
+else
+{
+    <MudNavLink Href="@MenuItem.Href" Icon="@MenuItem.Icon" Class="@MenuItem.Class">@MenuItem.Title</MudNavLink>
+}
+
+@code {
+    [Parameter] public MenuItem MenuItem { get; set; }
+}
