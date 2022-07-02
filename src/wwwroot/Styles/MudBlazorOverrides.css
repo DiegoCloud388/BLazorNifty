@@ -345,34 +345,6 @@ body {
     line-height: 1.2;
 }
 
-
-.mud-tab.simple-tab{
-    min-width: unset;
-    text-transform: unset;
-    padding: 6px 2px;
-
-}
-
-.mud-tab.mud-tab-active.simple-tab .mud-typography.mud-typography-caption {
-    font-weight: bolder;
-}
-
-.mud-tab.simple-tab:hover {
-    background-color: transparent;
-}
-
-    .mud-tab.mud-tab-active.simple-tab:hover {
-        background-color: transparent;
-    }
-
-.mud-tab-slider.mud-tab-slider-horizontal{
-    height: 3px;
-}
-
-.mud-tabs-toolbar{
-    border-bottom: 1px solid #00000038;
-}
-
     /*TABS*/
 
     .mud-tabs-toolbar .mud-tabs-toolbar-inner {
