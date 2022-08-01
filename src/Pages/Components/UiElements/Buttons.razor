@@ -1,7 +1,6 @@
 ﻿@page "/ui-elements/buttons"
 
-<PageTitle>Buttonss</PageTitle>
-
+<PageTitle >Buttons</PageTitle>
 <PageShell Rounded="true" Overlapping="true">
     <ShellHeader>
         <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
@@ -10,18 +9,61 @@
     </ShellHeader>
 
     <ShellBody>
-        <MudGrid Spacing="2">
-            <MudItem xs="12" sm="4">
-                <MudCard Outlined="true" Elevation="2" Style="min-height: 180px">
-                    <MudCardContent>
-                       <MudButton Variant="Variant.Filled">Default</MudButton>
+         <MudGrid Spacing="2" Justify="Justify.FlexStart">
+          <MudItem sm="6" >
+   
+                        <MudButton Variant="Variant.Filled" Color="Color.Success" >Success</MudButton>
                         <MudButton Variant="Variant.Filled" Color="Color.Primary">Primary</MudButton>
                         <MudButton Variant="Variant.Filled" Color="Color.Secondary">Secondary</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Error">Error</MudButton>
                         <MudButton Variant="Variant.Filled" Disabled="true">Disabled</MudButton>
+         </MudItem>  
+        </MudGrid>
+        <MudGrid Spacing="3" Justify="Justify.FlexStart">
+           
+           
+             <MudItem sm="6"> 
+               <MudCard Outlined="true">
+                    <MudCardHeader>
+                     <MudText>Outline buttons</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudButton Variant="Variant.Outlined" Color="Color.Success" >Success</MudButton>
+                        <MudButton Variant="Variant.Outlined" Color="Color.Primary">Primary</MudButton>
+                        <MudButton Variant="Variant.Outlined" Color="Color.Secondary">Secondary</MudButton>
+                        <MudButton Variant="Variant.Outlined" Color="Color.Error">Error</MudButton>
+                        <MudButton Variant="Variant.Outlined" Disabled="true">Disabled</MudButton>
                     </MudCardContent>
                 </MudCard>
             </MudItem>
-            
+
+            <MudItem sm="6"> 
+            <MudCard Outlined="true">
+                    <MudCardHeader>
+                     <MudText>Rounded buttons</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudButton Variant="Variant.Filled" Color="Color.Success" Class="mud-button-rounded">Success</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mud-button-rounded">Primary</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Class="mud-button-rounded">Secondary</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Error" Class="mud-button-rounded">Error</MudButton>
+                        <MudButton Variant="Variant.Filled" Disabled="true" Class="mud-button-rounded">Disabled</MudButton>
+                    </MudCardContent>
+            </MudCard>
+            </MudItem> 
+
+             <MudItem sm="6"> 
+            <MudCard Outlined="true">
+                    <MudCardHeader>
+                     <MudText>Icon buttons with text</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>                  
+                        <MudButton Variant="Variant.Filled" Color="Color.Info" StartIcon="@Icons.Material.Filled.HeartBroken">Wishlist</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Warning" StartIcon="@Icons.Material.Filled.Star" Class="mud-button-rounded">Favorite</MudButton>
+                    </MudCardContent>
+            </MudCard>
+            </MudItem> 
+
         </MudGrid>
     </ShellBody>
 </PageShell>
