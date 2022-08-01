@@ -1,0 +1,29 @@
+﻿@page "/forms/tags"
+
+<PageTitle>Tags</PageTitle>
+
+<PageShell Rounded="false" Overlapping="false">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Tags</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">A tag is a keyword or term assigned to a piece of information.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Tags", href: null, disabled: true)
+    };
+
+
+
+}

@@ -1,0 +1,29 @@
+﻿@page "/ui-elements/placeholders"
+
+<PageTitle>Placeholders</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Placeholders</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">Use loading placeholders for your components or pages to indicate something may still be loading.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Placeholders", href: null, disabled: true)
+    };
+
+
+
+}

@@ -5,13 +5,13 @@
 <PageShell Rounded="true" Overlapping="true">
     <ShellHeader>
         <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
-        <MudText Typo="Typo.h5" GutterBottom="true">Sticky Header</MudText>
-        <MudText Typo="Typo.body2" Class="mb-2">Keep your header fixed at the top of pages.</MudText>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Cards</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">A card is a flexible and extensible content container.</MudText>
     </ShellHeader>
 
     <ShellBody>
-        <MudGrid Spacing="2">
-            <MudItem xs="12" sm="4">
+        <MudGrid Spacing="2" Justify="Justify.FlexStart">
+            <MudItem xs="4" sm="6">
                 <MudCard Outlined="true" Elevation="2" Style="min-height: 180px">
                     <MudCardContent>
                         <MudText>Basic card example</MudText>
@@ -19,7 +19,7 @@
                     </MudCardContent>
                 </MudCard>
             </MudItem>
-            <MudItem xs="12" sm="4">
+            <MudItem xs="4" >
                 <MudCard Outlined="true" Style="min-height: 180px">
                     <MudCardHeader>
                         <MudText>Card header</MudText>
@@ -29,7 +29,7 @@
                     </MudCardContent>
                 </MudCard>
             </MudItem>
-            <MudItem xs="12" sm="4">
+            <MudItem xs="4">
                 <MudCard Outlined="true" Style="min-height: 180px">
                     <MudCardContent>
                         <MudText>Story of the day</MudText>
@@ -40,7 +40,7 @@
                     </MudCardActions>
                 </MudCard>
             </MudItem>
-            <MudItem xs="12" sm="4">
+@*            <MudItem xs="12" sm="4">
                 <MudCard Outlined="false" Elevation="4" Style="min-height: 160px">
                     <MudCardContent>
                         <MudText>Story of the day</MudText>
@@ -73,6 +73,17 @@
                     </MudCardActions>
                 </MudCard>
             </MudItem>
+            <MudItem xs="12" sm="8">
+                <MudCard Outlined="false" Elevation="4" Style="min-height: 160px">
+                    <MudCardContent>
+                        <MudText>Test Hoven</MudText>
+                        <MudText Typo="Typo.body2">Mr Bagier like to fuck little dogs.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary">Learn More</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>*@
         </MudGrid>
     </ShellBody>
 </PageShell>

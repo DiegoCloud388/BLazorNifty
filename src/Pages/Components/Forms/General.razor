@@ -1,0 +1,125 @@
+﻿@page "/forms/general"
+
+<PageTitle>General</PageTitle>
+
+<PageShell Rounded="false" Overlapping="false">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">General</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">General form-control live preview. You can copy our examples and paste them into your project!</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        <MudText Typo="Typo.h3" GutterBottom="true">Form Layouts</MudText>
+
+        <MudGrid>
+            <MudItem sm="12">
+                <MudCard Outlined="false" Elevation="3">
+
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6"><b>Inline form</b></MudText>
+                        <MudGrid Spacing="2">
+                            <MudItem sm="4">
+                                <MudForm>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                                        <MudTextField T="string" Variant="Variant.Outlined" Placeholder="Email" aria-label="email"></MudTextField>
+                                        <MudTextField T="string" Variant="Variant.Outlined" Placeholder="Password" aria-label="password"></MudTextField>
+                                    </MudStack>
+
+                                </MudForm>
+                            </MudItem>
+                            <MudItem sm="3">
+                                <MudForm>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                                        <MudCheckBox T="bool" Label="Remember me" Color="Color.Primary" Size="Size.Small"></MudCheckBox>
+                                        <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Primary" Size="Size.Medium">Confirm identity</MudButton>
+                                    </MudStack>
+
+
+                                </MudForm>
+                            </MudItem>
+                        </MudGrid>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem sm="6">
+                <MudCard Outlined="false" Elevation="3">
+
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6"><b>Block styled form</b></MudText>
+                        <MudGrid Spacing="2">
+                            <MudItem sm="3">
+                                <MudForm>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                                        <MudTextField T="string" Variant="Variant.Outlined" Placeholder="Email" aria-label="email"></MudTextField>
+                                        <MudTextField T="string" Variant="Variant.Outlined" Placeholder="Password" aria-label="password"></MudTextField>
+                                    </MudStack>
+
+                                </MudForm>
+                            </MudItem>
+                            <MudItem sm="3">
+                                <MudForm>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                                        <MudCheckBox T="bool" Label="Remember me" Color="Color.Primary" Size="Size.Small"></MudCheckBox>
+                                        <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Primary" Size="Size.Medium">Confirm identity</MudButton>
+                                    </MudStack>
+
+
+                                </MudForm>
+                            </MudItem>
+                        </MudGrid>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem sm="6">
+                <MudCard Outlined="false" Elevation="3">
+
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6"><b>Horizontal form</b></MudText>
+                        <MudGrid Spacing="2">
+                            <MudItem sm="3">
+                                <MudForm>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                                        <MudTextField T="string" Variant="Variant.Outlined" Placeholder="Email" aria-label="email"></MudTextField>
+                                        <MudTextField T="string" Variant="Variant.Outlined" Placeholder="Password" aria-label="password"></MudTextField>
+                                    </MudStack>
+
+                                </MudForm>
+                            </MudItem>
+                            <MudItem sm="3">
+                                <MudForm>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                                        <MudCheckBox T="bool" Label="Remember me" Color="Color.Primary" Size="Size.Small"></MudCheckBox>
+                                        <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Primary" Size="Size.Medium">Confirm identity</MudButton>
+                                    </MudStack>
+
+
+                                </MudForm>
+                            </MudItem>
+                        </MudGrid>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+        </MudGrid>
+
+
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("General", href: null, disabled: true)
+    };
+
+
+
+}

@@ -69,7 +69,7 @@ namespace BlazorNifty.Shared
                             new MenuItem() {Title = "Placeholders", Href = "/ui-elements/placeholders", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Tabs & Accordions", Href = "/ui-elements/tabs-accordions", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Components", Href = "/ui-elements/components", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Tooltips & Popover", Href = "/ui-elements/tooltips-popover", Type=MenuItemType.NavItem, Class="ml-4px"}
+                            new MenuItem() {Title = "Tooltips & Popover", Href = "/ui-elements/tooltips-popovers", Type=MenuItemType.NavItem, Class="ml-4px"}
                         }
                     },
                     new MenuItem()

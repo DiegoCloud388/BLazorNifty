@@ -1,0 +1,288 @@
+﻿@page "/ui-elements/dropdowns"
+
+<PageTitle>Dropdowns</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Dropdowns</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">Dropdowns are toggleable, contextual overlays for displaying lists of links and more.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="6" md="3">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Single dropdown</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Tertiary" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Split button</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudButtonGroup Color="Color.Success" Variant="Variant.Filled">
+                            <MudButton>Action</MudButton>
+                            <MudMenu Icon="@Icons.Material.Filled.ArrowDropDown" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
+                                <MudMenuItem>Action</MudMenuItem>
+                                <MudMenuItem>Another action</MudMenuItem>
+                                <MudMenuItem>Somethind else here</MudMenuItem>
+                                <MudDivider></MudDivider>
+                                <MudMenuItem>Separated link</MudMenuItem>
+                            </MudMenu>
+                        </MudButtonGroup>
+                    </MudCardContent>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Outline button</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Primary" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Dark dropdowns</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Dark" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Large dropdown</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Warning" Variant="Variant.Filled" Size="Size.Large" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+
+                        <MudButtonGroup Color="Color.Warning" Variant="Variant.Filled" Size="Size.Large" Class="ml-4">
+                            <MudButton>Action</MudButton>
+                            <MudMenu Icon="@Icons.Material.Filled.ArrowDropDown" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                                <MudMenuItem>Action</MudMenuItem>
+                                <MudMenuItem>Another action</MudMenuItem>
+                                <MudMenuItem>Somethind else here</MudMenuItem>
+                                <MudDivider></MudDivider>
+                                <MudMenuItem>Separated link</MudMenuItem>
+                            </MudMenu>
+                        </MudButtonGroup>
+                    </MudCardContent>
+                </MudCard>
+
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Small dropdown</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+
+                        <MudButtonGroup Color="Color.Error" Variant="Variant.Filled" Size="Size.Small" Class="ml-4">
+                            <MudButton>Action</MudButton>
+                            <MudMenu Icon="@Icons.Material.Filled.ArrowDropDown" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                                <MudMenuItem>Action</MudMenuItem>
+                                <MudMenuItem>Another action</MudMenuItem>
+                                <MudMenuItem>Somethind else here</MudMenuItem>
+                                <MudDivider></MudDivider>
+                                <MudMenuItem>Separated link</MudMenuItem>
+                            </MudMenu>
+                        </MudButtonGroup>
+                    </MudCardContent>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Dropup</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowUp" Label="Dropup" Color="Color.Info" Variant="Variant.Filled" AnchorOrigin="Origin.TopLeft" TransformOrigin="Origin.BottomLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Dropright</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowRight" Label="Dropright" Color="Color.Info" Variant="Variant.Filled" AnchorOrigin="Origin.CenterRight" TransformOrigin="Origin.CenterLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Dropleft</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu StartIcon="@Icons.Filled.KeyboardArrowLeft" Label="Dropleft" Color="Color.Info" Variant="Variant.Filled" AnchorOrigin="Origin.CenterLeft" TransformOrigin="Origin.CenterRight">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+
+            </MudItem>
+
+            <MudItem xs="12">
+
+                <MudCard Outlined="true" Elevation="2" Style="min-height: 130px">
+                    <MudCardHeader>
+                        <MudText>Single dropdown</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center align-center">
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Default dropdown" Color="Color.Tertiary" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+
+                        <div class="d-flex">
+                            <MudButton EndIcon="@Icons.Filled.KeyboardArrowDown" Color="Color.Tertiary" Variant="Variant.Filled" OnClick="@ToggleOpen">
+                                Clickable outside
+                            </MudButton>
+                            <MudPopover Open="@_isOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" @onclick="@ToggleOpen">
+                                <div class="d-flex flex-column pa-1">
+                                    <MudMenuItem @onclick="@ToggleOpen">Action</MudMenuItem>
+                                    <MudMenuItem>Another action</MudMenuItem>
+                                    <MudMenuItem>Somethind else here</MudMenuItem>
+                                    <MudDivider></MudDivider>
+                                    <MudMenuItem>Separated link</MudMenuItem>
+                                </div>
+                            </MudPopover>
+                        </div>
+
+                       @* <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Clickable outside" Color="Color.Tertiary" Variant="Variant.Filled" Class="ml-4" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+
+
+                        </MudMenu>
+*@
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Clickable inside" Color="Color.Tertiary" Variant="Variant.Filled" Class="ml-4" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+
+                        <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Manual close" Color="Color.Tertiary" Variant="Variant.Filled" Class="ml-4" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+                    </MudCardContent>
+                </MudCard>
+
+
+            </MudItem>
+        </MudGrid>
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Ui Elements", href: "#"),
+        new BreadcrumbItem("Dropdowns", href: null, disabled: true)
+    };
+
+    private bool _isOpen = false;
+
+    private void ToggleOpen()
+    {
+        _isOpen = !_isOpen;
+    }
+}

@@ -1,0 +1,29 @@
+﻿@page "/forms/text-editor"
+
+<PageTitle>Text Editor</PageTitle>
+
+<PageShell Rounded="false" Overlapping="false">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Text Editor</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">WYSIWYG is a text editor for editing content, whether in text or graphics.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Text Editor", href: null, disabled: true)
+    };
+
+
+
+}

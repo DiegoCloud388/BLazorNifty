@@ -1,0 +1,29 @@
+﻿@page "/ui-elements/tooltips-popovers"
+
+<PageTitle>Tooltips and Popover</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Tooltips and Popover</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">The tooltip, also known as infotip or hint, is a common graphical user interface element in which.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Tooltips and Popover", href: null, disabled: true)
+    };
+
+
+
+}

@@ -1,0 +1,30 @@
+﻿@page "/forms/wizard"
+
+<PageTitle>Wizard</PageTitle>
+
+<PageShell Rounded="false" Overlapping="false">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Wizard</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">A user interface design pattern that enables untrained users to achieve a goal through a series of steps.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Wizard", href: null, disabled: true)
+    };
+
+
+
+}
+

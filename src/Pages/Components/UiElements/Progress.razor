@@ -1,0 +1,29 @@
+﻿@page "/ui-elements/progress"
+
+<PageTitle>Progress</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Progress</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">A graphical control element used to visualize the progression of computer operation, such as a download, file transfer etc.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Progress", href: null, disabled: true)
+    };
+
+
+
+}

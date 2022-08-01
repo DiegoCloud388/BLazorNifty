@@ -14,7 +14,14 @@
     </MudAppBar>
     <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" Style="overflow: visible;" >
         <MudDrawerHeader Dense="true">
-            <MudText Typo="Typo.h6">BlazorNifty</MudText>
+            <MudStack AlignItems="AlignItems.Center" Row="true" Spacing="2">
+                <MudImage Src="images/leaf.png" Alt="" Elevation="25" Class="rounded-lg" Style="height:25px; width:25px; font-size:2rem;"/>
+                @if (_leftDrawerOpen)
+                {
+                    <MudText Typo="Typo.h4" Class="page-title mt-2">BlazorNifty</MudText>
+                }
+                
+            </MudStack>
         </MudDrawerHeader>
         
         @if (_leftDrawerOpen)

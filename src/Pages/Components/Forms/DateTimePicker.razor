@@ -1,0 +1,29 @@
+﻿@page "/forms/date-time-picker"
+
+<PageTitle>Date Time Picker</PageTitle>
+
+<PageShell Rounded="false" Overlapping="false">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Date Time Picker</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">Date and time picker allow the user to select a date and time, and to display that date and time in the specified format.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Date Time Picker", href: null, disabled: true)
+    };
+
+
+
+}
