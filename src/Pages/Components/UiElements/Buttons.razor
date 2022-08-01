@@ -19,9 +19,7 @@
                         <MudButton Variant="Variant.Filled" Disabled="true">Disabled</MudButton>
          </MudItem>  
         </MudGrid>
-        <MudGrid Spacing="3" Justify="Justify.FlexStart">
-           
-           
+        <MudGrid Spacing="2" Justify="Justify.FlexStart">                 
              <MudItem sm="6"> 
                <MudCard Outlined="true">
                     <MudCardHeader>
@@ -43,7 +41,7 @@
                      <MudText>Rounded buttons</MudText>
                     </MudCardHeader>
                     <MudCardContent>
-                        <MudButton Variant="Variant.Filled" Color="Color.Success" Class="mud-button-rounded">Success</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Success" Class="rounded-xl">Success</MudButton>
                         <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mud-button-rounded">Primary</MudButton>
                         <MudButton Variant="Variant.Filled" Color="Color.Secondary" Class="mud-button-rounded">Secondary</MudButton>
                         <MudButton Variant="Variant.Filled" Color="Color.Error" Class="mud-button-rounded">Error</MudButton>
@@ -52,7 +50,7 @@
             </MudCard>
             </MudItem> 
 
-             <MudItem sm="6"> 
+            <MudItem sm="4"> 
             <MudCard Outlined="true">
                     <MudCardHeader>
                      <MudText>Icon buttons with text</MudText>
@@ -64,6 +62,84 @@
             </MudCard>
             </MudItem> 
 
+            <MudItem sm="4"> 
+            <MudCard Outlined="true">
+                    <MudCardHeader>
+                     <MudText>Icon buttons</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>                  
+                        <MudIconButton  Color="Color.Secondary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Message"></MudIconButton>
+                        <MudIconButton  Color="Color.Success"  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" aria-label="delete" ></MudIconButton>
+                        <MudIconButton  Color="Color.Error"  Variant="Variant.Filled"Icon="@Icons.Material.Filled.Home"></MudIconButton>
+                        <MudIconButton  Color="Color.Primary"  Variant="Variant.Filled" Icon="@Icons.Material.Filled.Label"></MudIconButton>
+                    </MudCardContent>
+            </MudCard>
+            </MudItem> 
+
+            <MudItem sm="4"> 
+            <MudCard Outlined="true">
+                    <MudCardHeader>
+                     <MudText>Icon buttons with text</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>                  
+                        <MudButton Variant="Variant.Filled" Color="Color.Info" StartIcon="@Icons.Material.Filled.HeartBroken">Wishlist</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Warning" StartIcon="@Icons.Material.Filled.Star" Class="mud-button-rounded">Favorite</MudButton>
+                    </MudCardContent>
+            </MudCard>
+            </MudItem> 
+
+           <MudItem sm="12" >
+            <MudCard Outlined="true">
+                <MudCardHeader>
+                     <MudText>Disabled buttons</MudText>
+                    </MudCardHeader>
+                     <MudCardContent>  
+          <MudGrid Spacing="2" Justify="Justify.Center">
+
+   
+             <MudItem >     <MudButton Variant="Variant.Filled" Color="Color.Success" Disabled="true" >Success</MudButton>         </MudItem>
+                     <MudItem >         <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="true" >Primary</MudButton>        </MudItem>
+                       <MudItem >       <MudButton Variant="Variant.Filled" Color="Color.Secondary" Disabled="true">Secondary</MudButton>        </MudItem>
+                       <MudItem >       <MudButton Variant="Variant.Filled" Color="Color.Error" Disabled="true">Error</MudButton>        </MudItem>
+                        <MudItem >      <MudButton Variant="Variant.Filled" Disabled="true">Disabled</MudButton>        </MudItem>
+        
+
+         </MudGrid>
+         <MudGrid Spacing="2" Justify="Justify.Center">
+
+                 
+             <MudItem >     <MudButton Variant="Variant.Outlined" Color="Color.Success" Disabled="true" >Success</MudButton>         </MudItem>
+                     <MudItem >         <MudButton Variant="Variant.Outlined" Color="Color.Primary" Disabled="true" >Primary</MudButton>        </MudItem>
+                       <MudItem >       <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Disabled="true">Secondary</MudButton>        </MudItem>
+                       <MudItem >       <MudButton Variant="Variant.Outlined" Color="Color.Error" Disabled="true">Error</MudButton>        </MudItem>
+                        <MudItem >      <MudButton Variant="Variant.Outlined" Disabled="true">Disabled</MudButton>        </MudItem>
+                 
+                 
+            
+
+
+        </MudGrid>
+           </MudCardContent> 
+            </MudCard>
+          </MudItem>
+          <MudItem sm="3" >
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>Button sizes</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+            <MudGrid Spacing="2"  Class="flex-column align-center">
+         <MudItem >     <MudButton Variant="Variant.Filled" Size="Size.Small" Color="Color.Primary">Small</MudButton></MudItem>
+         <MudItem >     <MudButton Variant="Variant.Filled" Size="Size.Medium" Color="Color.Secondary">Medium</MudButton></MudItem>
+        <MudItem >      <MudButton Variant="Variant.Filled" Size="Size.Large" Color="Color.Success">Large</MudButton></MudItem>
+               </MudGrid>
+            </MudCardContent>  
+      </MudCard>
+     
+          </MudItem>
+
+
+
         </MudGrid>
     </ShellBody>
 </PageShell>
@@ -73,7 +149,7 @@
     {
         new BreadcrumbItem("Home", href: "#"),
         new BreadcrumbItem("Ui Elements", href: "#"),
-        new BreadcrumbItem("Cards", href: null, disabled: true)
+        new BreadcrumbItem("Buttons", href: null, disabled: true)
     };
 
 
