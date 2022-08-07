@@ -1,0 +1,27 @@
+﻿@page "/layouts/minimal-navigation"
+
+<PageTitle>Mini Navigation</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Mini Navigation</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">The navigation will transform into a small vertical bar that will save you space for the content to be displayed on the screen.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+       
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Ui Elements", href: "#"),
+        new BreadcrumbItem("Cards", href: null, disabled: true)
+    };
+
+
+
+}

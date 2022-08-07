@@ -1,0 +1,50 @@
+﻿@if (MenuItem.Type == MenuItemType.NavGroup || MenuItem.Type == MenuItemType.NavItem)
+{
+    string groupClass = MenuItem.State + " " + MenuItem.Class;
+
+    if (InPopover)
+    {
+        var menuClass = "mini-nav " + @MenuItem.Class;
+        <MudNavLink Href="@MenuItem.Href" Class="@menuClass" Icon="@MenuItem.Icon" >@MenuItem.Title</MudNavLink>
+    }
+    else
+    {
+        if (MenuItem.ChildItems.Count() == 0)
+        {
+            <MudNavLink Href="@MenuItem.Href" Icon="@MenuItem.Icon" Class="@MenuItem.Class"></MudNavLink>
+        }
+        else
+        {
+            <MudMenu Icon="@MenuItem.Icon" Class="@MenuItem.Class" Dense="true" ActivationEvent="@MouseEvent.MouseOver" AnchorOrigin="Origin.CenterRight">
+                <ChildContent>
+                    @foreach (var childItem in MenuItem.ChildItems)
+                    {
+                        <MiniNavMenuItem MenuItem="childItem" InPopover="true" />
+                    }
+
+
+                </ChildContent>
+            </MudMenu>
+        }
+    }
+
+
+}
+else if (MenuItem.Type == MenuItemType.NavCategory)
+{
+    <div class="mt-7"/>
+    
+    @foreach (var childItem in MenuItem.ChildItems)
+    {
+        <MiniNavMenuItem MenuItem="childItem" />
+    }
+}
+
+
+@code {
+    [Parameter] public MenuItem MenuItem { get; set; }
+
+    [Parameter] public bool InPopover { get; set; }
+
+    private bool isOpen = false;
+}

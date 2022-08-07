@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
-using MudBlazor;
 
 namespace BlazorNifty.Shared
 {
-    public partial class NavMenu
+    public partial class MiniNavMenu
     {
         private List<MenuItem> menuItems = new List<MenuItem>()
         {
@@ -32,14 +31,9 @@ namespace BlazorNifty.Shared
                         Type = MenuItemType.NavGroup,
                         ChildItems = new List<MenuItem>()
                         {
-                            new MenuItem() {Title = "Mini Navigation", Href = "/layouts/minimal-navigation", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Push Navigation", Href = "/layouts/push-navigation", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Slide Navigation", Href = "/layouts/slide-navigation", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Stuck Sidebar", Href = "/layouts/stuck-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Pinned Sidebar", Href = "/layouts/pinned-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Unite Sidebar", Href = "/layouts/unite-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Sticky Header", Href = "/layouts/sticky-header", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Sticky Navigation", Href = "/layouts/sticky-navigation", Type=MenuItemType.NavItem, Class="ml-4px"}
+                            new MenuItem() {Title = "Unite Sidebar", Href = "/unite-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Sticky Header", Href = "/sticky-header", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Sticky Navigation", Href = "/sticky-navigation", Type=MenuItemType.NavItem, Class="ml-4px"}
                         }
                     },
                     new MenuItem()
@@ -100,7 +94,7 @@ namespace BlazorNifty.Shared
                         Type = MenuItemType.NavGroup,
                         ChildItems = new List<MenuItem>()
                         {
-                            new MenuItem() {Title = "Static Tables", Href = "/tables/static-tables", Type=MenuItemType.NavItem, Class="ml-4px"},                       
+                            new MenuItem() {Title = "Static Tables", Href = "/tables/static-tables", Type=MenuItemType.NavItem, Class="ml-4px"},
                         }
                     },
                     new MenuItem()
@@ -111,7 +105,7 @@ namespace BlazorNifty.Shared
                         ChildItems = new List<MenuItem>()
                         {
                             new MenuItem() {Title = "MudBlazor Charts", Href = "charts/mud-blazor-charts", Type=MenuItemType.NavItem, Class="ml-4px"},
-                           
+
                         }
                     },
                     new MenuItem()
@@ -122,7 +116,7 @@ namespace BlazorNifty.Shared
                         ChildItems = new List<MenuItem>()
                         {
                             new MenuItem() {Title = "Timeline", Href = "/misc/timeline", Type=MenuItemType.NavItem, Class="ml-4px"},
-                           
+
                         }
                     },
                 }
@@ -213,137 +207,9 @@ namespace BlazorNifty.Shared
         };
 
         [Inject] NavigationManager NavigationManager { get; set; }
-
-        protected override void OnInitialized()
+        protected override Task OnInitializedAsync()
         {
-            foreach (var item in GetNodes())
-            {
-                item.NavGroupExpanded += OnNavGroupExpanded;
-            }
-
-            NavigationManager.LocationChanged += NavigationManager_LocationChanged;
-            SetActiveItem(NavigationManager.Uri);
-
-            base.OnInitialized();
-
+            return base.OnInitializedAsync();
         }
-
-
-
-        private void NavigationManager_LocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
-        {
-            SetActiveItem(e.Location);
-        }
-
-        private void OnNavGroupExpanded(object? sender, bool expanded)
-        {
-            var menuItem = (MenuItem?)sender;
-
-            if (menuItem != null)
-            {
-                foreach (var item in GetNodes())
-                {
-                    if (item != menuItem && !GetNodes(item).Contains(menuItem))
-                    {
-                        item.Expanded = false;
-                    }
-                }
-            }
-
-            StateHasChanged();
-
-        }
-
-        private void SetActiveItem(string location)
-        {
-            location = location.Replace(NavigationManager.BaseUri, string.Empty);
-            location = "/" + location;
-
-            foreach (var item in GetNodes())
-            {
-                var innerNodes = GetNodes(item);
-                if (innerNodes.Any(x => x.Href == location))
-                {
-                    item.State = "active";
-                }
-                else
-                {
-                    item.State = String.Empty;
-                }
-            }
-
-            StateHasChanged();
-        }
-
-        public IEnumerable<MenuItem> GetNodes()
-        {
-            List<MenuItem> flatMenu = new List<MenuItem>();
-
-            foreach (var item in menuItems)
-            {
-                flatMenu.AddRange(GetNodes(item));
-            }
-
-            return flatMenu;
-        }
-
-        public IEnumerable<MenuItem> GetNodes(MenuItem node)
-        {
-            if (node == null)
-            {
-                yield break;
-            }
-            yield return node;
-            foreach (var n in node.ChildItems)
-            {
-                foreach (var innerN in GetNodes(n))
-                {
-                    yield return innerN;
-                }
-            }
-        }
-    }
-
-    public class MenuItem
-    {
-        bool expanded;
-        public event EventHandler<bool> NavGroupExpanded;
-
-        public bool Expanded
-        {
-            get { return expanded; }
-            set
-            {
-                expanded = value;
-
-                if (value)
-                {
-                    NavGroupExpanded?.Invoke(this, value);
-                }
-
-
-            }
-        }
-
-        public string State { get; set; }
-
-        public string Title { get; set; }
-
-        public string Icon { get; set; }
-
-        public string Href { get; set; }
-
-        public string Class { get; set; }
-
-        public MenuItemType Type { get; set; }
-
-        public IEnumerable<MenuItem> ChildItems { get; set; } = new List<MenuItem>();
-    }
-
-    public enum MenuItemType
-    {
-        NavGroup,
-        NavItem,
-        NavCategory
     }
 }

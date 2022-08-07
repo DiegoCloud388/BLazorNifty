@@ -129,9 +129,15 @@
 
 
 
-.ml-4px {
+.ml-4px:not(.mini-nav) {
     margin-left: 23px;
     border-left: darkgray 1.3px dashed;
+}
+
+.ml-4px {
+    margin-left: 0px;
+    border-left: none;
+    font-size: 12px;
 }
 
 .left-dashed-line {
@@ -188,6 +194,11 @@ body {
     border-radius: 0px 15px 0px 0px;
 }
 
+.mini-nav-menu-container {
+    height: 100%;
+    background-color: white;
+    border-radius: 0px 15px 0px 0px;
+}
 
 
 

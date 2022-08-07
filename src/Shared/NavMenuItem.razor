@@ -1,4 +1,14 @@
-﻿@if (MenuItem.Type == MenuItemType.NavGroup)
+﻿<style>
+    .mud-icon-size-medium.bi-house-door, .mud-icon-size-medium.bi-alarm, .mud-icon-size-medium.bi-columns, .mud-icon-size-medium.bi-pencil,
+    .mud-icon-size-medium.bi-table, .mud-icon-size-medium.bi-tools,.mud-icon-size-medium.bi-bar-chart-line, 
+    .mud-icon-size-medium.bi-toggles, .mud-icon-size-medium.bi-envelope, .mud-icon-size-medium.bi-chat-square, .mud-icon-size-medium.bi-cast,
+    .mud-icon-size-medium.bi-window-fullscreen, .mud-icon-size-medium.bi-filetype-html, .mud-icon-size-medium.bi-list-nested {
+        font-size: 1.0rem;
+        margin-top: 0px;
+    }
+</style>
+
+@if (MenuItem.Type == MenuItemType.NavGroup)
 {
     string groupClass = MenuItem.State + " " + MenuItem.Class;
     <MudNavGroup Title="@MenuItem.Title" Icon="@MenuItem.Icon" ExpandIcon="@Icons.Outlined.KeyboardArrowRight" Class="@groupClass" @bind-Expanded="@MenuItem.Expanded">
