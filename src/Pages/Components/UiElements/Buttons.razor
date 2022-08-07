@@ -42,10 +42,10 @@
                     </MudCardHeader>
                     <MudCardContent>
                         <MudButton Variant="Variant.Filled" Color="Color.Success" Class="rounded-xl">Success</MudButton>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mud-button-rounded">Primary</MudButton>
-                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Class="mud-button-rounded">Secondary</MudButton>
-                        <MudButton Variant="Variant.Filled" Color="Color.Error" Class="mud-button-rounded">Error</MudButton>
-                        <MudButton Variant="Variant.Filled" Disabled="true" Class="mud-button-rounded">Disabled</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="rounded-xl">Primary</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Class="rounded-xl">Secondary</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Error" Class="rounded-xl">Error</MudButton>
+                        <MudButton Variant="Variant.Filled" Disabled="true" Class="rounded-xl">Disabled</MudButton>
                     </MudCardContent>
             </MudCard>
             </MudItem> 
@@ -108,21 +108,19 @@
          <MudGrid Spacing="2" Justify="Justify.Center">
 
                  
-             <MudItem >     <MudButton Variant="Variant.Outlined" Color="Color.Success" Disabled="true" >Success</MudButton>         </MudItem>
-                     <MudItem >         <MudButton Variant="Variant.Outlined" Color="Color.Primary" Disabled="true" >Primary</MudButton>        </MudItem>
-                       <MudItem >       <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Disabled="true">Secondary</MudButton>        </MudItem>
-                       <MudItem >       <MudButton Variant="Variant.Outlined" Color="Color.Error" Disabled="true">Error</MudButton>        </MudItem>
-                        <MudItem >      <MudButton Variant="Variant.Outlined" Disabled="true">Disabled</MudButton>        </MudItem>
-                 
-                 
-            
-
-
+             <MudItem > <MudButton Variant="Variant.Outlined" Color="Color.Success" Disabled="true" >Success</MudButton>         </MudItem>
+                     <MudItem ><MudButton Variant="Variant.Outlined" Color="Color.Primary" Disabled="true" >Primary</MudButton>        </MudItem>
+                       <MudItem ><MudButton Variant="Variant.Outlined" Color="Color.Secondary" Disabled="true">Secondary</MudButton>        </MudItem>
+                       <MudItem ><MudButton Variant="Variant.Outlined" Color="Color.Error" Disabled="true">Error</MudButton>        </MudItem>
+                        <MudItem >  <MudButton Variant="Variant.Outlined" Disabled="true">Disabled</MudButton>        </MudItem>
+                         
         </MudGrid>
            </MudCardContent> 
             </MudCard>
           </MudItem>
-          <MudItem sm="3" >
+
+
+          <MudItem sm="4" >
             <MudCard Outlined="true">
             <MudCardHeader>
             <MudText>Button sizes</MudText>
@@ -138,20 +136,124 @@
      
           </MudItem>
 
+            <MudItem sm="4" >
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>Button sizes</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+            <MudGrid Spacing="2"  Class="flex-column align-center">
+         <MudItem ><MudButton Variant="Variant.Filled" Size="Size.Small" Color="Color.Primary" Class="rounded-xl">Small</MudButton></MudItem>
+         <MudItem ><MudButton Variant="Variant.Filled" Size="Size.Medium" Color="Color.Secondary" Class="rounded-xl">Medium</MudButton></MudItem>
+        <MudItem><MudButton Variant="Variant.Filled" Size="Size.Large" Color="Color.Success" Class="rounded-xl">Large</MudButton></MudItem>
+            </MudGrid>
+            </MudCardContent>  
+         </MudCard>  
+          </MudItem>
 
 
+     <MudItem sm="4">
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>Button sizes</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+            <MudGrid Spacing="2"  Class="flex-column align-center">
+         <MudItem ><MudIconButton Variant="Variant.Filled" Size="Size.Small" Color="Color.Primary" Icon="@Icons.Material.Filled.Home" Class="rounded-xl">Small</MudIconButton></MudItem>
+         <MudItem ><MudIconButton Variant="Variant.Filled" Size="Size.Medium" Color="Color.Secondary" Icon="@Icons.Material.Filled.Home" Class="rounded-xl">Medium</MudIconButton></MudItem>
+        <MudItem><MudIconButton Variant="Variant.Filled" Size="Size.Large" Color="Color.Success" Icon="@Icons.Material.Filled.Home" Class="rounded-xl">Large</MudIconButton></MudItem>
+            </MudGrid>
+            </MudCardContent>  
+         </MudCard>  
+          </MudItem>
         </MudGrid>
+ <MudText Typo="Typo.h2" Class="mt-4">Button groups</MudText>
+
     </ShellBody>
+    <ShellFooter>
+<MudGrid Spacing="2">
+    <MudItem sm="3">
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>Default</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+    <MudButtonGroup Color="Color.Success" Variant="Variant.Filled">
+    <MudButton>Active link</MudButton>
+    <MudButton>Link</MudButton>
+    <MudButton>Link</MudButton>
+</MudButtonGroup>
+
+                     </MudCardContent>  
+                      </MudCard> 
+    </MudItem>
+
+      <MudItem sm="3">
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>Outline and rounded</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+    <MudButtonGroup  Color="Color.Success" Variant="Variant.Outlined">
+    <MudButton >Left</MudButton>
+    <MudButton >Middle</MudButton>
+    <MudButton >Right</MudButton>
+</MudButtonGroup>
+
+</MudCardContent>  
+</MudCard> 
+</MudItem>
+
+
+ <MudItem sm="3">
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>Outline text vertical</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+    <MudButtonGroup  Color="Color.Success" Variant="Variant.Text" VerticalAlign="true"> 
+    <MudButton >Left</MudButton>
+    <MudButton >Middle</MudButton>
+    <MudButton >Right</MudButton>
+</MudButtonGroup>
+
+</MudCardContent>  
+</MudCard> 
+</MudItem>
+
+
+<MudItem sm="3">
+            <MudCard Outlined="true">
+            <MudCardHeader>
+            <MudText>ToggleIconButton</MudText>
+            </MudCardHeader>
+             <MudCardContent>  
+
+<MudToggleIconButton @bind-Toggled="@AlarmOn"
+                     Icon="@Icons.Material.Filled.AlarmOff" Color="@Color.Error" Title="Off" 
+                     ToggledIcon="@Icons.Material.Filled.AlarmOn" ToggledColor="@Color.Success" ToggledTitle="On"/>
+                     <span>Alarm is @(AlarmOn ? "On" : "Off")</span>
+
+
+</MudCardContent>  
+</MudCard> 
+</MudItem>
+
+
+</MudGrid>
+
+
+    </ShellFooter>    
 </PageShell>
 
 @code {
+    public bool AlarmOn { get; set; }
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
         new BreadcrumbItem("Home", href: "#"),
         new BreadcrumbItem("Ui Elements", href: "#"),
         new BreadcrumbItem("Buttons", href: null, disabled: true)
-    };
-
-
+ };
+   
 
 }
