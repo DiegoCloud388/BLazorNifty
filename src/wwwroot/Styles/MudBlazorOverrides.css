@@ -145,6 +145,34 @@
     border-left: darkgray 1.3px dashed;
 }
 
+.mini-nav-menu-icon .mud-nav-link .mud-nav-link-text {
+    margin-left: -0px;
+    margin-inline-start: 0px;
+}
+
+.mini-nav-menu-icon {
+   width: 40px;
+}
+
+.mini-nav-menu-icon .mud-icon-root {
+    margin-left: -4px;
+    margin-top: 4px !important;
+}
+
+.mini-nav-menu-icon .mud-nav-link {
+    width: 40px;
+    height: 34px;
+    padding: 0px 12px 8px 16px;
+}
+
+
+.mud-menu.active button {
+    background-color: var(--mud-palette-primary) !important;
+    color: white;
+    font-weight: 600 !important;
+    border-radius: 20%;
+}
+
 body {
     background-color: #edf1f6;
 }

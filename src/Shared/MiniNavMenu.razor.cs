@@ -207,9 +207,69 @@ namespace BlazorNifty.Shared
         };
 
         [Inject] NavigationManager NavigationManager { get; set; }
-        protected override Task OnInitializedAsync()
+
+        protected override void OnInitialized()
         {
-            return base.OnInitializedAsync();
+            
+
+            NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+            SetActiveItem(NavigationManager.Uri);
+
+            base.OnInitialized();
+        }
+
+        private void NavigationManager_LocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+        {
+            SetActiveItem(e.Location);
+        }
+
+        private void SetActiveItem(string location)
+        {
+            location = location.Replace(NavigationManager.BaseUri, string.Empty);
+            location = "/" + location;
+
+            foreach (var item in GetNodes())
+            {
+                var innerNodes = GetNodes(item);
+                if (innerNodes.Any(x => x.Href == location))
+                {
+                    item.State = "active";
+                }
+                else
+                {
+                    item.State = String.Empty;
+                }
+            }
+
+            StateHasChanged();
+        }
+
+        public IEnumerable<MenuItem> GetNodes()
+        {
+            List<MenuItem> flatMenu = new List<MenuItem>();
+
+            foreach (var item in menuItems)
+            {
+                flatMenu.AddRange(GetNodes(item));
+            }
+
+            return flatMenu;
+        }
+
+        public IEnumerable<MenuItem> GetNodes(MenuItem node)
+        {
+            if (node == null)
+            {
+                yield break;
+            }
+            yield return node;
+            foreach (var n in node.ChildItems)
+            {
+                foreach (var innerN in GetNodes(n))
+                {
+                    yield return innerN;
+                }
+            }
         }
     }
 }
