@@ -1,0 +1,26 @@
+﻿.mud-breadcrumb-item a {
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.mud-breadcrumb-item.mud-disabled a {
+    color: #cfd6df;
+}
+
+.mud-breadcrumb-item a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.mud-breadcrumb-separator span {
+    color: white;
+    opacity: 1.0;
+}
+
+.mud-breadcrumbs {
+    padding-left: 0px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+}

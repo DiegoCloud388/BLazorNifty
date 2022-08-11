@@ -1,0 +1,100 @@
+﻿
+/*Overrides*/
+
+.mud-tabs-toolbar .mud-tabs-toolbar-inner {
+    min-height: 40px;
+}
+
+.mud-tab {
+    min-height: 40px;
+}
+
+    .mud-tab.simple-tab {
+        min-width: unset;
+        text-transform: unset;
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+
+    .mud-tab.mud-tab-active.simple-tab .mud-typography.mud-typography-caption {
+        font-weight: bolder;
+    }
+
+    .mud-tab.simple-tab:hover {
+        background-color: transparent;
+    }
+
+    .mud-tab.mud-tab-active.simple-tab:hover {
+        background-color: transparent;
+    }
+
+.mud-tab-slider.mud-tab-slider-horizontal {
+    height: 3px;
+}
+
+.justify-end .mud-tabs-toolbar {
+    justify-content: end;
+    display: flex;
+}
+
+.mud-tab.classic-tab {
+    min-width: unset;
+    text-transform: unset;
+    padding: 6px 16px;
+    font-size: 12px;
+}
+
+.mud-tab.mud-tab-active.classic-tab .mud-typography.mud-typography-caption {
+    font-weight: bolder;
+}
+
+.mud-tab.classic-tab:hover {
+    background-color: transparent;
+}
+
+.mud-tab.mud-tab-active.classic-tab:hover {
+    background-color: transparent;
+}
+
+.mud-tab-slider.mud-tab-slider-horizontal {
+    height: 3px;
+}
+
+.justify-end .mud-tabs-toolbar {
+    justify-content: end;
+    display: flex;
+}
+
+/*Custom classes*/
+
+.simple-tab .mud-tabs-toolbar {
+    border-bottom: 1px solid #00000038;
+}
+
+.simple-tab .mud-tabs-toolbar {
+    background-color: transparent;
+}
+
+.simple-tab .mud-tab.mud-tab-active.simple-tab {
+    font-weight: bolder;
+}
+
+.classic-tab .mud-tabs-toolbar {
+    background-color: transparent;
+}
+
+.classic-tab .mud-tabs-panels {
+    background-color: white;
+}
+
+.classic-tab .mud-tab.mud-tab-active.classic-tab {
+    background-color: white;
+    font-weight: bolder;
+}
+
+.classic-tab .mud-tab.classic-tab {
+    background-color: #f7f9fb;
+    margin-right: 1px;
+    width: unset;
+    border-radius: 5px 5px 0px 0px;
+}
