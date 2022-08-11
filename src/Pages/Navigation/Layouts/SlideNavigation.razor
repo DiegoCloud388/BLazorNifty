@@ -1,0 +1,27 @@
+﻿@page "/layouts/slide-navigation"
+
+<PageTitle>Slide Navigation</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Side Navigation</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">When active, the navigation will slide over the top of the content.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+       
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Layouts", href: "#"),
+        new BreadcrumbItem("Slide Navigation", href: null, disabled: true)
+    };
+
+
+
+}

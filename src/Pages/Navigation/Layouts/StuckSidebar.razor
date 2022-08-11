@@ -1,0 +1,27 @@
+﻿@page "/layouts/stuck-sidebar"
+
+<PageTitle>Stuck Sidebar</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Stuck Sidebar</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">The sidebar will stay in position until you click on the close button.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+       
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Layouts", href: "#"),
+        new BreadcrumbItem("Stuck Sidebar", href: null, disabled: true)
+    };
+
+
+
+}

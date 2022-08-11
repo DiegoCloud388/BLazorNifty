@@ -194,13 +194,13 @@ namespace BlazorNifty.Shared
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link1", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link2", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link3", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Submenu 1", Type=MenuItemType.NavGroup, Class="left-dashed-line", ChildItems = new List<MenuItem>
+                            new MenuItem() {Title = "Submenu 1", Type=MenuItemType.NavGroup, Class="first-level-submenu", ChildItems = new List<MenuItem>
                             {
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link4", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link5", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link6", Type=MenuItemType.NavItem, Class="ml-4px"},
                             }},
-                            new MenuItem() {Title = "Submenu 2", Type=MenuItemType.NavGroup, Class="left-dashed-line", ChildItems = new List<MenuItem>
+                            new MenuItem() {Title = "Submenu 2", Type=MenuItemType.NavGroup, Class="first-level-submenu", ChildItems = new List<MenuItem>
                             {
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link7", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link8", Type=MenuItemType.NavItem, Class="ml-4px"},

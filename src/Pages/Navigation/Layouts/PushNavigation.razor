@@ -1,0 +1,27 @@
+﻿@page "/layouts/push-navigation"
+
+<PageTitle>Push Navigation</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Push Navigation</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">Push is the default OffCanvas navigation mode, and the navigation will push content when activated by clicking on the Hamburger button.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+       
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Layouts", href: "#"),
+        new BreadcrumbItem("Push Navigation", href: null, disabled: true)
+    };
+
+
+
+}
