@@ -15,9 +15,8 @@
       
 
         <MudGrid Spacing="2">
-            <MudItem xs="12" sm="4">
-        
-                    <MudCard Elevation="4">
+            <MudItem xs="12" sm="3" >
+                <MudCard Elevation="4" Style="min-height: 180px">
                     <MudCardHeader>
                         <MudText>Basic example</MudText>
                     </MudCardHeader>
@@ -31,8 +30,8 @@
             </MudItem>
 
 
-            <MudItem xs="12" sm="4">
-                <MudCard Elevation="4">
+            <MudItem xs="12" sm="3">
+                <MudCard Elevation="4" Style="min-height: 180px">
                     <MudCardHeader>
                         <MudText>Labels</MudText>
                     </MudCardHeader>
@@ -54,9 +53,9 @@
             </MudItem>
 
 
-            <MudItem xs="12" sm="4">
+            <MudItem xs="12" sm="3">
 
-                <MudCard Elevation="4">
+                <MudCard Elevation="4" Style="min-height: 180px">
                     <MudCardHeader>
                         <MudText>Striped & Animated</MudText>
                     </MudCardHeader>
@@ -65,6 +64,20 @@
                         <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Medium" Striped="true" Value="25" />
                         <MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Striped="true" Value="50" Class="my-7" />
                         <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Medium" Striped="true" Value="75" />
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="3" >
+
+                <MudCard Elevation="4" Style="min-height: 180px" >
+                    <MudCardHeader>
+                        <MudText>Circular & Animated</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudProgressCircular Color="Color.Error" Size="Size.Small" Indeterminate="true" />
+                        <MudProgressCircular Color="Color.Warning" Size="Size.Medium" Indeterminate="true"/>
+                        <MudProgressCircular Color="Color.Success" Size="Size.Large" Indeterminate="true" />
                     </MudCardContent>
                 </MudCard>
             </MudItem>
