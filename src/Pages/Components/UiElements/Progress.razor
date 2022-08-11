@@ -10,7 +10,144 @@
     </ShellHeader>
 
     <ShellBody>
+ 
         
+      
+
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="3" >
+                <MudCard Elevation="4" Style="min-height: 180px">
+                    <MudCardHeader>
+                        <MudText>Basic example</MudText>
+                    </MudCardHeader>
+                       <MudCardContent >
+                      
+                            <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Medium" Value="25" />
+                            <MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Value="50" Class="my-7" />
+                            <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Medium" Value="75" />
+                        </MudCardContent>
+                    </MudCard>
+            </MudItem>
+
+
+            <MudItem xs="12" sm="3">
+                <MudCard Elevation="4" Style="min-height: 180px">
+                    <MudCardHeader>
+                        <MudText>Labels</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+
+                        <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Medium" Value="25">
+
+                            <span>25%</span>
+
+                        </MudProgressLinear>
+                        <MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Value="50" Class="my-7">
+                            <span style="color:#fff; font-size:0.8rem">50%</span>
+                        </MudProgressLinear>
+                        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Medium" Value="75">
+                            <span style="color:#fff">75%</span>
+                        </MudProgressLinear>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+
+            <MudItem xs="12" sm="3">
+
+                <MudCard Elevation="4" Style="min-height: 180px">
+                    <MudCardHeader>
+                        <MudText>Striped & Animated</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+
+                        <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Medium" Striped="true" Value="25" />
+                        <MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Striped="true" Value="50" Class="my-7" />
+                        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Medium" Striped="true" Value="75" />
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="3" >
+
+                <MudCard Elevation="4" Style="min-height: 180px" >
+                    <MudCardHeader>
+                        <MudText>Circular & Animated</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudProgressCircular Color="Color.Error" Size="Size.Small" Indeterminate="true" />
+                        <MudProgressCircular Color="Color.Warning" Size="Size.Medium" Indeterminate="true"/>
+                        <MudProgressCircular Color="Color.Success" Size="Size.Large" Indeterminate="true" />
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+
+            <MudItem xs="12" sm="6">
+
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        <MudText>Sizes</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudStack>
+                            <div>
+                            <MudText Color="Color.Dark" Typo="Typo.h6">Small</MudText>
+                            <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Small" Value="50" />
+                            </div>
+
+                            <div>
+                                <MudText Color="Color.Dark" Typo="Typo.h6">Medium</MudText>
+                                <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Medium" Value="50" />
+                            </div>
+
+
+                            <div>
+                                <MudText Color="Color.Dark" Typo="Typo.h6">Large</MudText>
+                                <MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Large" Value="50" />
+                            </div>
+
+                             <div>
+                                <MudText Color="Color.Dark" Typo="Typo.h6">Extra large</MudText>
+                                <MudProgressLinear Color="Color.Error" Rounded="true" Style="height:16px" Value="50" />
+                            </div>
+                        </MudStack>                   
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+              <MudItem xs="12" sm="6">
+<MudStack>
+                            <MudCard Elevation="4">
+                                <MudCardHeader>
+                                    <MudText>Backgounds</MudText>
+                                </MudCardHeader>
+                                <MudCardContent>
+                                    <MudProgressLinear Color="Color.Error"  Rounded="true" Size="Size.Medium"  Value="25" />
+                                    <MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium"  Value="50" Class="my-7" />
+                                    <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Medium"  Value="75" />
+                                    <MudProgressLinear Color="Color.Tertiary" Rounded="true" Size="Size.Medium" Value="100" Class="mt-7" />
+                                </MudCardContent>
+                            </MudCard>
+                       
+                        
+              
+
+                    <MudCard Elevation="4">
+                        <MudCardHeader>
+                            <MudText>Buffers</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudProgressLinear Color="Color.Error" Buffer="true" BufferValue="@(50)" Rounded="true" Size="Size.Medium" Value="25" />
+                            <MudProgressLinear Color="Color.Warning" Buffer="true" BufferValue="@(75)" Rounded="true" Size="Size.Medium" Value="50" Class="my-7" />
+                            <MudProgressLinear Color="Color.Success" Buffer="true" BufferValue="@(100)" Rounded="true" Size="Size.Medium" Value="75" />
+                            <MudProgressLinear Color="Color.Tertiary"  Buffer="true" BufferValue="@(100)" Rounded="true" Size="Size.Medium" Value="100" Class="mt-7" />
+                        </MudCardContent>
+                    </MudCard>            
+                        </MudStack>
+            </MudItem>
+        </MudGrid>
+
 
     </ShellBody>
 
@@ -20,7 +157,7 @@
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
         new BreadcrumbItem("Home", href: "#"),
-        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Ui Elements", href: "#"),
         new BreadcrumbItem("Progress", href: null, disabled: true)
     };
 
