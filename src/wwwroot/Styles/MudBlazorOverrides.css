@@ -461,6 +461,7 @@ body {
     border-radius: 10px 10px
 }
 
+/*zjistit, zda to nekomu neco nerozhazi, kdyz smazu*/
 .mud-popover.mud-popover-open .mud-list {
     padding: 8px;
 }
