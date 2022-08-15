@@ -10,8 +10,82 @@
     </ShellHeader>
 
     <ShellBody>
-        
+        <MudGrid>
+               <MudItem xs="6" sm="3">
+               <MudCard Spacing="2" Style="min-height: 180px">
+            <MudCardHeader>
+                <MudText>Card title</MudText>
+            </MudCardHeader>
+            <MudCardContent>
 
+                    <MudText Typo="Typo.body2">The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary">
+                            <MudText Typo="Typo.caption">Action</MudText>
+                        
+                    </MudButton>
+            </MudCardActions>
+        </MudCard>
+        </MudItem>
+
+            <MudItem xs="6" sm="3">
+                <MudCard Style="min-height: 180px">
+                    <MudCardHeader>
+                      <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="25px" Width="50%" />
+                    </MudCardHeader>
+                    
+                    <MudCardContent>
+                        <MudSkeleton Width="100%" />
+                        <MudSkeleton Width="80%" />
+                        <MudSkeleton Width="90%" />
+                        <MudSkeleton Width="30%" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudSkeleton Style="background-color: rgb(37, 71, 106)" Class="rounded" SkeletonType="SkeletonType.Rectangle" Width="20%" Height="30px" />
+                    </MudCardActions>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="6" sm="3">
+                <MudCard Spacing="2" Style="min-height: 180px">
+                    <MudCardHeader Style="background-color: rgb(159, 204, 46">
+                        <MudText Style="color: white">Featured</MudText>
+                    </MudCardHeader>
+                    <MudCardContent Style="background-color: rgb(159, 204, 46">
+                     <MudText Typo="Typo.h5" Style="color: white">Card title</MudText>
+                        <MudText Style="color: white" Typo="Typo.body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus.</MudText>
+                    </MudCardContent>
+                    <MudCardActions Style="background-color: rgb(159, 204, 46">
+                        <MudButton Variant="Variant.Filled" Style="background-color:rgb(228, 233, 242);">
+                            <MudText Typo="Typo.caption">Action</MudText>
+
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="6" sm="3">
+                <MudCard Style="min-height: 180px">
+                    <MudCardHeader>
+                        <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="25px" Width="50%" />
+                    </MudCardHeader>
+
+                    <MudCardContent>
+                        <MudSkeleton Width="100%" />
+                        <MudSkeleton Width="80%" />
+                        <MudSkeleton Width="90%" />
+                        <MudSkeleton Width="30%" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudSkeleton Style="background-color: rgb(37, 71, 106)" Class="rounded" SkeletonType="SkeletonType.Rectangle" Width="20%" Height="30px" />
+                    </MudCardActions>
+                </MudCard>
+
+            </MudItem>
+
+        </MudGrid>
     </ShellBody>
 
 </PageShell>

@@ -6,6 +6,7 @@
 @import "Components/Dropdowns.css";
 @import "Components/TabsAccordions.css";
 @import "Components/Typography.css";
+@import "Components/Popover.css";
 
 @import "Layouts/Shell.css";
 @import "Layouts/SideMenu.css";
