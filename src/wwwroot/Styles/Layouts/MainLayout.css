@@ -1,0 +1,13 @@
+﻿.main-content-unfixed {
+    margin-left: var(--mud-drawer-width-left);
+}
+
+.main-content-unfixed-mini {
+    margin-left: var(--mud-drawer-width-mini-left);
+}
+
+.drawer-left-unfixed-height {
+    height: calc(100%) !important;
+    min-height: calc(100vh) !important;
+    padding-top: 50px;
+}

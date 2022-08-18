@@ -9,6 +9,7 @@
 
 @import "Layouts/Shell.css";
 @import "Layouts/SideMenu.css";
+@import "Layouts/MainLayout.css";
 
 .mud-ripple:after {
     width: 0% !important;

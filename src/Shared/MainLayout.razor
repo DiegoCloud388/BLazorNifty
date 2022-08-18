@@ -4,25 +4,30 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<MudLayout>
-    <MudAppBar Elevation="0" Color="Color.Primary" Dense="true">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Outlined.Settings" Color="Color.Inherit" OnClick="RightDrawerToggle" />
-    </MudAppBar>
-    <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" Style="overflow: visible;">
-        <MudDrawerHeader Dense="true">
-            <MudStack AlignItems="AlignItems.Center" Row="true" Spacing="2">
+<MudLayout >
+    @*Header*@
+    <MudAppBar Elevation="0" Color="Color.Primary" Dense="true" Fixed="true">
+         <MudStack AlignItems="AlignItems.Center" Row="true" Spacing="2" Class="mr-5">
                 <MudImage Src="images/leaf.png" Alt="" Elevation="25" Class="rounded-lg" Style="height:25px; width:25px; font-size:2rem;" />
                 @if (_leftDrawerOpen)
                 {
                     <MudText Typo="Typo.h4" Class="page-title mt-2">BlazorNifty</MudText>
                 }
 
-            </MudStack>
-        </MudDrawerHeader>
+         </MudStack>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
+        <MudIconButton Icon="@Icons.Outlined.Settings" Color="Color.Inherit" OnClick="RightDrawerToggle" />
+    </MudAppBar>
+
+    @*Navmenu*@
+
+    <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" ClipMode="DrawerClipMode.Docked" Fixed="false" Class="drawer-left-unfixed-height">
+        @*<MudDrawerHeader Dense="true">
+           
+        </MudDrawerHeader>*@
 
         @if (_leftDrawerOpen)
         {
@@ -40,7 +45,7 @@
 
     </MudDrawer>
 
-
+    @*Sidebar*@
     <MudDrawer @bind-Open="@_rightDrawerOpen" Elevation="0" Anchor="Anchor.End" Class="airhaus-sidebar" Variant="@DrawerVariant.Temporary">
         @if (_rightDrawerOpen)
         {
@@ -89,11 +94,11 @@
         }
 
     </MudDrawer>
-    <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.False" Class="" Style="padding-left: 0px; padding-right:0px">
 
+
+    <MudMainContent Class="@mainContentClass">
+        <MudContainer MaxWidth="MaxWidth.False"  Style="padding-left: 0px; padding-right:0px">
             @Body
-
         </MudContainer>
     </MudMainContent>
 </MudLayout>
@@ -101,6 +106,9 @@
 @code {
     bool _leftDrawerOpen = true;
     bool _rightDrawerOpen = false;
+    bool navMenuFixed = true;
+
+    string mainContentClass = "main-content-unfixed";
 
     MudTheme theme = new MudTheme()
         {
@@ -137,6 +145,15 @@
     void DrawerToggle()
     {
         _leftDrawerOpen = !_leftDrawerOpen;
+
+        if (_leftDrawerOpen && navMenuFixed)
+        {
+            mainContentClass = "main-content-unfixed";
+        }
+        else if (!_leftDrawerOpen && navMenuFixed)
+        {
+            mainContentClass = "main-content-unfixed-mini";
+        }
 
         StateHasChanged();
     }
