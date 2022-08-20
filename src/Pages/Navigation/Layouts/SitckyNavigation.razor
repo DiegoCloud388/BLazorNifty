@@ -2,6 +2,8 @@
 
 <PageTitle>Sticky Navigation</PageTitle>
 
+<LayoutManagement StickyNavigation="true" StickyHeader="false" />
+
 <PageShell Rounded="rounded" Overlapping="overlapping">
     <ShellHeader>
         <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
@@ -11,129 +13,35 @@
 
     <ShellBody>
         <MudContainer>
-            <MudCard Class="py-4 px-5" Style="min-height: 600px">
-                <MudCardHeader>
-                     <MudText Typo="Typo.caption">Navigation</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
-                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
-                        <MudStack Row="true">
-                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
-                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
+            <MudStack>
+                <MudCard Class="py-4 px-5" Style="min-height: 600px">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.caption">Header</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudStack>
+                            <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
+                            <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
+                            <MudStack Row="true">
+                                <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
+                                <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
+                            </MudStack>
                         </MudStack>
+
+                    </MudCardContent>
+                </MudCard>
+
+                <MudAlert Severity="Severity.Info" NoIcon="true">
+                    <MudStack Spacing="1">
+                        <b>Sticky Navigation</b>
+                        Keep your navigation fixed to its current position on the page. To see the difference between static and fixed top navbars, just scroll down to the bottom of the screen.
                     </MudStack>
+                </MudAlert>
 
-                </MudCardContent>
-
-
-            </MudCard>
-        </MudContainer>
-
-        <MudContainer>
-            <MudCard Class="py-4 px-5" Style="min-height: 600px">
-                <MudCardHeader>
-                     <MudText Typo="Typo.caption">Navigation</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
-                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
-                        <MudStack Row="true">
-                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
-                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
-                        </MudStack>
-                    </MudStack>
-
-                </MudCardContent>
-
-
-            </MudCard>
-        </MudContainer>
-
-        <MudContainer>
-            <MudCard Class="py-4 px-5" Style="min-height: 600px">
-                <MudCardHeader>
-                     <MudText Typo="Typo.caption">Navigation</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
-                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
-                        <MudStack Row="true">
-                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
-                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
-                        </MudStack>
-                    </MudStack>
-
-                </MudCardContent>
-
-
-            </MudCard>
-        </MudContainer>
-
-        <MudContainer>
-            <MudCard Class="py-4 px-5" Style="min-height: 600px">
-                <MudCardHeader>
-                     <MudText Typo="Typo.caption">Navigation</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
-                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
-                        <MudStack Row="true">
-                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
-                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
-                        </MudStack>
-                    </MudStack>
-
-                </MudCardContent>
-
-
-            </MudCard>
-        </MudContainer>
-
-        <MudContainer>
-            <MudCard Class="py-4 px-5" Style="min-height: 600px">
-                <MudCardHeader>
-                     <MudText Typo="Typo.caption">Navigation</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
-                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
-                        <MudStack Row="true">
-                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
-                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
-                        </MudStack>
-                    </MudStack>
-
-                </MudCardContent>
-
-
-            </MudCard>
-        </MudContainer>
-
-        <MudContainer>
-            <MudCard Class="py-4 px-5" Style="min-height: 600px">
-                <MudCardHeader>
-                     <MudText Typo="Typo.caption">Navigation</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudStack>
-                        <MudText Typo="Typo.h6" Align="Align.Center">Card Title Here</MudText>
-                        <MudText Typo="Typo.body1" Align="Align.Center">Start putting content on grids or panels, you can also use different combinations of grids.Please check out the dashboard and other pages.</MudText>
-                        <MudStack Row="true">
-                            <MudButton Color="Color.Default" Variant="Variant.Filled" @onclick="ToggleRounded">Rounded header</MudButton>
-                            <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="ToggleOverlapping">Overlapping</MudButton>
-                        </MudStack>
-                    </MudStack>
-
-                </MudCardContent>
-
-
-            </MudCard>
+                <MudImage Src="images/img-2.jpg" />
+                <MudImage Src="images/img-1.jpg" />
+                <MudImage Src="images/img-5.jpg" />
+            </MudStack>
         </MudContainer>
     </ShellBody>
 </PageShell>

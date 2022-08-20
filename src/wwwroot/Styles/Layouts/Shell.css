@@ -33,11 +33,13 @@
     -webkit-mask-image: radial-gradient(circle at 0 1.09375rem,transparent 0,transparent 1.09375rem,#000 1.09375rem);
     mask-image: radial-gradient(circle 1.09375rem at 0 1.09375rem,transparent 0,transparent 1.09375rem,#000 1.09375rem);
     position: sticky;
-    top: 2.98rem;
     transform: translateX(-1.7375rem);
     width: 1.155rem;
     z-index: 100000;
-    /*margin-top: 1.0875rem;*/
+}
+
+.layout-sticky-header .shell-header-content::before {
+    top: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/4);
 }
 
 .shell-header-content::after {
