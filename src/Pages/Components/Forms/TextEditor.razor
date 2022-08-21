@@ -57,9 +57,9 @@
                                     <button class="ql-link"></button>
                                 </span>
                                 <span class="ql-formats">
-                                    <button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Insert Image"></button>
-@*                                    <MudButton HtmlTag="label" Class="ql-image" data-placement="bottom" for="fileInput">Insert Image</MudButton>
-                                  <InputFile id="fileInput" OnChange="UploadFile" hidden multiple />*@
+                                    @*<button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Insert Image"></button>*@
+                                    <MudIconButton Icon="@Icons.Material.Filled.Image" HtmlTag="label" Class="ql-image" data-placement="bottom" for="fileInput">Insert Image</MudIconButton>
+                                    <InputFile id="fileInput" OnChange="UploadFile" hidden multiple />
                              </span>
                             </ToolbarContent>
                             <EditorContent>
@@ -88,7 +88,6 @@
 </PageShell>
 
 @code {
-
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
         new BreadcrumbItem("Home", href: "#"),
@@ -96,14 +95,20 @@
         new BreadcrumbItem("Text Editor", href: null, disabled: true)
     };
 
-    IList<IBrowserFile> files = new List<IBrowserFile>();
-
-    BlazoredTextEditor quillHtml;
-    string quillHTMLContent;
+    BlazoredTextEditor quillHtml = new();
+    string quillHTMLContent = string.Empty;
+    private long maxFileSize = 20971520;
 
     public async void GetHTML()
     {
-        quillHTMLContent = await this.quillHtml.GetHTML();
+        try
+        {
+            quillHTMLContent = await this.quillHtml.GetHTML();
+        }
+        catch(Exception ex)
+        {
+            
+        }
 
         StateHasChanged();
     }
@@ -112,7 +117,7 @@
     {
         string QuillContent =
             @"<a href='http://BlazorHelpWebsite.com/'>" +
-            "<img src='images/BlazorHelpWebsite.gif' /></a>";
+            "<img src='images/IMG_20181202_152949.jpg' /></a>";
 
         await this.quillHtml.LoadHTMLContent(QuillContent);
 
@@ -121,16 +126,40 @@
 
     private async Task InsertImage(string imageUrl)
     {
-        await this.quillHtml.InsertImage(imageUrl);
+        try
+        {
+            await this.quillHtml.InsertImage(imageUrl);
+        }
+        catch(Exception ex)
+        {
+            
+        }
+    }
+
+    private async Task Helper()
+    {
+        await this.quillHtml.InsertImage("images/IMG_20181202_152949.jpg");
     }
 
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
         foreach(var file in e.GetMultipleFiles())
         {
-            files.Add(file);            
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                await e.File.OpenReadStream(maxFileSize).CopyToAsync(ms);
+                var bytes = ms.ToArray();
 
-            await InsertImage(file.Name);
+                string imageType = file.ContentType;
+                string imageUrl = $"data:{imageType};base64,{Convert.ToBase64String(bytes)}";                
+
+                await InsertImage(imageUrl);
+            }
+            catch(Exception ex)
+            {
+                
+            }
         }       
     }
 }
