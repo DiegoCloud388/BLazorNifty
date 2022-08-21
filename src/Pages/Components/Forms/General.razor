@@ -156,11 +156,91 @@
          
     </MudCardContent>
 </MudCard>
+        </MudItem>
+        </MudGrid>
+
+         <MudGrid Spacing="3">
+        <MudItem xs="12" sm="12" lg="6" xl="6">
+            <MudCard>
+    <MudCardContent>
+         <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Icons Addons</MudText>
+
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="12" lg="12" xl="12">
+
+
+<MudStack Row=true Spacing="0" AlignItems="AlignItems.Center">
+          <div class="left-addition-to-input">
+               <MudIcon Icon="@Icons.Outlined.Star"/>
+         </div> 
+
+     <MudTextField T="string" Placeholder="Username" Class="left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</MudStack>
+
+
+<MudStack Row=true Spacing="0" AlignItems="AlignItems.Center">
+
+
+     <MudTextField T="string" Placeholder="Folder Name" Class="right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+               <div class="right-addition-to-input">
+            <MudIcon Icon="@Icons.Outlined.AttachEmail"/>
+         </div> 
+</MudStack>
+
+<MudStack Row=true Spacing="0" AlignItems="AlignItems.Center">
+          <div class="left-addition-to-input">
+            <MudIcon Icon="@Icons.Outlined.Info"/>
+         </div> 
+
+     <MudTextField T="string" Placeholder="Earning" Class="left-border-radius-0 right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+
+ <div class="right-addition-to-input">
+            <MudText>.00</MudText>
+         </div>
+</MudStack>
+
+<div class="multiple-input-group">
+
+     <MudTextField T="string" Placeholder="Username" Class="right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+
+ <div class="middle-addition-to-inputs">
+            <MudIcon Icon="@Icons.Filled.AlternateEmail"/>
+         </div>
+
+          <MudTextField T="string" Placeholder="Server" Class="left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</div>
+            </MudItem>
+
+           
+
+            
+
+           
+       
+        </MudGrid>       
+    </MudCardContent>
+</MudCard>
+        </MudItem>  
+        
+
+        <MudItem xs="12" sm="12" lg="6" xl="6">
+            <MudCard>
+    <MudCardContent>
+         <MudText Typo="Typo.h5" Class="mb-3 font-weight-bold">Horizontal form</MudText>
+        
+        
+         
+    </MudCardContent>
+</MudCard>
 
         </MudItem>
         </MudGrid>
+
     </ShellBody>
 </PageShell>
+
+
+
 
 @code {
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
