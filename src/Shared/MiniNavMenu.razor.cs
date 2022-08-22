@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorNifty.Components.Layout;
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorNifty.Shared
 {
@@ -213,11 +214,14 @@ namespace BlazorNifty.Shared
 
         [Inject] NavigationManager NavigationManager { get; set; }
 
+        [Inject] public ILayoutManagementService? LayoutManagementService { get; set; }
+
         protected override void OnInitialized()
         {
             
 
             NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+            LayoutManagementService.LayoutChanged += (s, e) => StateHasChanged();
             SetActiveItem(NavigationManager.Uri);
 
             base.OnInitialized();

@@ -8,10 +8,12 @@
     }
 </style>
 
-<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center" Spacing="0" Class="mt-6">
-    <MudAvatar Color="Color.Primary" Style="height:30px; width:30px; font-size:2rem;" Image="images/avatars/male1.png" Class="border-solid border-2" Elevation="0" />
-
-</MudStack>
+@if (LayoutManagementService != null && LayoutManagementService.WidgetProfile)
+{
+    <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center" Spacing="0" Class="mt-6">
+        <MudAvatar Color="Color.Primary" Style="height:30px; width:30px; font-size:2rem;" Image="images/avatars/male1.png" Class="border-solid border-2" Elevation="0" />
+    </MudStack>
+}
 
 <MudNavMenu Rounded="true" Margin="Margin.Dense" Color="Color.Primary" Class="pa-2">
 

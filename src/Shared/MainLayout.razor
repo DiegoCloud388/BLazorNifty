@@ -4,17 +4,13 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<MudLayout>
-    <MudAppBar Elevation="0" Color="Color.Primary" Dense="true">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Outlined.Settings" Color="Color.Inherit" OnClick="RightDrawerToggle" />
-    </MudAppBar>
-    <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" Style="overflow: visible;">
-        <MudDrawerHeader Dense="true">
-            <MudStack AlignItems="AlignItems.Center" Row="true" Spacing="2">
+<MudLayout Class="@layoutClass">
+
+    @if (firstRender)
+    {
+        @*Header*@
+        <MudAppBar Elevation="0" Color="Color.Primary" Dense="true" Fixed="LayoutManagementService.StickyHeader">
+            <MudStack AlignItems="AlignItems.Center" Row="true" Spacing="2" Class="mr-5">
                 <MudImage Src="images/leaf.png" Alt="" Elevation="25" Class="rounded-lg" Style="height:25px; width:25px; font-size:2rem;" />
                 @if (_leftDrawerOpen)
                 {
@@ -22,129 +18,103 @@
                 }
 
             </MudStack>
-        </MudDrawerHeader>
+            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <MudSpacer />
+            <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
+            <MudIconButton Icon="@Icons.Outlined.Settings" Color="Color.Inherit" OnClick="RightDrawerToggle" />
+        </MudAppBar>
 
-        @if (_leftDrawerOpen)
-        {
-            <div class="nav-menu-container">
-                <NavMenu />
-            </div>
-
-        }
-        else
-        {
-            <div class="nav-menu-container">
-                <MiniNavMenu />
-            </div>
-        }
-
-    </MudDrawer>
-
-
-    <MudDrawer @bind-Open="@_rightDrawerOpen" Elevation="0" Anchor="Anchor.End" Class="airhaus-sidebar" Variant="@DrawerVariant.Temporary">
-        @if (_rightDrawerOpen)
-        {
-            <div class="airhaus-sidebar-container">
-                <MudTabs Elevation="0" DisableRipple="true" DisableSliderAnimation="true" Centered="true">
-
-                    <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
-                        <TabContent>
-                            <MudStack AlignItems="AlignItems.Center">
-                                <MudIcon Icon="bi bi-chat" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
-                                <MudText Typo="Typo.caption">Chat</MudText>
-                            </MudStack>
-                        </TabContent>
-                        <ChildContent>
-
-                        </ChildContent>
-                    </MudTabPanel>
-
-                    <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
-                        <TabContent>
-                            <MudStack AlignItems="AlignItems.Center">
-                                <MudIcon Icon="bi bi-info-circle" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
-                                <MudText Typo="Typo.caption">Reports</MudText>
-                            </MudStack>
-                        </TabContent>
-                        <ChildContent>
-
-                        </ChildContent>
-                    </MudTabPanel>
-
-                    <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
-                        <TabContent>
-                            <MudStack AlignItems="AlignItems.Center">
-                                <MudIcon Icon="bi bi-gear" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
-                                <MudText Typo="Typo.caption">Settings</MudText>
-                            </MudStack>
-                        </TabContent>
-                        <ChildContent>
-
-                        </ChildContent>
-                    </MudTabPanel>
-                </MudTabs>
-            </div>
-
-
-        }
-
-    </MudDrawer>
-    <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.False" Class="" Style="padding-left: 0px; padding-right:0px">
-
-            @Body
-
-        </MudContainer>
-    </MudMainContent>
-</MudLayout>
-
-@code {
-    bool _leftDrawerOpen = true;
-    bool _rightDrawerOpen = false;
-
-    MudTheme theme = new MudTheme()
-        {
-            Palette = new Palette()
+        @*Navigation*@
+        <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" ClipMode="DrawerClipMode.Docked" Fixed="LayoutManagementService.StickyNavigation" Class="@navigationClass">
+            @if (_leftDrawerOpen)
             {
-                Primary = "#25476a",
-                Success = "#9FCC2E",
-                Error = "DF5645"
-            },
-            Typography = new Typography()
-            {
-                Default = new Default()
-                {
-                    FontFamily = new[] { "Poppins", "Open Sans", "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" }
-                },
-                H1 = new H1() { FontSize = "calc(1.3125rem + .75vw)", FontWeight = 500, LineHeight = 1.2 },
-                H2 = new H2() { FontSize = "calc(1.275rem + .3vw);", FontWeight = 500, LineHeight = 1.2 },
-                H3 = new H3() { FontSize = "calc(1.25625rem + .075vw)", FontWeight = 500, LineHeight = 1.2 },
-                H4 = new H4() { FontSize = "1.125rem", FontWeight = 500, LineHeight = 1.2 },
-                H5 = new H5() { FontSize = ".9375rem", FontWeight = 500, LineHeight = 1.2 },
-                H6 = new H6() { FontSize = ".75rem", FontWeight = 500, LineHeight = 1.2 },
-                Body1 = new Body1() { FontSize = ".9375rem", LineHeight = 1.5, FontWeight = 400 },
-                Body2 = new Body2() { FontSize = ".835rem", LineHeight = 1.5, FontWeight = 400 }
-            },
-            LayoutProperties = new LayoutProperties()
-            {
-
-                DrawerWidthLeft = "220px",
-                DrawerWidthRight = "275px",
+                <div class="nav-menu-container">
+                    <NavMenu />
+                </div>
 
             }
-        };
+            else
+            {
+                <div class="nav-menu-container">
+                    <MiniNavMenu />
+                </div>
+            }
 
-    void DrawerToggle()
-    {
-        _leftDrawerOpen = !_leftDrawerOpen;
+        </MudDrawer>
 
-        StateHasChanged();
+        @*Sidebar*@
+        <MudDrawer @bind-Open="@_rightDrawerOpen" Elevation="0" Anchor="Anchor.End" Class="airhaus-sidebar" Variant="@DrawerVariant.Temporary">
+            @if (_rightDrawerOpen)
+            {
+                <div class="airhaus-sidebar-container">
+                    <MudTabs Elevation="0" DisableRipple="true" DisableSliderAnimation="true" Centered="true">
+
+                        <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
+                            <TabContent>
+                                <MudStack AlignItems="AlignItems.Center">
+                                    <MudIcon Icon="bi bi-chat" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
+                                    <MudText Typo="Typo.caption">Chat</MudText>
+                                </MudStack>
+                            </TabContent>
+                            <ChildContent>
+
+                            </ChildContent>
+                        </MudTabPanel>
+
+                        <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
+                            <TabContent>
+                                <MudStack AlignItems="AlignItems.Center">
+                                    <MudIcon Icon="bi bi-info-circle" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
+                                    <MudText Typo="Typo.caption">Reports</MudText>
+                                </MudStack>
+                            </TabContent>
+                            <ChildContent>
+
+                            </ChildContent>
+                        </MudTabPanel>
+
+                        <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
+                            <TabContent>
+                                <MudStack AlignItems="AlignItems.Center">
+                                    <MudIcon Icon="bi bi-gear" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
+                                    <MudText Typo="Typo.caption">Settings</MudText>
+                                </MudStack>
+                            </TabContent>
+                            <ChildContent>
+
+                            </ChildContent>
+                        </MudTabPanel>
+                    </MudTabs>
+                </div>
+
+
+            }
+
+        </MudDrawer>
+
+        @*Main Content*@
+        <MudMainContent Class="@mainContentClass">
+            <MudContainer MaxWidth="MaxWidth.False" Style="padding-left: 0px; padding-right:0px">
+                @Body
+            </MudContainer>
+        </MudMainContent>
+
+         @*Layout Settings*@
+        <div class="@settingsClass">
+            <MudIconButton Color="Color.Dark" Variant="Variant.Filled" Icon="@Icons.Outlined.Settings" Class="btn-settings" Size="Size.Large" OnClick="SettingsToggle">
+
+            </MudIconButton>
+            @if (settingsOpen)
+            {
+                <div class="settings-offcanvas-body">
+                    <MainLayoutSettings/>
+                </div>
+            }
+        </div>
     }
 
-    void RightDrawerToggle()
-    {
-        _rightDrawerOpen = !_rightDrawerOpen;
+    <MudOverlay Visible="settingsOpen" DarkBackground="true" AutoClose="true" ZIndex="9999" OnClick="SettingsToggle"></MudOverlay>
+</MudLayout>
 
-        StateHasChanged();
-    }
-}
+

@@ -9,6 +9,15 @@
     </ShellHeader>
 
     <ShellBody>
+        <MudGrid Spacing="2" Justify="Justify.FlexStart" Class="mb-4">
+            <MudItem sm="6">
+
+                <MudButton Variant="Variant.Filled" Color="Color.Success">Success</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary">Primary</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Secondary">Secondary</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Error">Error</MudButton>
+                <MudButton Variant="Variant.Filled" Disabled="true">Disabled</MudButton>
+            </MudItem>
         <MudGrid Spacing="2" Justify="Justify.FlexStart">
             <MudItem sm="6">
 
@@ -168,6 +177,7 @@
             </MudItem>
         </MudGrid>
         <MudText Typo="Typo.h2" Class="mt-4">Button groups</MudText>
+
         <MudGrid Spacing="2">
             <MudItem sm="3">
                 <MudCard Outlined="true">
@@ -180,6 +190,21 @@
                             <MudButton>Link</MudButton>
                             <MudButton>Link</MudButton>
                         </MudButtonGroup>
+        <MudText Typo="Typo.h2" Class="mt-4">Button groups</MudText>
+        <MudGrid Spacing="2">
+            <MudItem sm="3">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Default</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudButtonGroup Color="Color.Success" Variant="Variant.Filled">
+                            <MudButton>Active link</MudButton>
+                            <MudButton>Link</MudButton>
+                            <MudButton>Link</MudButton>
+                        </MudButtonGroup>
+    <MudButton>Link</MudButton>
+</MudButtonGroup>
 
                     </MudCardContent>
                 </MudCard>
@@ -235,15 +260,16 @@
                     </MudCardContent>
                 </MudCard>
             </MudItem>
+</MudGrid>
 
-
-        </MudGrid>
-
-
+</MudGrid>
+    </ShellFooter>
 
     </ShellBody>
     <ShellFooter>
     </ShellFooter>
+
+    </ShellFooter>    
 </PageShell>
 
 @code {

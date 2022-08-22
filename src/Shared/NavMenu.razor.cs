@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorNifty.Components.Layout;
+using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
 namespace BlazorNifty.Shared
@@ -214,6 +215,8 @@ namespace BlazorNifty.Shared
 
         [Inject] NavigationManager NavigationManager { get; set; }
 
+        [Inject] public ILayoutManagementService? LayoutManagementService { get; set; }
+
         protected override void OnInitialized()
         {
             foreach (var item in GetNodes())
@@ -222,6 +225,7 @@ namespace BlazorNifty.Shared
             }
 
             NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+            LayoutManagementService.LayoutChanged += (s, e) => StateHasChanged();
             SetActiveItem(NavigationManager.Uri);
 
             base.OnInitialized();

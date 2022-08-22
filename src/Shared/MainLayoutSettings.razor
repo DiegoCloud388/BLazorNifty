@@ -1,0 +1,104 @@
+﻿@{
+    var unfinishedLabel = "Unfinished";
+}
+
+
+@if (LayoutManagementService != null)
+{
+    <MudGrid Spacing="0">
+        <MudItem md="3">
+            <MudPaper Outlined="false" Height="590px" Elevation="0" Class="pl-5 pr-2 py-4">
+                <MudStack Spacing="1">
+                    <MudText Typo="Typo.h5"><b>Layouts</b></MudText>
+                    <MudText Typo="Typo.body2" Style="color: black">Layouts</MudText>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudBadge Origin="Origin.TopRight" Content="@unfinishedLabel" Color="Color.Error" Overlap="false" Dot="false" Bordered="false">
+                            <MudText Typo="Typo.body2">Fluid Layout</MudText>
+                        </MudBadge>
+
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Boxed Layout</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Centered Layout</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+
+                    <MudText Typo="Typo.body2" Style="color: black; margin-top:200px">Header</MudText>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Sticky Header</MudText>
+                        <MudSwitch T="bool" @bind-Checked="LayoutManagementService.StickyHeader" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                </MudStack>
+
+
+            </MudPaper>
+        </MudItem>
+
+        <MudItem md="3">
+            <MudPaper Outlined="false" Height="590px" Style="background-color: #EDF1F6" Elevation="0" Class="pa-5 py-4">
+                <MudStack Spacing="1">
+                    <MudText Typo="Typo.h5"><b>Sidebars</b></MudText>
+                    <MudText Typo="Typo.body2" Style="color: black">Navigation</MudText>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Sticky navigation</MudText>
+                        <MudSwitch T="bool" @bind-Checked="LayoutManagementService.StickyNavigation" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Widget Profile</MudText>
+                        <MudSwitch T="bool" @bind-Checked="LayoutManagementService.WidgetProfile" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mt-3">
+                        <MudText Typo="Typo.body2">Min/Clollapsed Mode</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Max/Expanded Mode</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Temporary Mode</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Responsive Mode</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+
+                    <MudText Typo="Typo.body2" Style="color: black;" Class="mt-3">Right Sidebar</MudText>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Disable backdrop</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Unite Sidebar</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Pinned Sidebar</MudText>
+                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                    </MudStack>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem md="6">
+            <MudPaper Outlined="false" Height="590px" Elevation="0" Class="pa-5 py-4">
+                <MudStack Spacing="1">
+                    <MudText Typo="Typo.h5"><b>Color Schemes</b></MudText>
+
+
+                    <MudText Typo="Typo.h5" Style="margin-top:320px"><b>Scrollbars</b></MudText>
+                    <MudText Typo="Typo.body2">Hides native scrollbars and creates custom styleable overlay scrollbars.</MudText>
+                    <MudAlert Severity="Severity.Warning" NoIcon="true">
+                        Please consider the performance impact of using any scrollbar plugin.
+                    </MudAlert>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}
+
