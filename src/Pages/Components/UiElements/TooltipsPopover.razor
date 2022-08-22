@@ -19,9 +19,9 @@
                     </MudCardHeader>
                     <MudCardContent>
                         <MudTooltip Text="Tooltip on top" Placement="Placement.Top" Arrow=true>
-                        <MudButton Variant="Variant.Filled" Style="background-color:teal; color: white">
-                            <MudText Typo="Typo.caption">Tooltip on top</MudText>
-                        </MudButton>
+                            <MudButton Variant="Variant.Filled" Style="background-color:teal; color: white">
+                                <MudText Typo="Typo.caption">Tooltip on top</MudText>
+                            </MudButton>
                         </MudTooltip>
 
                         <MudTooltip Text="Tooltip on right" Placement="Placement.Right" Arrow=true>
@@ -57,91 +57,88 @@
                     </MudCardHeader>
                     <MudCardContent>
 
-                <MudBadge Visible=false>
+                        <MudBadge Visible=false>
                             <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(223, 86, 69); color: white" OnClick="@(()=>_isOpen1=!_isOpen1)">
-                           <MudText Style="color: white" Typo="Typo.h5">Click to toggle popover</MudText>
-                    
-                </MudButton>
-                           
-                   <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen1" AnchorOrigin="Origin.CenterRight" TransformOrigin="Origin.CenterLeft">
-                   <div class="popover">
-                    <div class="popover-header">
-                                Popover title
-                    </div>
-                    <div class="popover-body">
-                     And here's some amazing content. It's very engaging. Right?
-                    </div>
-                    </div>
+                                <MudText Style="color: white" Typo="Typo.h5">Click to toggle popover</MudText>
 
-                    </MudPopover>                                            
-                </MudBadge>                
-            </MudCardContent>
+                            </MudButton>
+
+                            <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen1" AnchorOrigin="Origin.CenterRight" TransformOrigin="Origin.CenterLeft">
+                                <div class="popover">
+                                    <div class="popover-header">
+                                        Popover title
+                                    </div>
+                                    <div class="popover-body">
+                                        And here's some amazing content. It's very engaging. Right?
+                                    </div>
+                                </div>
+
+                            </MudPopover>
+                        </MudBadge>
+                    </MudCardContent>
                 </MudCard>
             </MudItem>
 
-               <MudItem sm="9">
+            <MudItem sm="9">
                 <MudCard Outlined="true" Style="min-height: 180px">
                     <MudCardHeader>
                         <MudText>Directions</MudText>
                     </MudCardHeader>
                     <MudCardContent>
 
-                <MudBadge Visible=false>
+                        <MudBadge Visible=false>
                             <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(3, 169, 244); color: white" OnClick="@(()=>_isOpen2=!_isOpen2)">
-                    <MudText Typo="Typo.caption">Popover on top</MudText>
-                    
-                </MudButton>
-                           
-                   <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen2" AnchorOrigin="Origin.TopCenter" TransformOrigin="Origin.BottomCenter">
-                   <div class="popover">
-                    <div class="popover-header">
-                              
-                    </div>
-                    <div class="popover-body">
-                     Top popover
-                    </div>
-                    </div>
+                                <MudText Typo="Typo.caption">Popover on top</MudText>
 
-                    </MudPopover>                                            
-                </MudBadge>  
-                
-                  <MudBadge Visible=false>
-                   <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(3, 169, 244); color: white" OnClick="@(()=>_isOpen3=!_isOpen3)">
-                    <MudText Typo="Typo.caption">Popover on right</MudText>
-                    
-                </MudButton>
-                           
-                   <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen3" AnchorOrigin="Origin.CenterRight" TransformOrigin="Origin.CenterLeft">
-                   <div class="popover">
-                    <div class="popover-header">
-                              
-                    </div>
-                    <div class="popover-body">
-                     Right popover
-                    </div>
-                    </div>
+                            </MudButton>
 
-                    </MudPopover>                                            
-                </MudBadge>
+                            <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen2" AnchorOrigin="Origin.TopCenter" TransformOrigin="Origin.BottomCenter">
+                                <div class="popover">
+                                    <div class="popover-header">
+                                    </div>
+                                    <div class="popover-body">
+                                        Top popover
+                                    </div>
+                                </div>
 
-                 <MudBadge Visible=false>
-                   <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(3, 169, 244); color: white" OnClick="@(()=>_isOpen4=!_isOpen4)">
-                    <MudText Typo="Typo.caption">Popover on bottom</MudText>
-                    
-                </MudButton>
-                           
-                   <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen4" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
-                   <div class="popover">
-                    <div class="popover-header">
-                              
-                    </div>
-                    <div class="popover-body">
-                     Bottom popover
-                    </div>
-                    </div>
+                            </MudPopover>
+                        </MudBadge>
 
-                    </MudPopover>                                            
-                </MudBadge>
+                        <MudBadge Visible=false>
+                            <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(3, 169, 244); color: white" OnClick="@(()=>_isOpen3=!_isOpen3)">
+                                <MudText Typo="Typo.caption">Popover on right</MudText>
+
+                            </MudButton>
+
+                            <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen3" AnchorOrigin="Origin.CenterRight" TransformOrigin="Origin.CenterLeft">
+                                <div class="popover">
+                                    <div class="popover-header">
+                                    </div>
+                                    <div class="popover-body">
+                                        Right popover
+                                    </div>
+                                </div>
+
+                            </MudPopover>
+                        </MudBadge>
+
+                        <MudBadge Visible=false>
+                            <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(3, 169, 244); color: white" OnClick="@(()=>_isOpen4=!_isOpen4)">
+                                <MudText Typo="Typo.caption">Popover on bottom</MudText>
+
+                            </MudButton>
+
+                            <MudPopover OverflowBehavior="OverflowBehavior.FlipNever" Open="@_isOpen4" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
+                                <div class="popover">
+                                    <div class="popover-header">
+                                    </div>
+                                    <div class="popover-body">
+                                        Bottom popover
+                                    </div>
+                                </div>
+
+                            </MudPopover>
+                        </MudBadge>
 
                         <MudBadge Visible=false>
                             <MudButton Variant="Variant.Filled" Size="Size.Large" Style="background-color:rgb(3, 169, 244); color: white" OnClick="@(()=>_isOpen5=!_isOpen5)">
@@ -161,7 +158,7 @@
                             </MudPopover>
                         </MudBadge>
 
-                </MudCardContent>
+                    </MudCardContent>
                 </MudCard>
 
             </MudItem>
@@ -226,7 +223,7 @@
             </MudItem>
 
 
-           
+
 
         </MudGrid>
 
@@ -266,8 +263,8 @@
 
         _isOpen7 = false;
         _isClick7 = false;
-    }   
-    
+    }
+
     private void OnMouseOver(MouseEventArgs e)
     {
 
@@ -276,8 +273,8 @@
 
     private void OnMouseOut(MouseEventArgs e)
     {
-       
-        _isOpen7 = _isClick7 == true ? true: false ;
+
+        _isOpen7 = _isClick7 == true ? true : false;
     }
 
 

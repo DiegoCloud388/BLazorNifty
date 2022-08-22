@@ -1,0 +1,138 @@
+﻿@page "/tables/static-tables"
+
+<PageTitle>Static Tables</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Static Tables</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">A table is an arrangement of information or data, typically in rows and columns, or possibly in a more complex structure.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="6">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Striped rows</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTable Items="@Customers" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                            <HeaderContent>
+                                <MudTh>Invoice</MudTh>
+                                <MudTh>User</MudTh>
+                                <MudTh>Amount</MudTh>
+
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="Invoice">Order #@context.Invoice</MudTd>
+                                <MudTd DataLabel="User">@context.User</MudTd>
+                                <MudTd DataLabel="Amount">
+                                    @String.Format("{0:C2}",context.Amount)
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Bordered table</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTable Items="@Customers" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                            <HeaderContent>
+                                <MudTh>#</MudTh>
+                                <MudTh>User</MudTh>
+                                <MudTh>Plan</MudTh>
+
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="Invoice">@(context.Invoice - 53450)</MudTd>
+                                <MudTd DataLabel="User">@context.User</MudTd>
+                                <MudTd DataLabel="Plan">
+                                    @switch (context.Plan)
+                                    {
+                                        case Plans.Bussines:
+
+                                            <MudBadge Content="@("Bussines")" Color="Color.Success" Overlap=" true" />
+                                            break;
+
+                                        case Plans.Personal:
+
+                                            <MudBadge Content="@("Personal")" Color="Color.Info" Overlap="true" />
+                                            break;
+
+                                        case Plans.Trial:
+
+                                            <MudBadge Content="@("Trial")" Color="Color.Warning" Overlap="true" />
+                                            break;
+
+                                        default:
+                                            <MudBadge Content="@("?")" Overlap="true" />
+
+                                        break;
+
+                                    }
+
+
+
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+
+
+        </MudGrid>
+
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Tables", href: "#"),
+        new BreadcrumbItem("Static Tables", href: null, disabled: true)
+    };
+
+    private IEnumerable<Customer> Customers = new List<Customer>()
+    {
+        new Customer { Amount = 24.98, Invoice = 53451, User =  "Scott S. Calabrese", Plan=Plans.Bussines},
+        new Customer { Amount = 564.00, Invoice = 53452, User =  "Teresa L. Doe", Plan=Plans.Personal},
+        new Customer { Amount = 58.87, Invoice = 53453, User =  "Steve N. Horton", Plan=Plans.Trial},
+        new Customer { Amount = 97.50, Invoice = 53454, User =  "Charles S. Boyle", Plan=Plans.Bussines},
+        new Customer { Amount = 12.79, Invoice = 53455, User =  "Lucy Doe", Plan=Plans.Trial},
+        new Customer { Amount = 249.99, Invoice = 53456, User =  "Michael Bunr", Plan=Plans.Personal},
+
+    };
+
+
+
+    class Customer
+    {
+        public int Invoice { get; set; }
+        public string? User { get; set; }
+        public double Amount { get; set; }
+        public Plans Plan { get; set; }
+
+    }
+
+    enum Plans
+    {
+        Bussines,
+        Personal,
+        Trial
+
+    }
+
+
+}
