@@ -2,7 +2,7 @@
 
 namespace BlazorNifty.Components.Layout
 {
-    public partial class LayoutManagement : IDisposable
+    public partial class LayoutOverride : IDisposable
     {
         private bool disposedValue;
 

@@ -9,7 +9,7 @@ namespace BlazorNifty.Shared
         bool _leftDrawerOpen = true;
         bool _rightDrawerOpen = false;
         bool stickyNavigation = true;
-
+        bool doubleRefresh;
         [Inject] public ILayoutManagementService LayoutManagementService { get; set; }
 
         string mainContentClass;
@@ -98,17 +98,23 @@ namespace BlazorNifty.Shared
             if (firstRender)
             {
                 LayoutManagementService.SetDefaultValues(new Dictionary<string, object>()
-            {
-                {"StickyHeader", false},
-                {"StickyNavigation", false}
+                {
+                    {"StickyHeader", false},
+                    {"StickyNavigation", false}
 
-            });
+                });
 
                 this.firstRender = firstRender;
                 StateHasChanged();
             }
 
+            if (doubleRefresh)
+            {
+                doubleRefresh = false;  
+                StateHasChanged();
+            }
 
+            
             base.OnAfterRender(firstRender);
         }
 
@@ -118,18 +124,9 @@ namespace BlazorNifty.Shared
             mainContentClass = string.Empty;
             navigationClass = string.Empty;
 
-            if (_leftDrawerOpen)
-            {
-                mainContentClass = "main-content-unfixed";
-            }
-            else if (!_leftDrawerOpen)
-            {
-                mainContentClass = "main-content-unfixed-mini";
-            }
-
             if (!LayoutManagementService.StickyNavigation)
             {
-                navigationClass = "drawer-left-unfixed-height";
+                navigationClass = "drawer-left-nonsticky";
             }
 
             if (!LayoutManagementService.StickyHeader)
@@ -137,16 +134,13 @@ namespace BlazorNifty.Shared
                 mainContentClass += " main-content-appbar-unfixed";
                 layoutClass += "layout-nonsticky-header";
             }
-            else
+            
+            if(LayoutManagementService.StickyHeader)
             {
                 layoutClass += "layout-sticky-header";
             }
 
-            if (LayoutManagementService.StickyNavigation)
-            {
-                layoutClass += " layout-sticky-navigation";
-            }
-
+            doubleRefresh = true;
             StateHasChanged();
         }
     }

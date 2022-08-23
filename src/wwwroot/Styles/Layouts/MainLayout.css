@@ -1,29 +1,38 @@
-﻿.main-content-unfixed {
-    margin-left: var(--mud-drawer-width-left);
-}
-
-.main-content-unfixed-mini {
-    margin-left: var(--mud-drawer-width-mini-left);
-}
-
-.drawer-left-unfixed-height {
+﻿.drawer-left-nonsticky {
     height: calc(100%) !important;
     min-height: calc(100vh) !important;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     overflow: initial;
 }
 
-.layout-sticky-navigation .drawer-left-unfixed-height {
-    overflow: auto;
+.layout-sticky-header .drawer-left-nonsticky:not(.mud-drawer-temporary) {
+    padding-top: calc(var(--mud-appbar-height)/1.32);
+   
 }
 
-.layout-nonsticky-header .drawer-left-unfixed-height {
+/*.mud-layout {*/
+   /* background-attachment: fixed;
+    background-color: #878787;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 2rem 1rem rgb(55 60 67 / 25%);
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-top: 1rem;
+    padding-inline-end: 0 !important;*/
+/*}*/
+
+
+
+.layout-nonsticky-header .drawer-left-nonsticky:not(.mud-drawer-temporary) {
     min-height: calc(100vh - var(--mud-appbar-height)/1.32) !important;
 }
 
 .main-content-appbar-unfixed {
     padding-top: 0px !important;
 }
+
 
 .btn-settings {
     inset: 50% auto auto 0;

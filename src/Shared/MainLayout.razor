@@ -4,9 +4,9 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<MudLayout Class="@layoutClass">
+<MudLayout Class="@layoutClass"  >
 
-    @if (firstRender)
+    @if (true)
     {
         @*Header*@
         <MudAppBar Elevation="0" Color="Color.Primary" Dense="true" Fixed="LayoutManagementService.StickyHeader">
@@ -26,7 +26,11 @@
         </MudAppBar>
 
         @*Navigation*@
-        <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" ClipMode="DrawerClipMode.Docked" Fixed="LayoutManagementService.StickyNavigation" Class="@navigationClass">
+        <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" 
+            Variant="LayoutManagementService.NavigationVariant" 
+            ClipMode="LayoutManagementService.NavigationClipMode" 
+            Fixed="LayoutManagementService.StickyNavigation" Class="@navigationClass">
+
             @if (_leftDrawerOpen)
             {
                 <div class="nav-menu-container">
