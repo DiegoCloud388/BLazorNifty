@@ -1,0 +1,26 @@
+﻿/*Dropdowns*/
+.mud-popover.mud-popover-open.mud-popover-top-left {
+    border-radius: 10px 10px
+}
+
+.mud-popover.mud-popover-open .mud-list {
+    padding: 8px;
+}
+
+.mud-list-item.mud-list-item-clickable:hover {
+    background-color: #edf0f4;
+}
+
+
+.mud-input > input.mud-input-root-outlined {
+    padding: 12px 14px;
+    font-size: .75rem;
+}
+
+.mud-checkbox .mud-typography-body1 {
+    font-size: .75rem;
+}
+
+.mud-button-filled-size-small {
+    font-size: .75rem;
+}

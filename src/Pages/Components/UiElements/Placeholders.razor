@@ -10,8 +10,172 @@
     </ShellHeader>
 
     <ShellBody>
-        
+        <MudGrid>
+            <MudItem xs="12" sm="3">
+                <MudCard Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudText>Card title</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
 
+                        <MudText Typo="Typo.body2">The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary">
+                            <MudText Typo="Typo.caption">Action</MudText>
+
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="3">
+                <MudCard Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="25px" Width="50%" Class="cursor-wait" />
+                    </MudCardHeader>
+
+                    <MudCardContent Class="cursor-wait">
+                        <MudSkeleton Width="100%" />
+                        <MudSkeleton Width="80%" />
+                        <MudSkeleton Width="90%" />
+                        <MudSkeleton Width="30%" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudSkeleton Style="background-color: rgb(37, 71, 106)" Class="rounded" SkeletonType="SkeletonType.Rectangle" Width="20%" Height="30px" />
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="3">
+                <MudCard Style="background-color: rgb(159, 204, 46); min-height: 100%">
+                    <MudCardHeader Style="background-color: rgba(0, 0, 0, .1)">
+                        <MudText Style="color: white ">Featured</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5" Style="color: white">Card title</MudText>
+                        <MudText Style="color: white" Typo="Typo.body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Filled" Style="background-color:rgb(228, 233, 242);">
+                            <MudText Typo="Typo.caption">Action</MudText>
+
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="3">
+                <MudCard Style="background-color: rgb(159, 204, 46); min-height: 100%">
+                    <MudCardHeader Style="background-color: rgba(0, 0, 0, .1)">
+                        <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="25px" Width="50%" Class="cursor-wait" Style="background-color: rgb(228, 233, 242)" />
+                    </MudCardHeader>
+
+                    <MudCardContent Class="cursor-wait">
+                        <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="15px" Width="25%" Style="background-color: rgb(228, 233, 242)" />
+                        <MudSkeleton Width="100%" Style="background-color: rgb(228, 233, 242)" />
+                        <MudSkeleton Width="30%" Style="background-color: rgb(228, 233, 242)" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudSkeleton Style="background-color: rgb(228, 233, 242)" Class="rounded" SkeletonType="SkeletonType.Rectangle" Width="20%" Height="30px" />
+                    </MudCardActions>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+
+                <MudCard Style="min-height: 100%">
+                    <MudCardMedia Image="images/Sun.jpg" Title="Sun" Height="400" />
+                    <MudCardHeader>
+                        <MudText>Card title</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+
+                        <MudText Typo="Typo.body2">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+
+                        <MudText Typo="Typo.caption">Last updated 3 mins ago</MudText>
+
+
+                    </MudCardActions>
+                </MudCard>
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+
+                <MudCard Style="min-height: 100%">
+                    <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="400px" Class="cursor-wait" />
+                    <MudCardContent>
+                        <MudSkeleton Width="15%" Height="42px;" Class="cursor-wait" />
+                        <MudSkeleton Width="100%" Class="cursor-wait" />
+                        <MudSkeleton Width="30%" Class="cursor-wait" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudSkeleton Width="105px" Height="20px" Class="ml-3 cursor-wait" />
+                    </MudCardActions>
+                </MudCard>
+
+
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudCard Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudText>Color</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudSkeleton Width="100%" Animation="Animation.False" Class="cursor-wait  mud-success " />
+                        <MudSkeleton Width="100%" Animation="Animation.False" Class="cursor-wait  mud-primary mt-2 " />
+                        <MudSkeleton Width="100%" Animation="Animation.False" Class="cursor-wait  mud-secondary mt-2 " />
+                        <MudSkeleton Width="100%" Animation="Animation.False" Class="cursor-wait  mud-error mt-2 " />
+                    </MudCardContent>
+                    <MudCardActions>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudStack>
+
+                    <MudCard Style="min-height: 100%">
+                        <MudCardHeader>
+                            <MudText>Sizing</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudSkeleton Height="16px" Animation="Animation.False" Class="cursor-wait" />
+                            <MudSkeleton Height="24px" Animation="Animation.False" Class="cursor-wait mt-2 " />
+                            <MudSkeleton Height="32px" Animation="Animation.False" Class="cursor-wait mt-2 " />
+                            <MudSkeleton Height="40px" Animation="Animation.False" Class="cursor-wait mt-2 " />
+                        </MudCardContent>
+                        <MudCardActions>
+                        </MudCardActions>
+                    </MudCard>
+
+
+                    <MudCard Style="min-height: 100%">
+                        <MudCardHeader>
+                            <MudText>Animation</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudSkeleton Animation="Animation.Pulse" Class="cursor-wait" />
+                            <MudSkeleton Animation="Animation.Wave" Class="cursor-wait mt-2 " />
+
+                        </MudCardContent>
+                        <MudCardActions>
+                        </MudCardActions>
+                    </MudCard>
+
+
+                </MudStack>
+
+            </MudItem>
+
+
+
+        </MudGrid>
     </ShellBody>
 
 </PageShell>

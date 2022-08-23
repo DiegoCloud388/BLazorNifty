@@ -1,11 +1,12 @@
 ﻿@page "/dashboard-1"
+@page "/"
 
 <PageTitle>Dashboard 1</PageTitle>
 
 <PageShell Rounded="false" Overlapping="false">
     <ShellHeader>
         <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
-        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Counter</MudText>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Counter 1</MudText>
         <MudText Typo="Typo.body1" Class="mb-2 page-description">This component demonstrates fetching data from the server.</MudText>
     </ShellHeader>
 
@@ -16,6 +17,7 @@
         </MudCard>
     </ShellBody>
 </PageShell>
+
 
 
 @code {
@@ -32,3 +34,4 @@
         currentCount++;
     }
 }
+

@@ -10,7 +10,285 @@
     </ShellHeader>
 
     <ShellBody>
-        
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Basic example</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Class="list-rounded" Clickable="true">
+                            <MudListItem Class="" Text="An item" />
+                            <MudDivider />
+                            <MudListItem Text="A second item" />
+                            <MudDivider />
+                            <MudListItem Text="A third item" />
+                            <MudDivider />
+                            <MudListItem Text="A fourth item" />
+                            <MudDivider />
+                            <MudListItem Text="And a fifth one" />
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>With Badges</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Class="list-rounded" Clickable="false">
+                            <MudListItem Class="">
+                                <div class="d-flex justify-space-between">
+                                    <MudText>A list item</MudText>
+                                    <MudBadge Origin="Origin.CenterCenter" Content="14" Color="Color.Primary" Overlap="false" />
+                                </div>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem Class="">
+                                <div class="d-flex justify-space-between">
+                                    <MudText>A second list item</MudText>
+                                    <MudBadge Origin="Origin.CenterCenter" Content="2" Color="Color.Primary" Overlap="false" />
+                                </div>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem Class="">
+                                <div class="d-flex justify-space-between">
+                                    <MudText>A third list item</MudText>
+                                    <MudBadge Origin="Origin.CenterCenter" Content="1" Color="Color.Primary" Overlap="false" />
+                                </div>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem Class="">
+                                <div class="d-flex justify-space-between">
+                                    <MudText>A fourth list item</MudText>
+                                    <MudBadge Origin="Origin.CenterCenter" Content="4" Color="Color.Primary" Overlap="false" />
+                                </div>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem Class="">
+                                <div class="d-flex justify-space-between">
+                                    <MudText>And a fifth one</MudText>
+                                    <MudBadge Origin="Origin.CenterCenter" Content="7" Color="Color.Primary" Overlap="false" />
+                                </div>
+                            </MudListItem>
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Link Items</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Class="list-rounded" Clickable="true">
+                            <MudListItem Class="list-first-item mud-primary" Disabled="true">
+                                <MudLink Style="font-weight: bold" Class="mud-theme-primary" Underline="Underline.None" Href="#">The current link item</MudLink>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <MudLink Underline="Underline.None" Color="Color.Default" Href="#">A second link item</MudLink>
+                            </MudListItem>
+
+                            <MudDivider />
+                            <MudListItem>
+                                <MudLink Underline="Underline.None" Color="Color.Default" Href="#">A third link item</MudLink>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <MudLink Underline="Underline.None" Color="Color.Default" Href="#">A fourth link item</MudLink>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem Disabled="true">
+                                <MudLink Underline="Underline.None" Color="Color.Default" Class="list-disable-text" Href="#">A disabled link item</MudLink>
+                            </MudListItem>
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Custom Content</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Class="list-rounded" Clickable="true">
+                            <MudListItem Class="list-first-item mud-theme-primary" Disabled="true">
+                                <div class="d-flex justify-space-between">
+                                    <MudText Typo="Typo.h4" Style="Color:var(--mud-palette-primary-text)">List group item heading</MudText>
+                                    <MudText Typo="Typo.caption">3 days ago</MudText>
+                                </div>
+                                <MudText Typo="Typo.h5" Style="Color:var(--mud-palette-primary-text)">Some placeholder content in a paragraph.</MudText>
+                                <MudText Typo="Typo.caption">And some small print.</MudText>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <div class="d-flex justify-space-between">
+                                    <MudText Typo="Typo.h4">List group item heading</MudText>
+                                    <MudText Typo="Typo.caption">2 days ago</MudText>
+                                </div>
+                                <MudText Typo="Typo.h5">Some placeholder content in a paragraph.</MudText>
+                                <MudText Typo="Typo.caption">And some small print.</MudText>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <div class="d-flex justify-space-between">
+                                    <MudText Typo="Typo.h4">List group item heading</MudText>
+                                    <MudText Typo="Typo.caption">1 days ago</MudText>
+                                </div>
+                                <MudText Typo="Typo.h5">Some placeholder content in a paragraph.</MudText>
+                                <MudText Typo="Typo.caption">And some small print.</MudText>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <div class="d-flex justify-space-between">
+                                    <MudText Typo="Typo.h4">List group item heading</MudText>
+                                    <MudText Typo="Typo.caption">0 days ago</MudText>
+                                </div>
+                                <MudText Typo="Typo.h5">Some placeholder content in a paragraph.</MudText>
+                                <MudText Typo="Typo.caption">And some small print.</MudText>
+                            </MudListItem>
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudCard Outlined="true" Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudText>Custom Content</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Class="list-rounded" Clickable="true">
+
+                            <MudListItem Text="A simple default list group item.">
+
+                            </MudListItem>
+                            <MudListItem Class="mud-primary">
+
+                                <MudText Typo="Typo.h5" Class="mud-theme-primary">A simple primary list group item.</MudText>
+
+                            </MudListItem>
+
+                            <MudListItem Class="mud-secondary">
+
+                                <MudText Typo="Typo.h5" Class="mud-theme-secondary">A simple secondary list group item.</MudText>
+
+                            </MudListItem>
+
+                            <MudListItem Class="mud-success">
+
+                                <MudText Typo="Typo.h5" Class="mud-theme-success">A simple secondary list group item.</MudText>
+
+                            </MudListItem>
+
+
+                            <MudListItem Class="mud-error list-last-item">
+
+                                <MudText Typo="Typo.h5" Class="mud-theme-error">A simple secondary list group item.</MudText>
+
+                            </MudListItem>
+
+
+                            <MudDivider />
+
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true" Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudText>Borderless</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Clickable="true">
+                            <MudListItem Class="rounded mud-primary" Disabled="true" Text="An item">
+                                <MudLink Class="mud-theme-primary" Underline="Underline.None" Href="#">An item</MudLink>
+                            </MudListItem>
+
+                            <MudListItem Class="rounded">
+                                <MudLink Underline="Underline.None" Color="Color.Default" Href="#">A second item</MudLink>
+                            </MudListItem>
+
+                            <MudListItem Class="rounded">
+                                <MudLink Underline="Underline.None" Color="Color.Default" Href="#">A third item</MudLink>
+                            </MudListItem>
+
+                            <MudListItem Class="rounded">
+                                <MudLink Underline="Underline.None" Color="Color.Default" Href="#">A fourth item</MudLink>
+                            </MudListItem>
+
+                            <MudListItem Class="rounded" Disabled="true">
+                                <MudLink Underline="Underline.None" Color="Color.Default" Class="list-disable-text" Href="#">And fifth one</MudLink>
+                            </MudListItem>
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true" Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudText>Flush</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Clickable="false">
+                            <MudListItem Text="An item" />
+                            <MudDivider />
+                            <MudListItem Text="A second item" />
+                            <MudDivider />
+                            <MudListItem Text="A third item" />
+                            <MudDivider />
+                            <MudListItem Text="A fourth item" />
+                            <MudDivider />
+                            <MudListItem Text="And a fifth one" />
+                        </MudList>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudCard Outlined="true" Style="min-height: 100%">
+                    <MudCardHeader>
+                        <MudText>Checkboxes and radios</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudList Class="list-rounded">
+                            <MudListItem>
+                                <MudCheckBox @bind-Checked="@Basic_CheckBox1"> First checkbox</MudCheckBox>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <MudCheckBox @bind-Checked="@Basic_CheckBox2"> Second checkbox</MudCheckBox>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <MudCheckBox @bind-Checked="@Basic_CheckBox3"> Third checkbox</MudCheckBox>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <MudCheckBox @bind-Checked="@Basic_CheckBox4"> Fourth checkbox</MudCheckBox>
+                            </MudListItem>
+                            <MudDivider />
+                            <MudListItem>
+                                <MudCheckBox @bind-Checked="@Basic_CheckBox5"> Fifth checkbox</MudCheckBox>
+                            </MudListItem>
+
+
+
+                        </MudList>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+        </MudGrid>
 
     </ShellBody>
 
@@ -20,10 +298,16 @@
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
         new BreadcrumbItem("Home", href: "#"),
-        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Ui Elements", href: "#"),
         new BreadcrumbItem("List Group", href: null, disabled: true)
+
+
     };
 
-
+    public bool Basic_CheckBox1 { get; set; } = true;
+    public bool Basic_CheckBox2 { get; set; } = false;
+    public bool Basic_CheckBox3 { get; set; } = false;
+    public bool Basic_CheckBox4 { get; set; } = true;
+    public bool Basic_CheckBox5 { get; set; } = true;
 
 }

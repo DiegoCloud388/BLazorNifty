@@ -1,9 +1,16 @@
 ﻿<div class="@shellClass" style="@Style">
-   
-    <header class="shell-header">
-       @ShellHeader
-    </header>
-   
+
+    @if (ShellHeader != null)
+    {
+        <header class="shell-header">
+            <div class="shell-header-content">
+                @ShellHeader
+            </div>
+
+        </header>
+    }
+
+
     <main class="shell-body">
         @ShellBody
     </main>
@@ -11,4 +18,5 @@
     <main class="shell-footer">
         @ShellFooter
     </main>
+
 </div>

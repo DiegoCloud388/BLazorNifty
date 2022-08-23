@@ -1,0 +1,27 @@
+﻿@page "/layouts/pinned-sidebar"
+
+<PageTitle>Pinned Sidebar</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Pinned Sidebar</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">Place the sidebar as part of your content.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+       
+    </ShellBody>
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Layouts", href: "#"),
+        new BreadcrumbItem("Pinned Sidebar", href: null, disabled: true)
+    };
+
+
+
+}

@@ -1,0 +1,182 @@
+﻿.mud-navmenu.mud-navmenu-primary .mud-nav-link.active:not(.mud-nav-link-disabled) {
+    color: var(--mud-palette-primary);
+    background-color: transparent;
+}
+
+.mud-nav-item:hover {
+    background-color: transparent;
+}
+
+.mud-nav-link:hover {
+    background-color: transparent;
+}
+
+.mud-navmenu.mud-navmenu-primary {
+    height: 100%;
+    color: var(--mud-palette-primary);
+    margin-top: 13px !important
+}
+
+.mud-drawer.mud-drawer-fixed.mud-drawer-pos-left {
+  /*  background-color: var(--mud-palette-primary);*/
+   /* color: white;*/
+    font-size: 12px;
+}
+
+.mud-nav-group:not(.active) .mud-nav-link.mud-ripple.mud-expanded {
+    color: var(--mud-palette-primary);
+}
+
+.mud-nav-group.active button {
+    background-color: var(--mud-palette-primary) !important;
+    color: white;
+    font-weight: 600 !important;
+}
+
+    .mud-nav-group.active button:hover {
+        background-color: var(--mud-palette-primary) !important;
+        color: white !important;
+        font-weight: 600 !important;
+    }
+
+    .mud-nav-group.active button:focus {
+        background-color: var(--mud-palette-primary) !important;
+        color: white !important;
+    }
+
+
+
+.mud-nav-group.active .mud-nav-link-expand-icon.mud-transform {
+    fill: white;
+    color: white;
+}
+
+.mud-nav-group.active .mud-nav-link-expand-icon {
+    fill: white;
+}
+
+.mud-nav-group.active .mud-nav-link-icon {
+    fill: white;
+    color: white !important;
+}
+
+
+.mud-nav-item.root .mud-nav-link.active {
+    background-color: var(--mud-palette-primary) !important;
+    color: white !important;
+}
+
+.mud-nav-link.active .mud-nav-link-text {
+    font-weight: 600;
+}
+
+.mud-nav-group.active > .mud-nav-link > .mud-nav-link-text {
+    font-weight: 600;
+}
+
+.mud-nav-item.root .mud-nav-link.active .mud-nav-link-icon {
+    fill: white;
+    color: white !important;
+}
+
+.mud-nav-link {
+    background-color: inherit !important;
+    color: #65767f;
+    padding: 5px 16px 5px 16px;
+}
+
+    .mud-nav-link:hover:not(.mud-expanded) {
+        background-color: inherit !important;
+        color: inherit !important;
+    }
+
+.mud-nav-group > .mud-nav-link > .mud-nav-link-text {
+    font-weight: 400;
+}
+
+.mud-nav-link .mud-nav-link-expand-icon.mud-transform {
+    transform: rotate(90deg) !important;
+}
+
+.mud-nav-group * .mud-navmenu .mud-nav-item .mud-nav-link {
+    padding-left: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: unset;
+}
+
+
+.ml-4px:not(.mini-nav) {
+    margin-left: 23px;
+    border-left: darkgray 1.3px dashed;
+}
+
+.ml-4px {
+    margin-left: 0px;
+    border-left: none;
+    font-size: 12px;
+}
+
+.first-level-submenu {
+    margin-left: 23px;
+    border-left: darkgray 1.3px dashed;
+    padding-left: 0px;
+}
+
+.mud-nav-group * .mud-navmenu > .mud-nav-group * .mud-navmenu .mud-nav-item .mud-nav-link {
+    padding-left: 8px;
+    padding-inline-start: 8px;
+}
+
+.mud-nav-group * .mud-navmenu > .mud-nav-group .mud-nav-link {
+    padding-inline-end: 36px;
+    padding-inline-start: unset;
+    padding-left: 10px;
+}
+
+
+    .mini-nav-menu-icon .mud-nav-link .mud-nav-link-text {
+        margin-left: -0px;
+        margin-inline-start: 0px;
+    }
+
+.mini-nav-menu-icon {
+    width: 40px;
+}
+
+    .mini-nav-menu-icon .mud-icon-root {
+        margin-left: -4px;
+        margin-top: 4px !important;
+    }
+
+    .mini-nav-menu-icon .mud-nav-link {
+        width: 40px;
+        height: 34px;
+        padding: 0px 12px 8px 16px;
+    }
+
+
+.mud-menu.active button {
+    background-color: var(--mud-palette-primary) !important;
+    color: white;
+    font-weight: 600 !important;
+    border-radius: 20%;
+}
+
+
+.nav-menu-container {
+    /*height: 100%;*/
+    background-color: white;
+    border-radius: 0px 15px 0px 0px;
+    overflow-x: clip;
+    overflow-y: visible;
+}
+
+.mini-nav-menu-container {
+   /* height: 100%;*/
+    background-color: white;
+    border-radius: 0px 15px 0px 0px;
+}
+
+.main-menu-header {
+    color: black;
+}

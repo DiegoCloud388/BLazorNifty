@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorNifty.Components.Layout;
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorNifty.Shared
 {
@@ -31,9 +32,14 @@ namespace BlazorNifty.Shared
                         Type = MenuItemType.NavGroup,
                         ChildItems = new List<MenuItem>()
                         {
-                            new MenuItem() {Title = "Unite Sidebar", Href = "/unite-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Sticky Header", Href = "/sticky-header", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Sticky Navigation", Href = "/sticky-navigation", Type=MenuItemType.NavItem, Class="ml-4px"}
+                            new MenuItem() {Title = "Mini Navigation", Href = "/layouts/minimal-navigation", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Push Navigation", Href = "/layouts/push-navigation", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Slide Navigation", Href = "/layouts/slide-navigation", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Stuck Sidebar", Href = "/layouts/stuck-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Pinned Sidebar", Href = "/layouts/pinned-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Unite Sidebar", Href = "/layouts/unite-sidebar", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Sticky Header", Href = "/layouts/sticky-header", Type=MenuItemType.NavItem, Class="ml-4px"},
+                            new MenuItem() {Title = "Sticky Navigation", Href = "/layouts/sticky-navigation", Type=MenuItemType.NavItem, Class="ml-4px"}
                         }
                     },
                     new MenuItem()
@@ -188,13 +194,13 @@ namespace BlazorNifty.Shared
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link1", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link2", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link3", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Submenu 1", Type=MenuItemType.NavGroup, Class="left-dashed-line", ChildItems = new List<MenuItem>
+                            new MenuItem() {Title = "Submenu 1", Type=MenuItemType.NavGroup,  Class="ml-4px", ChildItems = new List<MenuItem>
                             {
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link4", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link5", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link6", Type=MenuItemType.NavItem, Class="ml-4px"},
                             }},
-                            new MenuItem() {Title = "Submenu 2", Type=MenuItemType.NavGroup, Class="left-dashed-line", ChildItems = new List<MenuItem>
+                            new MenuItem() {Title = "Submenu 2", Type=MenuItemType.NavGroup,  Class="ml-4px", ChildItems = new List<MenuItem>
                             {
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link7", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link8", Type=MenuItemType.NavItem, Class="ml-4px"},
@@ -207,9 +213,72 @@ namespace BlazorNifty.Shared
         };
 
         [Inject] NavigationManager NavigationManager { get; set; }
-        protected override Task OnInitializedAsync()
+
+        [Inject] public ILayoutManagementService? LayoutManagementService { get; set; }
+
+        protected override void OnInitialized()
         {
-            return base.OnInitializedAsync();
+            
+
+            NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+            LayoutManagementService.LayoutChanged += (s, e) => StateHasChanged();
+            SetActiveItem(NavigationManager.Uri);
+
+            base.OnInitialized();
+        }
+
+        private void NavigationManager_LocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+        {
+            SetActiveItem(e.Location);
+        }
+
+        private void SetActiveItem(string location)
+        {
+            location = location.Replace(NavigationManager.BaseUri, string.Empty);
+            location = "/" + location;
+
+            foreach (var item in GetNodes())
+            {
+                var innerNodes = GetNodes(item);
+                if (innerNodes.Any(x => x.Href == location))
+                {
+                    item.State = "active";
+                }
+                else
+                {
+                    item.State = String.Empty;
+                }
+            }
+
+            StateHasChanged();
+        }
+
+        public IEnumerable<MenuItem> GetNodes()
+        {
+            List<MenuItem> flatMenu = new List<MenuItem>();
+
+            foreach (var item in menuItems)
+            {
+                flatMenu.AddRange(GetNodes(item));
+            }
+
+            return flatMenu;
+        }
+
+        public IEnumerable<MenuItem> GetNodes(MenuItem node)
+        {
+            if (node == null)
+            {
+                yield break;
+            }
+            yield return node;
+            foreach (var n in node.ChildItems)
+            {
+                foreach (var innerN in GetNodes(n))
+                {
+                    yield return innerN;
+                }
+            }
         }
     }
 }

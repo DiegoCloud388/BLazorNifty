@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorNifty.Components.Layout;
+using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
 namespace BlazorNifty.Shared
@@ -194,13 +195,13 @@ namespace BlazorNifty.Shared
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link1", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link2", Type=MenuItemType.NavItem, Class="ml-4px"},
                             new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link3", Type=MenuItemType.NavItem, Class="ml-4px"},
-                            new MenuItem() {Title = "Submenu 1", Type=MenuItemType.NavGroup, Class="left-dashed-line", ChildItems = new List<MenuItem>
+                            new MenuItem() {Title = "Submenu 1", Type=MenuItemType.NavGroup, Class="first-level-submenu", ChildItems = new List<MenuItem>
                             {
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link4", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link5", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link6", Type=MenuItemType.NavItem, Class="ml-4px"},
                             }},
-                            new MenuItem() {Title = "Submenu 2", Type=MenuItemType.NavGroup, Class="left-dashed-line", ChildItems = new List<MenuItem>
+                            new MenuItem() {Title = "Submenu 2", Type=MenuItemType.NavGroup, Class="first-level-submenu", ChildItems = new List<MenuItem>
                             {
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link7", Type=MenuItemType.NavItem, Class="ml-4px"},
                                 new MenuItem() {Title = "Menu Link", Href = "/menu-levels/link8", Type=MenuItemType.NavItem, Class="ml-4px"},
@@ -214,6 +215,8 @@ namespace BlazorNifty.Shared
 
         [Inject] NavigationManager NavigationManager { get; set; }
 
+        [Inject] public ILayoutManagementService? LayoutManagementService { get; set; }
+
         protected override void OnInitialized()
         {
             foreach (var item in GetNodes())
@@ -222,6 +225,7 @@ namespace BlazorNifty.Shared
             }
 
             NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+            LayoutManagementService.LayoutChanged += (s, e) => StateHasChanged();
             SetActiveItem(NavigationManager.Uri);
 
             base.OnInitialized();

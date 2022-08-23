@@ -1,0 +1,65 @@
+﻿/*Overrides*/
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem !important;
+    color: #373c43;
+}
+
+.mud-typography-body1 {
+    color: #75868f;
+}
+
+.mud-typography-body2 {
+    color: #75868f;
+}
+
+/*Custom classes*/
+
+.page-title {
+    color: white;
+}
+
+.page-description {
+    color: #cfd6df !important;
+}
+
+.card-header {
+    border-bottom: 1px solid #cfd6df
+}
+
+.display-1 {
+    font-size: calc(1.625rem + 2.5vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-2 {
+    font-size: calc(1.575rem + 2.1vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-3 {
+    font-size: calc(1.525rem + 1.8vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-4 {
+    font-size: calc(1.475rem + 1.5vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-5 {
+    font-size: calc(1.425rem + 1.1vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-6 {
+    font-size: calc(1.375rem + 0.75vw);
+    font-weight: 300;
+    line-height: 1.2;
+}

@@ -5,17 +5,36 @@
     if (InPopover)
     {
         var menuClass = "mini-nav " + @MenuItem.Class;
-        <MudNavLink Href="@MenuItem.Href" Class="@menuClass" Icon="@MenuItem.Icon" >@MenuItem.Title</MudNavLink>
+
+        if (MenuItem.ChildItems.Count() == 0)
+        {
+            <MudNavLink Href="@MenuItem.Href" Class="@menuClass" Icon="@MenuItem.Icon">@MenuItem.Title</MudNavLink>
+        }
+        else
+        {
+            <MudNavGroup Title="@MenuItem.Title" Icon="@MenuItem.Icon" ExpandIcon="@Icons.Outlined.KeyboardArrowRight" Class="@groupClass" @bind-Expanded="@MenuItem.Expanded">
+                @foreach (var childItem in MenuItem.ChildItems)
+                {
+                    <MiniNavMenuItem MenuItem="childItem" InPopover="true"/>
+                }
+            </MudNavGroup>
+        }
+
     }
     else
     {
         if (MenuItem.ChildItems.Count() == 0)
         {
-            <MudNavLink Href="@MenuItem.Href" Icon="@MenuItem.Icon" Class="@MenuItem.Class"></MudNavLink>
+            var menuClass = "mini-nav-menu-icon " + @MenuItem.Class;
+            <MudNavLink Href="@MenuItem.Href" Class="@menuClass">
+                <MudIcon Icon="@MenuItem.Icon"> </MudIcon>
+            </MudNavLink>
+
         }
         else
         {
-            <MudMenu Icon="@MenuItem.Icon" Class="@MenuItem.Class" Dense="true" ActivationEvent="@MouseEvent.MouseOver" AnchorOrigin="Origin.CenterRight">
+
+            <MudMenu Icon="@MenuItem.Icon" Class="@groupClass" Dense="true" ActivationEvent="@MouseEvent.MouseOver" AnchorOrigin="Origin.CenterRight">
                 <ChildContent>
                     @foreach (var childItem in MenuItem.ChildItems)
                     {
@@ -32,8 +51,8 @@
 }
 else if (MenuItem.Type == MenuItemType.NavCategory)
 {
-    <div class="mt-7"/>
-    
+    <div class="mt-7" />
+
     @foreach (var childItem in MenuItem.ChildItems)
     {
         <MiniNavMenuItem MenuItem="childItem" />

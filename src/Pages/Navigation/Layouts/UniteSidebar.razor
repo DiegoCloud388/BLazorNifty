@@ -2,52 +2,63 @@
 @using BlazorNifty.Data
 @inject WeatherForecastService ForecastService
 
-<PageTitle>Weather forecast</PageTitle>
+<PageTitle>Stuck Sidebar</PageTitle>
 
-<div class="content_header">
-</div>
-
-<div class="content-boxed mx-6 my-4 pt-4" style="color:white">
-
-    <MudText Typo="Typo.h4" GutterBottom="true">Weather forecast</MudText>
-    <MudText Class="mb-8">This component demonstrates fetching data from the server.</MudText>
-    @if (forecasts == null)
-    {
-        <MudProgressCircular Color="Color.Default" Indeterminate="true" />
-    }
-    else
-    {
-        <MudTable Items="forecasts" Hover="true" Striped="true" Dense="true" SortLabel="Sort By" Elevation="1">
-            <HeaderContent>
-                <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<WeatherForecast, object>(x=>x.Date)">Date</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.TemperatureC)">Temp. (C)</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.TemperatureF)">Temp. (F)</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.Summary!)">Summary</MudTableSortLabel></MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd DataLabel="Date">@context.Date</MudTd>
-                <MudTd DataLabel="Temp. (C)">@context.TemperatureC</MudTd>
-                <MudTd DataLabel="Temp. (F)">@context.TemperatureF</MudTd>
-                <MudTd DataLabel="Summary">@context.Summary</MudTd>
-            </RowTemplate>
-            <PagerContent>
-                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
-            </PagerContent>
-        </MudTable>
-    }
-
-
-
-</div>
-
-
-
+<PageShell Rounded="false" Overlapping="false" Class="px-5 py-5">
+   
+    <ShellBody>
+        <MudText Typo="Typo.h4" GutterBottom="true">Weather forecast</MudText>
+        <MudText Class="mb-8">This component demonstrates fetching data from the server.</MudText>
+        @if (forecasts == null)
+        {
+            <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+        }
+        else
+        {
+            <MudTable Items="forecasts" Hover="true" Striped="true" Dense="true" SortLabel="Sort By" Elevation="1">
+                <HeaderContent>
+                    <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<WeatherForecast, object>(x=>x.Date)">Date</MudTableSortLabel></MudTh>
+                    <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.TemperatureC)">Temp. (C)</MudTableSortLabel></MudTh>
+                    <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.TemperatureF)">Temp. (F)</MudTableSortLabel></MudTh>
+                    <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.Summary!)">Summary</MudTableSortLabel></MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Date">@context.Date</MudTd>
+                    <MudTd DataLabel="Temp. (C)">@context.TemperatureC</MudTd>
+                    <MudTd DataLabel="Temp. (F)">@context.TemperatureF</MudTd>
+                    <MudTd DataLabel="Summary">@context.Summary</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+            </MudTable>
+        }
+    </ShellBody>
+</PageShell>
 
 @code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Layouts", href: "#"),
+        new BreadcrumbItem("Stuck Sidebar", href: null, disabled: true)
+    };
+
+
     private WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
+}
+
+<div class="content-boxed mx-6 my-4 pt-4" style="color:white">
+</div>
+
+
+
+
+@code {
+
 }
