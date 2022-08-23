@@ -38,7 +38,7 @@
         </MudCard>      
 
 
-          <MudGrid Spacing="3">
+          <MudGrid Spacing="2" Class="mb-2">
         <MudItem xs="12" sm="12" lg="6" xl="6">
             <MudCard>
     <MudCardContent>
@@ -118,7 +118,7 @@
     <MudCardContent>
          <MudText Typo="Typo.h5" Class="mb-3 font-weight-bold">Horizontal form</MudText>
         
-         <MudStack Class="mb-5" Spacing="4">
+         <MudStack Class="mb-4" Spacing="4">
 
              <MudStack Row=true AlignItems="AlignItems.Center">
                   <MudText Style="width:85px" Typo="Typo.caption"><span class="light-label">Email</span></MudText>
@@ -159,7 +159,7 @@
         </MudItem>
         </MudGrid>
 
-         <MudGrid Spacing="3">
+         <MudGrid Spacing="2" Class="mb-2">
         <MudItem xs="12" sm="12" lg="6" xl="6">
             <MudCard>
     <MudCardContent>
@@ -169,54 +169,46 @@
             <MudItem xs="12" sm="12" lg="12" xl="12">
 
 
-<MudStack Row=true Spacing="0" AlignItems="AlignItems.Center">
-          <div class="left-addition-to-input">
+<div class="row-center mb-3">
+          <div class="left-icon-addition">
                <MudIcon Icon="@Icons.Outlined.Star"/>
          </div> 
 
-     <MudTextField T="string" Placeholder="Username" Class="left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
-</MudStack>
+     <MudTextField T="string" Placeholder="Username" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</div>
 
 
-<MudStack Row=true Spacing="0" AlignItems="AlignItems.Center">
-
-
-     <MudTextField T="string" Placeholder="Folder Name" Class="right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
-               <div class="right-addition-to-input">
+<div class="row-center mb-3">
+     <MudTextField T="string" Placeholder="Folder Name" Class="input-right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+               <div class="right-icon-addition">
             <MudIcon Icon="@Icons.Outlined.AttachEmail"/>
          </div> 
-</MudStack>
+</div>
 
-<MudStack Row=true Spacing="0" AlignItems="AlignItems.Center">
-          <div class="left-addition-to-input">
+<div class="row-center mb-3">
+          <div class="left-icon-addition">
             <MudIcon Icon="@Icons.Outlined.Info"/>
          </div> 
 
-     <MudTextField T="string" Placeholder="Earning" Class="left-border-radius-0 right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+     <MudTextField T="string" Placeholder="Earning" Class="input-left-border-radius-0 input-right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 
- <div class="right-addition-to-input">
+@* <div class="right-text-addition">
             <MudText>.00</MudText>
-         </div>
-</MudStack>
+         </div>*@
+</div>
 
-<div class="multiple-input-group">
+<div class="row-center mb-3">
 
-     <MudTextField T="string" Placeholder="Username" Class="right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+     <MudTextField T="string" Placeholder="Username" Class="input-right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 
- <div class="middle-addition-to-inputs">
+ <div class="middle-icon-addition">
             <MudIcon Icon="@Icons.Filled.AlternateEmail"/>
          </div>
 
-          <MudTextField T="string" Placeholder="Server" Class="left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+          <MudTextField T="string" Placeholder="Server" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 </div>
             </MudItem>
 
-           
-
-            
-
-           
-       
         </MudGrid>       
     </MudCardContent>
 </MudCard>
@@ -225,13 +217,161 @@
 
         <MudItem xs="12" sm="12" lg="6" xl="6">
             <MudCard>
-    <MudCardContent>
-         <MudText Typo="Typo.h5" Class="mb-3 font-weight-bold">Horizontal form</MudText>
+                <MudCardContent>
+                     <MudText Typo="Typo.h5" Class="mb-3 font-weight-bold">Buttons Addons</MudText>
         
-        
+                <MudGrid Spacing="2">
+            <MudItem xs="12" sm="12" lg="12" xl="12">
+
+
+<div class="row-center mb-3">
+     <MudButton Class="left-button-addition" DisableElevation=true Color="Color.Warning" Variant="Variant.Filled">Button</MudButton>
+     
+     <MudTextField T="string" Class="input-left-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</div>
+
+
+<div class="row-center mb-3">  
+     <MudTextField T="string" Placeholder="Recipient's username" Class="input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+      
+      <MudButton Class="right-button-addition" DisableElevation=true Color="Color.Info" Variant="Variant.Filled">Button</MudButton>
+</div>
+
+<div class="row-center mb-3">
+
+       <MudButton Class="left-button-addition" DisableElevation=true Color="Color.Tertiary" Variant="Variant.Filled">Button</MudButton>
+     
+         <MudButton Class="middle-button-addition" DisableElevation=true Color="Color.Tertiary" Variant="Variant.Filled">Button</MudButton>
+
+     <MudTextField T="string" Class="input-left-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</div>
+
+<div class="row-center mb-3">      
+
+     <MudTextField T="string" Class="input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+
+     <MudButton Class="middle-button-addition" DisableElevation=true Color="Color.Success" Variant="Variant.Filled">Button</MudButton>
+     
+         <MudButton Class="right-button-addition" DisableElevation=true Color="Color.Success" Variant="Variant.Filled">Button</MudButton>
+</div>
+
+
+            </MudItem>
+
+        </MudGrid>       
          
+                </MudCardContent>
+            </MudCard>
+
+        </MudItem>
+        </MudGrid>
+
+          <MudGrid Spacing="2">
+        <MudItem xs="12" sm="12" lg="6" xl="6">
+            <MudCard>
+    <MudCardContent>
+         <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Checkboxes and radio addons</MudText>
+
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="12" lg="12" xl="12">
+
+
+<div class="row-center mb-3">
+         <div class="left-checkbox-addition">    
+          <MudCheckBox T="bool" Dense=true Color="Color.Primary" UnCheckedColor="Color.Default" Size="Size.Small" />
+           </div>
+
+     <MudTextField T="string"  Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</div>
+
+<MudRadioGroup T="int">
+    <div class="row-center mb-3">
+             <div class="left-radio-addition">    
+                    <MudRadio Option="1" Color="Color.Primary" UnCheckedColor="Color.Default" Dense=true Size="Size.Small" />
+               </div>
+
+         <MudTextField T="string" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+    </div>
+
+    <div class="row-center mb-3">
+             <div class="left-radio-addition">    
+                    <MudRadio Option="2" Color="Color.Primary" UnCheckedColor="Color.Default" Dense=true Size="Size.Small" />
+               </div>
+         <MudTextField T="string" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+    </div>
+</MudRadioGroup>
+
+            </MudItem>
+
+        </MudGrid>       
     </MudCardContent>
 </MudCard>
+        </MudItem>  
+        
+
+        <MudItem xs="12" sm="12" lg="6" xl="6">
+            <MudCard>
+                <MudCardContent>
+                     <MudText Typo="Typo.h5" Class="mb-3 font-weight-bold">Dropdowns Addons</MudText>
+        
+                <MudGrid Spacing="2">
+            <MudItem xs="12" sm="12" lg="12" xl="12">
+
+                <div class="row-center mb-3">
+     <MudMenu Class="left-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Error" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+     
+     <MudTextField T="string" Class="input-left-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+</div>
+
+                <div class="row-center mb-3">
+                    <MudTextField T="string" Class="input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+
+     <MudMenu Class="right-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Warning" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+</div>
+
+ <div class="row-center mb-3">
+               
+     <MudMenu Class="left-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Tertiary" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+     
+     <MudTextField T="string" Class="input-left-border-0 input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+     
+ <MudMenu Class="right-outlined-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Tertiary" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+                            <MudMenuItem>Action</MudMenuItem>
+                            <MudMenuItem>Another action</MudMenuItem>
+                            <MudMenuItem>Somethind else here</MudMenuItem>
+                            <MudDivider></MudDivider>
+                            <MudMenuItem>Separated link</MudMenuItem>
+                        </MudMenu>
+
+</div>
+
+               
+
+
+            </MudItem>
+
+        </MudGrid>       
+         
+                </MudCardContent>
+            </MudCard>
 
         </MudItem>
         </MudGrid>

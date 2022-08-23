@@ -8,6 +8,7 @@
 @import "Components/Typography.css";
 @import "Components/Popover.css";
 @import "Components/ListGroup.css";
+@import "Form.css";
 
 @import "Layouts/Shell.css";
 @import "Layouts/SideMenu.css";
