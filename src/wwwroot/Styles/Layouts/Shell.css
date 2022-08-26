@@ -58,7 +58,7 @@
         mask-image: radial-gradient(circle 1.09375rem at 100% 1.09375rem,transparent 0,transparent 1.09375rem,#000 1.09375rem);
         position: sticky;
         width: 1.09375rem;
-        transform: translateX(1.09375rem) ;
+        transform: translateX(1.0675rem) ;
         z-index: 800000;
     }
 

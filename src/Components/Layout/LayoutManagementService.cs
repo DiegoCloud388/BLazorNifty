@@ -192,7 +192,7 @@ namespace BlazorNifty.Components.Layout
         {
             get
             {
-                if (PinnedSidebar && UnitedSidebar)
+                if (UnitedSidebar)
                 {
                     return "airhaus-sidebar airhaus-sidebar-united text-white";
                 }

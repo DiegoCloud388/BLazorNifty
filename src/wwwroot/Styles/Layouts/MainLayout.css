@@ -20,37 +20,27 @@
     background-color: transparent;
 }
 
-    .mud-drawer-open-persistent-right .airhaus-sidebar > * {
-        background-color: transparent;
-    }
-
-
-
     .mud-drawer-open-persistent-right .airhaus-sidebar .mud-tabs-toolbar {
         background-color: transparent;
     }
 
-    .mud-drawer-open-persistent-right .airhaus-sidebar.airhaus-sidebar-united {
+    .airhaus-sidebar.airhaus-sidebar-united {
         background-color: var(--mud-palette-primary);
-        color: white;
     }
 
-        .mud-drawer-open-persistent-right .airhaus-sidebar.airhaus-sidebar-united > * {
+        .airhaus-sidebar.airhaus-sidebar-united .mud-tabs-toolbar {
             background-color: var(--mud-palette-primary);
-            color: white;
         }
-
-        .mud-drawer-open-persistent-right .airhaus-sidebar.airhaus-sidebar-united .mud-tabs-toolbar {
-            background-color: var(--mud-palette-primary);
-            color: white;
-        }
+       
 
 
 .sidebar-backdrop-disabled .mud-overlay .mud-overlay-scrim.mud-overlay-dark {
     background-color: transparent;
 }
 
-
+.sidebar-backdrop-disabled .mud-drawer-temporary {
+    box-shadow: 20px 20px 50px gray;
+} 
 
 
 
