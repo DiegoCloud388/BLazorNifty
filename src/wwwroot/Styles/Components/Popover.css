@@ -1,0 +1,36 @@
+﻿
+
+/*Custom classes*/
+
+.popover {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    font-size: .65625rem;
+}
+
+   .popover .popover-header {
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    font-size: .75rem;
+    color: #373c43;
+    background-color: rgba(55,60,67,.03);
+    border-bottom: 1px solid rgba(0,0,0,.07);
+    border-top-left-radius: calc(.4375rem - 1px);
+    border-top-right-radius: calc(.4375rem - 1px)
+}
+
+    .popover .popover-header:empty {
+        display: none
+    }
+
+   .popover .popover-body {
+    padding: 1rem;
+    color: #75868f;
+   
+}

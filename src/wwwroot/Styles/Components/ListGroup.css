@@ -1,0 +1,42 @@
+﻿
+/*Overrides*/
+
+
+
+.mud-list.mud-list-padding {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+.mud-list-item {
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
+
+
+
+
+
+/*Custom classes*/
+
+.list-rounded {
+    border-width: 1px;
+    border-color: var(--mud-palette-divider);
+    border-radius: var(--mud-default-borderradius);
+}
+
+.list-first-item {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.list-last-item {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.list-disable-text  {
+    color: var(--mud-palette-action-disabled)
+}
