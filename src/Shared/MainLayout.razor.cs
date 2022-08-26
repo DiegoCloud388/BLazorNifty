@@ -129,16 +129,20 @@ namespace BlazorNifty.Shared
             {
                 navigationClass = "drawer-left-nonsticky";
             }
+            else
+            {
+                layoutClass = "layout-sticky-navigation";
+            }
 
             if (!LayoutManagementService.StickyHeader)
             {
                 mainContentClass += " main-content-appbar-unfixed";
-                layoutClass += "layout-nonsticky-header";
+                layoutClass += " layout-nonsticky-header";
             }
             
             if(LayoutManagementService.StickyHeader)
             {
-                layoutClass += "layout-sticky-header";
+                layoutClass += " layout-sticky-header";
             }
 
             if (!LayoutManagementService.PinnedSidebar && LayoutManagementService.DisableSidebarBackdrop && LayoutManagementService.SidebarOpen)

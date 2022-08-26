@@ -34,18 +34,29 @@
        
 
 
-.sidebar-backdrop-disabled .mud-overlay .mud-overlay-scrim.mud-overlay-dark {
+.sidebar-backdrop-disabled .mud-overlay .mud-overlay-scrim.mud-overlay-dark{
     background-color: transparent;
 }
 
 .sidebar-backdrop-disabled .mud-drawer-temporary {
     box-shadow: 20px 20px 50px gray;
-} 
+}
 
+.layout-sticky-navigation.layout-nonsticky-header .mud-drawer.mud-drawer-pos-left {
+    position: absolute;
+    overflow: initial;
+    min-height: calc(100vh - var(--mud-appbar-height)/1.33) !important;
+}
 
+.layout-nonsticky-header .mud-drawer.mud-drawer-pos-right.mud-drawer--open {
+    position: absolute;
+    overflow: initial;
+    
+}
 
-
-
+.mud-drawer-persistent.airhaus-sidebar {
+    min-height: calc(100vh - var(--mud-appbar-height)/1.33) !important;
+}
 
 
 
