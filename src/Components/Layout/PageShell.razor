@@ -3,8 +3,19 @@
     @if (ShellHeader != null)
     {
         <header class="shell-header">
+
             <div class="shell-header-content">
+                @if (LayoutManagementService.PinnedSidebar && !LayoutManagementService.UnitedSidebar)
+                {
+                    <div class="sidebar-helper"></div>
+                }
+
                 @ShellHeader
+                 
+                @if (LayoutManagementService.PinnedSidebar && LayoutManagementService.UnitedSidebar)
+                {
+                    <div class="united-sidebar-helper"></div>
+                }
             </div>
 
         </header>

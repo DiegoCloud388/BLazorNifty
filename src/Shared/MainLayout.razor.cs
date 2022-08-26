@@ -60,7 +60,8 @@ namespace BlazorNifty.Shared
 
         void RightDrawerToggle()
         {
-            _rightDrawerOpen = !_rightDrawerOpen;
+
+            LayoutManagementService.SidebarOpen = !LayoutManagementService.SidebarOpen;
 
             StateHasChanged();
         }
@@ -100,8 +101,8 @@ namespace BlazorNifty.Shared
                 LayoutManagementService.SetDefaultValues(new Dictionary<string, object>()
                 {
                     {"StickyHeader", false},
-                    {"StickyNavigation", false}
-
+                    {"StickyNavigation", false},
+                    {"PinnedSidebar", false}
                 });
 
                 this.firstRender = firstRender;
@@ -138,6 +139,11 @@ namespace BlazorNifty.Shared
             if(LayoutManagementService.StickyHeader)
             {
                 layoutClass += "layout-sticky-header";
+            }
+
+            if (!LayoutManagementService.PinnedSidebar && LayoutManagementService.DisableSidebarBackdrop && LayoutManagementService.SidebarOpen)
+            {
+                layoutClass += " sidebar-backdrop-disabled";
             }
 
             doubleRefresh = true;

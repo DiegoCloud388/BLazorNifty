@@ -18,9 +18,24 @@ namespace BlazorNifty.Components.Layout
 
         [Parameter] public RenderFragment? ShellFooter { get; set; }
 
+        [Inject] public ILayoutManagementService LayoutManagementService { get; set; }
+
         private string shellClass = "shell";
 
+        protected override void OnInitialized()
+        {
+            LayoutManagementService.LayoutChanged += (s, e) => { SetShellClass(); StateHasChanged(); };
+            base.OnInitialized();
+        }
+
         protected override void OnParametersSet()
+        {
+
+            SetShellClass();
+            base.OnParametersSet();
+        }
+
+        private void SetShellClass()
         {
             shellClass = "shell";
 
@@ -29,7 +44,7 @@ namespace BlazorNifty.Components.Layout
                 shellClass += " overlaping";
             }
 
-            if (Rounded)
+            if (Rounded && !(LayoutManagementService.PinnedSidebar && LayoutManagementService.UnitedSidebar))
             {
                 shellClass += " rounded";
             }
@@ -38,8 +53,6 @@ namespace BlazorNifty.Components.Layout
             {
                 shellClass += $" {Class}";
             }
-
-            base.OnParametersSet();
         }
     }
 }

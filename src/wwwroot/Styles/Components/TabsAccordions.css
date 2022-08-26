@@ -98,3 +98,11 @@
     width: unset;
     border-radius: 5px 5px 0px 0px;
 }
+
+.text-white .mud-tab.mud-tab-active, .mud-tab-slider {
+    color: white;
+}
+
+.text-white .mud-tab-slider {
+    background: white;
+}

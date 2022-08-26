@@ -75,15 +75,15 @@
                     <MudText Typo="Typo.body2" Style="color: black;" Class="mt-3">Right Sidebar</MudText>
                     <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
                         <MudText Typo="Typo.body2">Disable backdrop</MudText>
-                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                        <MudSwitch T="bool" @bind-Checked="LayoutManagementService.DisableSidebarBackdrop" Color="Color.Primary"></MudSwitch>
                     </MudStack>
                     <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
                         <MudText Typo="Typo.body2">Unite Sidebar</MudText>
-                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                        <MudSwitch T="bool" @bind-Checked="LayoutManagementService.UnitedSidebar" Color="Color.Primary"></MudSwitch>
                     </MudStack>
                     <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
                         <MudText Typo="Typo.body2">Pinned Sidebar</MudText>
-                        <MudSwitch T="bool" Color="Color.Primary"></MudSwitch>
+                        <MudSwitch T="bool" @bind-Checked="LayoutManagementService.PinnedSidebar" Color="Color.Primary"></MudSwitch>
                     </MudStack>
                 </MudStack>
             </MudPaper>

@@ -20,6 +20,65 @@
     color: white;
 }
 
+.text-white {
+    color: white;
+}
+
+.text-white .h1,
+.text-white .h2,
+.text-white .h3,
+.text-white .h4,
+.text-white .h5,
+.text-white .h6,
+.text-white h1,
+.text-white h2,
+.text-white h3,
+.text-white h4,
+.text-white h5,
+.text-white h6 {
+    color: white;
+}
+
+.text-white .mud-typography-body1 {
+    color: white;
+}
+
+.text-white .mud-typography-body2 {
+    color: white;
+}
+
+.text-white .text-black {
+    color: white;
+}
+
+.text-black {
+    color: black;
+}
+
+    .text-black .h1,
+    .text-black .h2,
+    .text-black .h3,
+    .text-black .h4,
+    .text-black .h5,
+    .text-black .h6,
+    .text-black h1,
+    .text-black h2,
+    .text-black h3,
+    .text-black h4,
+    .text-black h5,
+    .text-black h6 {
+        color: black;
+    }
+
+    .text-black .mud-typography-body1 {
+        color: black;
+    }
+
+    .text-black .mud-typography-body2 {
+        color: black;
+    }
+
+
 .page-description {
     color: #cfd6df !important;
 }

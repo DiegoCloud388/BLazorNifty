@@ -14,8 +14,17 @@ namespace BlazorNifty.Components.Layout
         public bool NavigationExpandedMode { get; set; }
         public bool NavigationTemporaryMode { get; set; }
         public bool NavigationResponsiveMode { get; set; }
+        public bool PinnedSidebar { get; set; }
+        public bool UnitedSidebar { get; set; }
         DrawerVariant NavigationVariant { get; }
         DrawerClipMode NavigationClipMode { get; }
+        DrawerVariant SidebarVariant { get; }
+        DrawerClipMode SidebarClipMode { get; }
+        public bool SidebarOpen { get; set; }
+
+        public bool DisableSidebarBackdrop { get; set; }
+
+        public string SidebarClass { get; }
         public void ResetLayout();
         void SetDefaultValues(Dictionary<string, object> defaultValues);
     }
@@ -128,6 +137,78 @@ namespace BlazorNifty.Components.Layout
             }
         }
 
+        public bool PinnedSidebar 
+        {
+            get { return (bool)CurrentValues[nameof(PinnedSidebar)]; }
+            set 
+            { 
+                SetCurrentValue(nameof(PinnedSidebar), value);
+                SetCurrentValue(nameof(SidebarOpen), value);
+            }
+        }
+        public bool UnitedSidebar 
+        {
+            get { return (bool)CurrentValues[nameof(UnitedSidebar)]; }
+            set { SetCurrentValue(nameof(UnitedSidebar), value); }
+        }
+
+        public DrawerVariant SidebarVariant
+        {
+            get
+            {
+                if (PinnedSidebar)
+                {
+                    return DrawerVariant.Persistent;
+                }
+                else
+                {
+                    return DrawerVariant.Temporary;
+                }
+            }
+        }
+
+        public DrawerClipMode SidebarClipMode
+        {
+            get
+            {
+                if (PinnedSidebar)
+                {
+                    return DrawerClipMode.Always;
+                }
+                else
+                {
+                    return DrawerClipMode.Never;
+                }
+            }
+        }
+
+        public bool SidebarOpen
+        {
+            get { return (bool)CurrentValues[nameof(SidebarOpen)]; }
+            set { SetCurrentValue(nameof(SidebarOpen), value); }
+        }
+
+        public string SidebarClass
+        {
+            get
+            {
+                if (PinnedSidebar && UnitedSidebar)
+                {
+                    return "airhaus-sidebar airhaus-sidebar-united text-white";
+                }
+                else
+                {
+                    return "airhaus-sidebar";
+                }
+            }
+        }
+
+        public bool DisableSidebarBackdrop
+        {
+            get { return (bool)CurrentValues[nameof(DisableSidebarBackdrop)]; }
+            set { SetCurrentValue(nameof(DisableSidebarBackdrop), value); }
+        }
+
         public LayoutManagementService()
         {
             DefaultValues = new Dictionary<string, object>()
@@ -139,6 +220,10 @@ namespace BlazorNifty.Components.Layout
                 { nameof(NavigationExpandedMode), true },
                 { nameof(NavigationTemporaryMode), false },
                 { nameof(NavigationResponsiveMode), false },
+                { nameof(PinnedSidebar), true },
+                { nameof(UnitedSidebar), false },
+                { nameof(SidebarOpen), false },
+                { nameof(DisableSidebarBackdrop), true },
             };
 
             CurrentValues = DefaultValues.ToDictionary(entry => entry.Key, entry => entry.Value);  
