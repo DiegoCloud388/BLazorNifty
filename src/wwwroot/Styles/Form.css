@@ -9,11 +9,13 @@
 .left-icon-addition {
     border: 1px solid #bdbdbdff;
     border-radius: 4px;
-    padding: 0.1325rem 0.55rem;
-    margin-top: 1px;
+    display: flex;
+    align-content: center;
+    padding: 0.2895rem 0.55rem;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-right-width: 0px;
+    margin-top: 1px;
 }
 
 .left-dropdown-addition.mud-menu .mud-button {
@@ -89,20 +91,23 @@
 .right-icon-addition {
     border: 1px solid #bdbdbdff;
     border-radius: 4px;
-    padding: 0.1325rem 0.55rem;
-    margin-top: 1px;
+    display: flex;
+    align-content: center;
+    padding: 0.2895rem 0.55rem;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-left-width: 0px;
+    margin-top: 1px;
 }
 
 .middle-icon-addition {
     border: 1px solid #bdbdbdff;
-    padding: 0.1325rem 0.55rem;
-    margin-top: 3px;
-    margin-bottom: 2px;
+    display: flex;
+    align-content: center;
+    padding: 0.2895rem 0.55rem;
     border-left-width: 0px;
     border-right-width: 0px;
+    margin-top: 1px;
 }
 
 .right-text-addition {

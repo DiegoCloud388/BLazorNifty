@@ -1,5 +1,6 @@
 ﻿@page "/forms/general"
 
+@using System.ComponentModel.DataAnnotations
 
 <PageTitle>General</PageTitle>
 
@@ -169,13 +170,13 @@
             <MudItem xs="12" sm="12" lg="12" xl="12">
 
 
-<div class="row-center mb-3">
-          <div class="left-icon-addition">
+        <div class="row-center mb-3">
+            <div class="left-icon-addition">
                <MudIcon Icon="@Icons.Outlined.Star"/>
-         </div> 
+            </div> 
 
-     <MudTextField T="string" Placeholder="Username" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
-</div>
+             <MudTextField T="string" Placeholder="Username" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
+        </div>
 
 
 <div class="row-center mb-3">
@@ -266,7 +267,7 @@
         </MudItem>
         </MudGrid>
 
-          <MudGrid Spacing="2">
+          <MudGrid Spacing="2" Class="mb-2">
         <MudItem xs="12" sm="12" lg="6" xl="6">
             <MudCard>
     <MudCardContent>
@@ -375,6 +376,78 @@
 
         </MudItem>
         </MudGrid>
+
+        <EditForm Model="commandCreate" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator/>
+        <MudCard>
+             <MudCardContent>
+                <MudText Typo="Typo.h5" Class="mb-2 font-weight-bold">Validation States</MudText>
+                    <MudGrid Spacing="2">
+
+                        <MudItem xs="12" sm="6" lg="4" xl="4">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">First name</span></MudText>
+                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                            </MudStack>    
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="4" xl="4">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">Last name</span></MudText>
+                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                            </MudStack>    
+                        </MudItem>
+
+                    <MudItem xs="12" sm="6" lg="4" xl="4">
+                        <MudStack Spacing="0">
+                            <MudText Typo="Typo.caption"><span class="light-label">User name</span></MudText>
+                            
+                             <div class="row-center">
+                            <div class="left-icon-addition">
+                                <MudIcon Color="Color.Default" Icon="@Icons.Filled.AlternateEmail" />
+                            </div>
+
+                            <MudTextField T="string" Placeholder="Username" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            </div>
+                        </MudStack>
+                    </MudItem>
+
+                      <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">City</span></MudText>
+                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                            </MudStack>    
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="3" xl="3">
+                             <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">State</span></MudText>
+                                <MudSelect Margin="Margin.Dense" PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter" T="string" Placeholder="Choose..." Variant="Variant.Outlined">
+                                    <MudSelectItem Value="@("State 1")" />
+                                    <MudSelectItem Value="@("State 2")" />
+                                    <MudSelectItem Value="@("State 3")" />
+                                </MudSelect>
+                            </MudStack>       
+                        </MudItem>
+
+                         <MudItem xs="12" sm="6" lg="3" xl="3">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">Zip</span></MudText>
+                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                            </MudStack>    
+                        </MudItem>
+
+                         <MudItem>
+                              <MudStack Justify="Justify.FlexStart" AlignItems="AlignItems.Start">
+                                   <MudCheckBox Class="ml-n1" T="bool" Dense=true Size="Size.Small" Label="Agree to terms and conditions"></MudCheckBox>   
+                
+                                   <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary">Submit form</MudButton>
+                             </MudStack>
+                         </MudItem>              
+                </MudGrid>       
+            </MudCardContent>
+        </MudCard> 
+         </EditForm>
 
     </ShellBody>
 </PageShell>
