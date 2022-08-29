@@ -6,6 +6,13 @@
     font-weight:bold;
 }
 
+.horizontal-required-mark {
+    height: 13px;
+    width: 13px;
+    margin-left: 4px;
+    margin-bottom: -2px;
+}
+
 .left-icon-addition {
     border: 1px solid #bdbdbdff;
     border-radius: 4px;
@@ -15,32 +22,48 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-right-width: 0px;
-    margin-top: 1px;
+    margin-top: 3px;
 }
 
 .left-dropdown-addition.mud-menu .mud-button {
-    margin-top: 1px;
     padding: 0.3359rem 0.55rem;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+    margin-top: 3px;
+}
+
+.left-dropdown-addition.mud-menu {
+    display: flex;
+    align-self: flex-start;
 }
 
 .right-outlined-dropdown-addition.mud-menu .mud-button {
-    margin-top: 1px;
     padding: 0.2735rem 0.55rem;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    margin-top: 3px;
+}
+
+.right-outlined-dropdown-addition.mud-menu {
+    display: flex;
+    align-self: flex-start;
 }
 
 .right-dropdown-addition.mud-menu .mud-button {
-    margin-top: 1px;
+    margin-top: 3px;
     padding: 0.3359rem 0.55rem;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    margin-top: 3px;
+}
+
+.right-dropdown-addition.mud-menu {
+    display: flex;
+    align-self: flex-start;
 }
 
 .left-button-addition.mud-button {
-    margin-top: 1px;
+    margin-top: 3px;
     padding: 0.3359rem 0.55rem;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -50,7 +73,7 @@
     border: 1px solid #bdbdbdff;
     border-radius: 4px;
     padding: 0.165rem 0.55rem;
-    margin-top: 1px;
+    margin-top: 3px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-right-width: 0px;
@@ -60,21 +83,21 @@
     border: 1px solid #bdbdbdff;
     border-radius: 4px;
     padding: 0.165rem 0.55rem;
-    margin-top: 1px;
+    margin-top: 3px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-right-width: 0px;
 }
 
 .right-button-addition.mud-button {
-    margin-top: 1px;
+    margin-top: 3px;
     padding: 0.3359rem 0.55rem;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
 
 .middle-button-addition.mud-button {
-    margin-top: 1px;
+    margin-top: 3px;
     padding: 0.3359rem 0.55rem;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -82,10 +105,10 @@
     border-bottom-right-radius: 0px;
 }
 
-.row-center {
+.row-start {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .right-icon-addition {
@@ -97,7 +120,7 @@
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-left-width: 0px;
-    margin-top: 1px;
+    margin-top: 3px;
 }
 
 .middle-icon-addition {
@@ -107,14 +130,14 @@
     padding: 0.2895rem 0.55rem;
     border-left-width: 0px;
     border-right-width: 0px;
-    margin-top: 1px;
+    margin-top: 3px;
 }
 
 .right-text-addition {
     border: 1px solid #bdbdbdff;
     border-radius: 4px;
     padding: 0.3364rem 0.55rem;
-    margin-top: 1px;
+    margin-top: 3px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-left-width: 0px;

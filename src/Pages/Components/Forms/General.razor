@@ -170,7 +170,7 @@
             <MudItem xs="12" sm="12" lg="12" xl="12">
 
 
-        <div class="row-center mb-3">
+        <div class="row-start mb-3">
             <div class="left-icon-addition">
                <MudIcon Icon="@Icons.Outlined.Star"/>
             </div> 
@@ -179,26 +179,25 @@
         </div>
 
 
-<div class="row-center mb-3">
+<div class="row-start mb-3">
      <MudTextField T="string" Placeholder="Folder Name" Class="input-right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
                <div class="right-icon-addition">
             <MudIcon Icon="@Icons.Outlined.AttachEmail"/>
          </div> 
 </div>
 
-<div class="row-center mb-3">
+<div class="row-start mb-3">
           <div class="left-icon-addition">
             <MudIcon Icon="@Icons.Outlined.Info"/>
          </div> 
 
      <MudTextField T="string" Placeholder="Earning" Class="input-left-border-radius-0 input-right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 
-@* <div class="right-text-addition">
-            <MudText>.00</MudText>
-         </div>*@
+     <MudText Class="right-text-addition">.00</MudText>
+
 </div>
 
-<div class="row-center mb-3">
+<div class="row-start mb-3">
 
      <MudTextField T="string" Placeholder="Username" Class="input-right-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 
@@ -225,20 +224,20 @@
             <MudItem xs="12" sm="12" lg="12" xl="12">
 
 
-<div class="row-center mb-3">
+<div class="row-start mb-3">
      <MudButton Class="left-button-addition" DisableElevation=true Color="Color.Warning" Variant="Variant.Filled">Button</MudButton>
      
      <MudTextField T="string" Class="input-left-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 </div>
 
 
-<div class="row-center mb-3">  
+<div class="row-start mb-3">  
      <MudTextField T="string" Placeholder="Recipient's username" Class="input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
       
       <MudButton Class="right-button-addition" DisableElevation=true Color="Color.Info" Variant="Variant.Filled">Button</MudButton>
 </div>
 
-<div class="row-center mb-3">
+<div class="row-start mb-3">
 
        <MudButton Class="left-button-addition" DisableElevation=true Color="Color.Tertiary" Variant="Variant.Filled">Button</MudButton>
      
@@ -247,7 +246,7 @@
      <MudTextField T="string" Class="input-left-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 </div>
 
-<div class="row-center mb-3">      
+<div class="row-start mb-3">      
 
      <MudTextField T="string" Class="input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 
@@ -277,7 +276,7 @@
             <MudItem xs="12" sm="12" lg="12" xl="12">
 
 
-<div class="row-center mb-3">
+<div class="row-start mb-3">
          <div class="left-checkbox-addition">    
           <MudCheckBox T="bool" Dense=true Color="Color.Primary" UnCheckedColor="Color.Default" Size="Size.Small" />
            </div>
@@ -286,7 +285,7 @@
 </div>
 
 <MudRadioGroup T="int">
-    <div class="row-center mb-3">
+    <div class="row-start mb-3">
              <div class="left-radio-addition">    
                     <MudRadio Option="1" Color="Color.Primary" UnCheckedColor="Color.Default" Dense=true Size="Size.Small" />
                </div>
@@ -294,7 +293,7 @@
          <MudTextField T="string" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
     </div>
 
-    <div class="row-center mb-3">
+    <div class="row-start mb-3">
              <div class="left-radio-addition">    
                     <MudRadio Option="2" Color="Color.Primary" UnCheckedColor="Color.Default" Dense=true Size="Size.Small" />
                </div>
@@ -318,7 +317,7 @@
                 <MudGrid Spacing="2">
             <MudItem xs="12" sm="12" lg="12" xl="12">
 
-                <div class="row-center mb-3">
+                <div class="row-start mb-3">
      <MudMenu Class="left-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Error" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
                             <MudMenuItem>Action</MudMenuItem>
                             <MudMenuItem>Another action</MudMenuItem>
@@ -330,7 +329,7 @@
      <MudTextField T="string" Class="input-left-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 </div>
 
-                <div class="row-center mb-3">
+                <div class="row-start mb-3">
                     <MudTextField T="string" Class="input-right-border-0" Variant="Variant.Outlined" Margin="Margin.Dense"/>
 
      <MudMenu Class="right-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Warning" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
@@ -342,7 +341,7 @@
                         </MudMenu>
 </div>
 
- <div class="row-center mb-3">
+ <div class="row-start mb-3">
                
      <MudMenu Class="left-dropdown-addition" DisableElevation=true EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Tertiary" Variant="Variant.Filled" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
                             <MudMenuItem>Action</MudMenuItem>
@@ -377,7 +376,7 @@
         </MudItem>
         </MudGrid>
 
-        <EditForm Model="commandCreate" OnValidSubmit="OnValidSubmit">
+        <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator/>
         <MudCard>
              <MudCardContent>
@@ -386,64 +385,80 @@
 
                         <MudItem xs="12" sm="6" lg="4" xl="4">
                             <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">First name</span></MudText>
-                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                                <MudText Typo="Typo.caption"><span class="light-label">First name</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
+                                <MudTextField @bind-Value="commandCreate.FirtName" For="@(() => commandCreate.FirtName)" Margin="Margin.Dense" Variant="Variant.Outlined" 
+                                    AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.FirtName))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
 
                         <MudItem xs="12" sm="6" lg="4" xl="4">
                             <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">Last name</span></MudText>
-                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                                <MudText Typo="Typo.caption"><span class="light-label">Last name</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
+                                <MudTextField @bind-Value="commandCreate.LastName" For="@(() => commandCreate.LastName)" Margin="Margin.Dense" Variant="Variant.Outlined"
+                                    AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.LastName))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
 
                     <MudItem xs="12" sm="6" lg="4" xl="4">
                         <MudStack Spacing="0">
-                            <MudText Typo="Typo.caption"><span class="light-label">User name</span></MudText>
+                            <MudText Typo="Typo.caption"><span class="light-label">User name</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
                             
-                             <div class="row-center">
-                            <div class="left-icon-addition">
-                                <MudIcon Color="Color.Default" Icon="@Icons.Filled.AlternateEmail" />
-                            </div>
-
-                            <MudTextField T="string" Placeholder="Username" Class="input-left-border-radius-0" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                            <div class="row-start">
+                            
+                                 <div class="left-icon-addition">    
+                                  <MudIcon Color="Color.Default" Icon="@Icons.Filled.AlternateEmail"/>
+                                 </div>
+     
+                            
+                                <MudTextField @bind-Value="commandCreate.UserName" For="@(() => commandCreate.UserName)" 
+                                        Margin="Margin.Dense" Variant="Variant.Outlined" Class="input-left-border-radius-0"
+                                         AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.UserName))" AdornmentIcon="@Icons.Filled.Check"/>                         
                             </div>
                         </MudStack>
                     </MudItem>
 
                       <MudItem xs="12" sm="6" lg="6" xl="6">
                             <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">City</span></MudText>
-                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                                <MudText Typo="Typo.caption"><span class="light-label">City</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
+                                 <MudTextField @bind-Value="commandCreate.City" For="@(() => commandCreate.City)" 
+                                    Margin="Margin.Dense" Variant="Variant.Outlined"
+                                     AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.City))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
 
                         <MudItem xs="12" sm="6" lg="3" xl="3">
                              <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">State</span></MudText>
-                                <MudSelect Margin="Margin.Dense" PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter" T="string" Placeholder="Choose..." Variant="Variant.Outlined">
-                                    <MudSelectItem Value="@("State 1")" />
-                                    <MudSelectItem Value="@("State 2")" />
-                                    <MudSelectItem Value="@("State 3")" />
+                                <MudText Typo="Typo.caption"><span class="light-label">State</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
+                                <MudSelect Margin="Margin.Dense" @bind-Value="commandCreate.StateId" For="@(() => commandCreate.StateId)" 
+                                    PopoverClass="rounded" Dense=true  AnchorOrigin="Origin.BottomCenter"
+                                    T="int?" Variant="Variant.Outlined"  AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.StateId))" AdornmentIcon="@Icons.Filled.Check">
+                                    <MudSelectItem  Value="(int?)1">Czech republic</MudSelectItem>
+                                    <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
                                 </MudSelect>
                             </MudStack>       
                         </MudItem>
 
                          <MudItem xs="12" sm="6" lg="3" xl="3">
                             <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">Zip</span></MudText>
-                                <MudTextField T="string" Margin="Margin.Dense" Color="Color.Primary" Variant="Variant.Outlined" />
+                                <MudText Typo="Typo.caption"><span class="light-label">Zip</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
+                                <MudTextField @bind-Value="commandCreate.Zip" For="@(() => commandCreate.Zip)" 
+                                    Margin="Margin.Dense" Variant="Variant.Outlined" 
+                                     AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.Zip))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
 
-                         <MudItem>
+                        <MudItem>
                               <MudStack Justify="Justify.FlexStart" AlignItems="AlignItems.Start">
-                                   <MudCheckBox Class="ml-n1" T="bool" Dense=true Size="Size.Small" Label="Agree to terms and conditions"></MudCheckBox>   
-                
+                                  <MudStack Row=true AlignItems="AlignItems.Center">
+                                      <MudCheckBox Class="ml-n1" Dense=true Size="Size.Small"
+                                   Label="Agree to terms and conditions" @bind-Checked="commandCreate.IsGdprConfirmed" For="@(() => commandCreate.IsGdprConfirmed)"/>   
+                                   <MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark ml-n1" Color="Color.Error"/>
+                                  </MudStack>
+                                             
                                    <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary">Submit form</MudButton>
                              </MudStack>
-                         </MudItem>              
+                         </MudItem>       
+                                                
                 </MudGrid>       
             </MudCardContent>
         </MudCard> 

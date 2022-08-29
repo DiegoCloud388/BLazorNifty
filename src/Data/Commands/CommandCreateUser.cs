@@ -4,25 +4,26 @@ namespace BlazorNifty.Data.Commands
 {
     public class CommandCreateUser
     {
-        [Required]
+        [Required(ErrorMessage = "The First name is required.")]
         public string FirtName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field Last name is required.")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field User name is required.")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field City is required.")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field State is required.")]
         public int? StateId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field Zip is required.")]
         public string Zip { get; set; }
 
         [Required]
-        public bool? IsGdprConfirmed { get; set; }
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Agree to terms and conditions must be checked.")]
+        public bool IsGdprConfirmed { get; set; }
     }
 }
