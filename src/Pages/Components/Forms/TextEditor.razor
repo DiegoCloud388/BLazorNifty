@@ -58,7 +58,7 @@
                                 </span>
                                 <span class="ql-formats">
                                     @*<button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Insert Image"></button>*@
-                                    <MudIconButton Icon="@Icons.Material.Filled.Image" HtmlTag="label" Class="ql-image" data-placement="bottom" for="fileInput">Insert Image</MudIconButton>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Image" Size="Size.Small" HtmlTag="label" Class="ql-image" data-placement="bottom" for="fileInput">Insert Image</MudIconButton>
                                     <InputFile id="fileInput" OnChange="UploadFile" hidden multiple />
                              </span>
                             </ToolbarContent>
@@ -139,7 +139,7 @@
     private async Task Helper()
     {
         await this.quillHtml.InsertImage("images/IMG_20181202_152949.jpg");
-    }
+	}
 
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
