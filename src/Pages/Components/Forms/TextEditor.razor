@@ -1,8 +1,9 @@
 ﻿@page "/forms/text-editor"
+@using System.Text
 
 <PageTitle>Text Editor</PageTitle>
 
-<PageShell Rounded="false" Overlapping="false">
+<PageShell Rounded="true" Overlapping="true">
     <ShellHeader>
         <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
         <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Text Editor</MudText>
@@ -10,7 +11,77 @@
     </ShellHeader>
 
     <ShellBody>
-        
+        <MudGrid Spacing="2" Justify="Justify.FlexStart">
+            <MudItem sm="12">
+                <MudCard Outlined="true">
+                    <MudCardContent>
+                        <BlazoredTextEditor @ref="@quillHtml">
+                            <ToolbarContent>                                
+                                <select class="ql-header">
+                                    <option selected=""></option>
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                    <option value="4"></option>
+                                    <option value="5"></option>
+                                </select>
+                                <select class="ql-size">
+                                    <option value="small"></option>
+                                    <option selected=""></option>
+                                    <option value="large"></option>
+                                    <option value="huge"></option>
+                                </select>
+                                <span class="ql-formats">
+                                    <button class="ql-bold"></button>
+                                    <button class="ql-italic"></button>
+                                    <button class="ql-underline"></button>
+                                    <button class="ql-strike"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <select class="ql-color"></select>
+                                    <select class="ql-background"></select>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-list" value="ordered"></button>
+                                    <button class="ql-list" value="bullet"></button>
+                                    <button class="ql-indent" value="-1"></button>
+                                    <button class="ql-indent" value="+1"></button>
+                                    <select class="ql-align">
+                                        <option selected=""></option>
+                                        <option value="center"></option>
+                                        <option value="right"></option>
+                                        <option value="justify"></option>
+                                    </select>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-link"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    @*<button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Insert Image"></button>*@
+                                    <MudIconButton Icon="@Icons.Material.Filled.Image" Size="Size.Small" HtmlTag="label" Class="ql-image" data-placement="bottom" for="fileInput">Insert Image</MudIconButton>
+                                    <InputFile id="fileInput" OnChange="UploadFile" hidden multiple />
+                             </span>
+                            </ToolbarContent>
+                            <EditorContent>
+                                <h4>This Toolbar works with HTML</h4>
+                                <a href="https://github.com/ADefWebserver/Blazor-Blogs">
+                                BlazorHelpWebsite.com</a>
+                            </EditorContent>
+                        </BlazoredTextEditor>
+
+                        <br />
+                        <button class="btn btn-primary" 
+                                @onclick="GetHTML">Show HTML</button>
+                        <br />
+                        <div>
+                            <br />
+                            @quillHTMLContent
+                        </div>
+                        <br />
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
 
     </ShellBody>
 
@@ -24,6 +95,71 @@
         new BreadcrumbItem("Text Editor", href: null, disabled: true)
     };
 
+    BlazoredTextEditor quillHtml = new();
+    string quillHTMLContent = string.Empty;
+    private long maxFileSize = 20971520;
 
+    public async void GetHTML()
+    {
+        try
+        {
+            quillHTMLContent = await this.quillHtml.GetHTML();
+        }
+        catch(Exception ex)
+        {
+            
+        }
 
+        StateHasChanged();
+    }
+
+    public async void SetHTML()
+    {
+        string QuillContent =
+            @"<a href='http://BlazorHelpWebsite.com/'>" +
+            "<img src='images/IMG_20181202_152949.jpg' /></a>";
+
+        await this.quillHtml.LoadHTMLContent(QuillContent);
+
+        StateHasChanged();
+    }
+
+    private async Task InsertImage(string imageUrl)
+    {
+        try
+        {
+            await this.quillHtml.InsertImage(imageUrl);
+        }
+        catch(Exception ex)
+        {
+            
+        }
+    }
+
+    private async Task Helper()
+    {
+        await this.quillHtml.InsertImage("images/IMG_20181202_152949.jpg");
+	}
+
+    private async Task UploadFile(InputFileChangeEventArgs e)
+    {
+        foreach(var file in e.GetMultipleFiles())
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                await e.File.OpenReadStream(maxFileSize).CopyToAsync(ms);
+                var bytes = ms.ToArray();
+
+                string imageType = file.ContentType;
+                string imageUrl = $"data:{imageType};base64,{Convert.ToBase64String(bytes)}";                
+
+                await InsertImage(imageUrl);
+            }
+            catch(Exception ex)
+            {
+                
+            }
+        }       
+    }
 }
