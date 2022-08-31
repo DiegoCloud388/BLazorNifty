@@ -1,8 +1,9 @@
 ﻿@page "/forms/tags"
+@using BlazorNifty.Components.Tags;
 
 <PageTitle>Tags</PageTitle>
 
-<PageShell Rounded="false" Overlapping="false">
+<PageShell Rounded="true" Overlapping="true">
     <ShellHeader>
         <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
         <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Tags</MudText>
@@ -10,7 +11,39 @@
     </ShellHeader>
 
     <ShellBody>
-        
+        <MudGrid Spacing="2">
+            <MudItem xs="12" sm="12" md="6">
+                <MudStack>
+                    <MudCard Elevation="4">
+                        <MudCardContent>
+                            <MudText Typo=Typo.h3><b>Tagin</b></MudText>    
+                            <MudText>Simple tag input for Bootstrap</MudText>
+
+                            <MudStack Row="false" AlignItems="AlignItems.Start">
+                                <MudText Class="mt-4" Typo="Typo.h4"><b>Basic</b></MudText>                         
+                                <ChipsInput Chips='new List<string>() { "dark mode", "favicon", "svg" }'></ChipsInput>
+                            </MudStack>               
+                            
+                            <MudStack Row="false" AlignItems="AlignItems.Start">
+                                <MudText Class="mt-4" Typo="Typo.h4"><b>Placeholder</b></MudText> 
+                                <ChipsInput Placeholder="Add a color ... (then press comma)" Chips='new List<string>() { "dark mode", "favicon", "svg" }'></ChipsInput>
+                            </MudStack>
+                        </MudCardContent>
+                        <MudCardContent>
+                        
+                        </MudCardContent>
+                    </MudCard>
+                </MudStack>
+            </MudItem>
+
+            <MudItem sm="6">
+                <MudCard Outlined="true">
+                    <MudCardContent>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
 
     </ShellBody>
 
@@ -23,7 +56,6 @@
         new BreadcrumbItem("Forms", href: "#"),
         new BreadcrumbItem("Tags", href: null, disabled: true)
     };
-
 
 
 }
