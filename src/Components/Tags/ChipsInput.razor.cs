@@ -6,6 +6,8 @@ namespace BlazorNifty.Components.Tags
 {
     public partial class ChipsInput
     {
+        #region Properties
+
         /// <summary>
         /// The list of the "applied" chips
         /// </summary>
@@ -40,19 +42,19 @@ namespace BlazorNifty.Components.Tags
         /// The css class placed on every chip
         /// </summary>
         [Parameter]
-        public string ChipClass { get; set; } = "";
+        public string StyleChip { get; set; } = string.Empty;
 
         /// <summary>
         /// The css class placed on the list tag of the chips
         /// </summary>
         [Parameter]
-        public string ChipsListClass { get; set; } = "";
+        public string StyleChipsList { get; set; } = string.Empty;
 
         /// <summary>
         /// The css class placed on the container of the chips input
         /// </summary>
         [Parameter]
-        public string ChipsContainerClass { get; set; } = "";
+        public string StyleChipsContainer { get; set; } = string.Empty;
 
         /// <summary>
         /// Indicates whether or not backspace will remove the last chip
@@ -77,6 +79,12 @@ namespace BlazorNifty.Components.Tags
         /// </summary>
         [Parameter]
         public bool AllowEmptyValue { get; set; } = false;
+
+        /// <summary>
+        /// Indicates whether or not duplicate values
+        /// </summary>
+        [Parameter]
+        public bool AllowDuplicateValues { get; set; } = false;
 
         /// <summary>
         /// The validation message to use when the AllowEmptyValue rule is not respected
@@ -150,9 +158,19 @@ namespace BlazorNifty.Components.Tags
         [Parameter]
         public Dictionary<string, object> InputAttributes { get; set; } = new Dictionary<string, object>();
 
+        /// <summary>
+        /// Custom attribute for placeholder
+        /// </summary>
         [Parameter]
-        public string Placeholder { get; set; } = string.Empty;
+        public string PlaceholderText { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Custom attribute separator 
+        /// </summary>
+        [Parameter]
+        public string Separator { get; set; } = "Enter";
+
+        #endregion
 
         private string currentInputValue = "";
         private string prevInputValue = "";
@@ -182,7 +200,7 @@ namespace BlazorNifty.Components.Tags
             validationErrors.Clear();
 
             if (EnableBackspaceRemove && args.Key == "Backspace" && Chips.Count > 0 && prevInputValue.Length == 0 && !ReadonlyChips) RemoveChip(Chips.Last());
-            if (args.Key != "Enter" || Chips.Contains(currentInputValue, StringComparer.OrdinalIgnoreCase)) return;
+            if (args.Key != Separator) return;
             if (CustomValidation.HasDelegate) CustomValidation.InvokeAsync(new ChipValidationArgs(Chips, currentInputValue, validationErrors));
             if (string.IsNullOrEmpty(currentInputValue) && !AllowEmptyValue) validationErrors.Add(AllowEmptyValueValidationMessage);
             if (MaxValueCount != null && Chips.Count == MaxValueCount) validationErrors.Add(MaxValueCountValidationMessage);
@@ -190,8 +208,13 @@ namespace BlazorNifty.Components.Tags
             if (MinValueLength != null && currentInputValue.Length < MinValueLength) validationErrors.Add(MinValueLengthValidationMessage);
             if (AllowedValues != null && AllowedValues.Count > 0 && !AllowedValues.Contains(currentInputValue, StringComparer.OrdinalIgnoreCase)) validationErrors.Add(AllowedValueValidationMessage);
             if (validationErrors.Count > 0) return;
+            if (!AllowDuplicateValues && Chips.Contains(currentInputValue, StringComparer.OrdinalIgnoreCase)) return;
 
-            Chips.Add(currentInputValue);
+            if (Separator.ToCharArray().Length == 1) 
+                Chips.Add(prevInputValue);
+            else
+                Chips.Add(currentInputValue);
+
             currentInputValue = "";
             OnChipsChanged.InvokeAsync(Chips);
         }

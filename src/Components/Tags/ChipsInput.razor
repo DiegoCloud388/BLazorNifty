@@ -1,8 +1,8 @@
-﻿<div class="@ChipsContainerClass" style="display: flex; flex-wrap: wrap; border: 1px solid grey; border-radius: .5rem">
-    <ul class="@ChipsListClass" style="display: inline-flex; flex-wrap: wrap; width: 100%; margin-left: 4px; padding: 2px; list-style: none">
+﻿<div class="@StyleChipsContainer" style="display: flex; flex-wrap: wrap; border: 1px solid grey; border-radius: .2rem">
+    <ul class="@StyleChipsList" style="display: inline-flex; flex-wrap: wrap; width: 100%; margin-left: 4px; padding: 2px; list-style: none">
         @foreach (string chip in Chips)
         {
-            <li class="@ChipClass" id="@chip" style="display: flex; justify-content: center; align-items: center; padding: 0 25px; height: 25px; border-radius: .4rem; color: white; background-color: #25476aff; line-height: 1.6; margin: 3px 5px 2px 0px; padding: 0 10px; ">
+            <li class="@StyleChip" id="@chip" style="display: flex; justify-content: center; align-items: center; padding: 0 25px; height: 25px; border-radius: .4rem; color: white; background-color: #25476aff; line-height: 1.6; margin: 3px 5px 2px 0px; padding: 0 10px; ">
                 @if (PrependIconTemplate != null)
                 {
                     @PrependIconTemplate
@@ -16,7 +16,7 @@
             </li>
         }
         <li style="flex-grow: 1; margin: 5px 5px 5px 0px;">
-            <input type="text" placeholder="Placeholder" @bind-value="currentInputValue" @onkeyup="OnKeyUp" @oninput="OnInput" @onkeydown="OnKeyDown" style='border: none; width: 100%; @(ShowInputOutline ? "" : "outline: none;")' @attributes="InputAttributes" />
+            <input type="text" placeholder="@PlaceholderText" @bind-value="currentInputValue" @onkeyup="OnKeyUp" @oninput="OnInput" @onkeydown="OnKeyDown" style='border: none; width: 100%; @(ShowInputOutline ? "" : "outline: none;")' @attributes="InputAttributes" />
         </li>
     </ul>
 </div>
