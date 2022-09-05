@@ -23,33 +23,28 @@ namespace BlazorNifty.Pages.Components.Forms
 
         private Adornment GetAdornmentIfFieldIsValid(string fieldName, bool onlyIfModified = true)
         {
-            var identifier = editContext.Field(fieldName);
-
-            var isModified = editContext.IsModified(identifier);
-
-            if (onlyIfModified && (!isModified))
+            if (IsFieldValid(fieldName, onlyIfModified))
             {
-                return Adornment.None;
+                return Adornment.End;
             }
 
-            var isValid = !editContext.GetValidationMessages(identifier).Any();
+            return Adornment.None;
 
-            return isValid ? Adornment.End : Adornment.None;
         }
 
-        private bool IsFieldValid(string fieldName, bool onlyIfModified = false)
+        private bool IsFieldValid(string fieldName, bool onlyIfModified = true)
         {
             var identifier = editContext.Field(fieldName);
-
-            var isValid = !editContext.GetValidationMessages(identifier).Any();
-
+        
             if (onlyIfModified)
             {
                 var isModified = editContext.IsModified(identifier);
 
-                if (isModified && isValid)
-                    return true;
+                if (!isModified)
+                    return false;
             }
+
+            var isValid = !editContext.GetValidationMessages(identifier).Any();
 
             return isValid;
         }

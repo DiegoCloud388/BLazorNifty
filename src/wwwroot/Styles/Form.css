@@ -164,3 +164,21 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
+.checkbox-success.mud-checkbox .mud-typography, .checkbox-success.mud-checkbox .mud-button-root {
+    color: #9fcc2eff;
+}
+
+.shrink-select .mud-select   {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+    .shrink-select .mud-input-control .mud-input-control-input-container .mud-input-slot {
+        margin-right:22px;
+    }
+
+.shrink-select {
+margin-right:36px;
+}

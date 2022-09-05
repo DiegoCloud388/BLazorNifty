@@ -386,7 +386,7 @@
                         <MudItem xs="12" sm="6" lg="4" xl="4">
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">First name</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
-                                <MudTextField @bind-Value="commandCreate.FirtName" For="@(() => commandCreate.FirtName)" Margin="Margin.Dense" Variant="Variant.Outlined" 
+                                <MudTextField @bind-Value="commandCreate.FirtName" Immediate=true For="@(() => commandCreate.FirtName)" Margin="Margin.Dense" Variant="Variant.Outlined" 
                                     AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.FirtName))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
@@ -394,7 +394,7 @@
                         <MudItem xs="12" sm="6" lg="4" xl="4">
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">Last name</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
-                                <MudTextField @bind-Value="commandCreate.LastName" For="@(() => commandCreate.LastName)" Margin="Margin.Dense" Variant="Variant.Outlined"
+                                <MudTextField @bind-Value="commandCreate.LastName" Immediate=true For="@(() => commandCreate.LastName)" Margin="Margin.Dense" Variant="Variant.Outlined"
                                     AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.LastName))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
@@ -411,7 +411,7 @@
      
                             
                                 <MudTextField @bind-Value="commandCreate.UserName" For="@(() => commandCreate.UserName)" 
-                                        Margin="Margin.Dense" Variant="Variant.Outlined" Class="input-left-border-radius-0"
+                                        Margin="Margin.Dense" Variant="Variant.Outlined" Immediate=true Class="input-left-border-radius-0"
                                          AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.UserName))" AdornmentIcon="@Icons.Filled.Check"/>                         
                             </div>
                         </MudStack>
@@ -420,8 +420,8 @@
                       <MudItem xs="12" sm="6" lg="6" xl="6">
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">City</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
-                                 <MudTextField @bind-Value="commandCreate.City" For="@(() => commandCreate.City)" 
-                                    Margin="Margin.Dense" Variant="Variant.Outlined"
+                                 <MudTextField @bind-Value="commandCreate.City" For="@(() => commandCreate.City)"
+                                              Margin="Margin.Dense" Variant="Variant.Outlined" Immediate=true
                                      AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.City))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
@@ -429,20 +429,41 @@
                         <MudItem xs="12" sm="6" lg="3" xl="3">
                              <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">State</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
-                                <MudSelect Margin="Margin.Dense" @bind-Value="commandCreate.StateId" For="@(() => commandCreate.StateId)" 
-                                    PopoverClass="rounded" Dense=true  AnchorOrigin="Origin.BottomCenter"
-                                    T="int?" Variant="Variant.Outlined"  AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.StateId))" AdornmentIcon="@Icons.Filled.Check">
-                                    <MudSelectItem  Value="(int?)1">Czech republic</MudSelectItem>
-                                    <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
+
+                                @if(IsFieldValid(nameof(commandCreate.StateId)))
+                                {
+                                 <div class="d-flex flex-row shrink-select">
+                                    <MudSelect Margin="Margin.Dense" @bind-Value="commandCreate.StateId" For="@(() => commandCreate.StateId)"
+                                               PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter"
+                                    T="int?" Variant="Variant.Outlined">
+                             
+                                      
+                                        <MudSelectItem  Value="(int?)1">Czech republic</MudSelectItem>
+                                    <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>                                                           
                                 </MudSelect>
+                                 <MudIcon Icon="@Icons.Filled.Check" Class="ml-n15 align-self-center" Color="Color.Success"></MudIcon>
+                                        </div>
+                                }
+                                else
+                                {
+                                    <MudSelect Margin="Margin.Dense" @bind-Value="commandCreate.StateId" For="@(() => commandCreate.StateId)"
+                                               PopoverClass="rounded"  Dense=true AnchorOrigin="Origin.BottomCenter"
+                                    T="int?" Variant="Variant.Outlined">
+                             
+                                      
+                                        <MudSelectItem  Value="(int?)1">Czech republic</MudSelectItem>
+                                    <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>                                                           
+                                </MudSelect>
+                                }                             
+                                
                             </MudStack>       
                         </MudItem>
 
                          <MudItem xs="12" sm="6" lg="3" xl="3">
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">Zip</span><MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark" Color="Color.Error"/></MudText>
-                                <MudTextField @bind-Value="commandCreate.Zip" For="@(() => commandCreate.Zip)" 
-                                    Margin="Margin.Dense" Variant="Variant.Outlined" 
+                                <MudTextField @bind-Value="commandCreate.Zip" Immediate=true For="@(() => commandCreate.Zip)"
+                                              Margin="Margin.Dense" Variant="Variant.Outlined" 
                                      AdornmentColor="Color.Success" Adornment="GetAdornmentIfFieldIsValid(nameof(commandCreate.Zip))" AdornmentIcon="@Icons.Filled.Check"/>
                             </MudStack>    
                         </MudItem>
@@ -450,9 +471,18 @@
                         <MudItem>
                               <MudStack Justify="Justify.FlexStart" AlignItems="AlignItems.Start">
                                   <MudStack Row=true AlignItems="AlignItems.Center">
-                                      <MudCheckBox Class="ml-n1" Dense=true Size="Size.Small"
-                                   Label="Agree to terms and conditions" @bind-Checked="commandCreate.IsGdprConfirmed" For="@(() => commandCreate.IsGdprConfirmed)"/>   
-                                   <MudIcon Icon="@Icons.Material.Filled.Stars" Class="horizontal-required-mark ml-n1" Color="Color.Error"/>
+
+                                    @if(IsFieldValid(nameof(commandCreate.IsGdprConfirmed)))
+                                    {
+                                        <MudCheckBox Class="ml-n1 checkbox-success" Dense=true Size="Size.Small"
+                                        Label="Agree to terms and conditions" @bind-Checked="commandCreate.IsGdprConfirmed" For="@(() => commandCreate.IsGdprConfirmed)"/> 
+                                       
+                                    }
+                                    else
+                                    {
+                                        <MudCheckBox Class="ml-n1" Dense=true Size="Size.Small" Label="Agree to terms and conditions" 
+                                        @bind-Checked="commandCreate.IsGdprConfirmed" For="@(() => commandCreate.IsGdprConfirmed)" />
+                                    }
                                   </MudStack>
                                              
                                    <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary">Submit form</MudButton>

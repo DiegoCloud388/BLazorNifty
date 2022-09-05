@@ -22,7 +22,7 @@ namespace BlazorNifty.Data.Commands
         [Required(ErrorMessage = "The field Zip is required.")]
         public string Zip { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Agree to terms and conditions must be checked")]
         [Range(typeof(bool), "true", "true", ErrorMessage = "Agree to terms and conditions must be checked.")]
         public bool IsGdprConfirmed { get; set; }
     }
