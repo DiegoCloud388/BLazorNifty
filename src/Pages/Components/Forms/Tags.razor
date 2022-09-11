@@ -13,51 +13,71 @@
     <ShellBody>
         <MudGrid Spacing="2">
             <MudItem xs="12" sm="12" md="6">
-                <MudStack>
-                    <MudCard Elevation="4">
-                        <MudCardContent>
-                            <MudText Typo=Typo.h3><b>Tagin</b></MudText>    
-                            <MudText>Simple tag input for Bootstrap</MudText>
+                <MudCard Elevation="4">
+                    <MudCardContent>
+                        <MudText Typo=Typo.h3><b>Tagin</b></MudText>    
+                        <MudText>Simple tag input for Bootstrap</MudText>
 
-                            <MudStack Row="false" AlignItems="AlignItems.Start">
-                                <MudText Class="mt-4" Typo="Typo.h4"><b>Basic</b></MudText>    
-                                <MudStack Style="width: 100%;">
-                                    <ChipsInput Chips='new List<string>() { "dark mode", "favicon", "svg" }'></ChipsInput>
-                                </MudStack>                                
-                            </MudStack>               
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Basic</b></MudText>
+                            <MudStack Style="width: 100%;" Class="mb-10">
+                                <ChipsInput Chips='new List<string>() { "dark mode", "favicon", "svg" }'></ChipsInput>
+                            </MudStack>                                
+                        </MudStack>               
                             
-                            <MudStack Row="false" AlignItems="AlignItems.Start">
-                                <MudText Class="mt-4" Typo="Typo.h4"><b>Placeholder</b></MudText>                                 
-                                <MudStack Style="width:100%">
-                                    <ChipsInput PlaceholderText="Vlož slovo ... (pak stiskni Enter)" Chips='new List<string>() { "red", "green", "blue" }'></ChipsInput>
-                                </MudStack>
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Placeholder</b></MudText>                                 
+                            <MudStack Style="width:100%" Class="mb-10">
+                                <ChipsInput PlaceholderText="Add a color... (then press Enter)" Chips='new List<string>() { "red", "green", "blue" }'></ChipsInput>
                             </MudStack>
+                        </MudStack>
 
-                            <MudStack Row="false" AlignItems="AlignItems.Start">
-                                <MudText Class="mt-4" Typo="Typo.h4"><b>Custom Separator</b></MudText>
-                                <MudStack Style="width: 100%">
-                                    <ChipsInput Separator=" " PlaceholderText="Stiskni mezeník" Chips='new List<string>() { "forms", "tags", "inputs" }'></ChipsInput>
-                                </MudStack>
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Custom Separator</b></MudText>
+                            <MudStack Style="width: 100%" Class="mb-10">
+                                <ChipsInput Separator=" " PlaceholderText="Press space..." Chips='new List<string>() { "forms", "tags", "inputs" }'></ChipsInput>
                             </MudStack>
+                        </MudStack>
 
-                            <MudStack Row="false" AlignItems="AlignItems.Start">
-                                <MudText Class="mt-4" Typo="Typo.h4"><b>Duplicates</b></MudText>
-                                <MudStack Style="width: 100%">
-                                    <ChipsInput AllowDuplicateValues="true" Chips='new List<string>() { "html", "html", "httml" }'></ChipsInput>
-                                </MudStack>
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Duplicates</b></MudText>
+                            <MudStack Style="width: 100%" Class="mb-10">
+                                <ChipsInput AllowDuplicateValues="true" Chips='new List<string>() { "html", "html", "httml" }'></ChipsInput>
                             </MudStack>
-                        </MudCardContent>
+                        </MudStack>
 
-                        <MudCardContent>
-                        
-                        </MudCardContent>
-                    </MudCard>
-                </MudStack>
+                    </MudCardContent>
+                </MudCard>
             </MudItem>
 
-            <MudItem sm="6">
-                <MudCard Outlined="true">
+            <MudItem xs="12" sm="12" md="6">
+                <MudCard Elevation="4">
                     <MudCardContent>
+                        <MudText Typo=Typo.h3><b>Bootstrap 5 tags</b></MudText>
+                        <MudText>Replace select [multiple] with nices badges.</MudText>
+
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Add a new tag</b></MudText>
+                            <MudStack Style="width: 100%" Class="mb-10">
+                                <ChipsInput EnableRemoveButton="false" PlaceholderText="Type to add a new tag..."></ChipsInput>
+                            </MudStack>
+                        </MudStack>
+
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Validation</b></MudText>
+                            <MudStack Style="width: 100%" Class="mb-10">
+                                <ChipsInput EnableRemoveButton="false" PlaceholderText="Choose programing language..." 
+                                    AllowedValues='new List<string>() { "Javascript", "CSS", "HTML", "SASS", "PHP", "C#" }'>
+                                </ChipsInput>
+                            </MudStack>
+                        </MudStack>
+                        
+                        <MudStack Row="false" AlignItems="AlignItems.Start">
+                            <MudText Class="mt-4" Typo="Typo.h4"><b>Clear buttons</b></MudText>
+                            <MudStack Style="width: 100%" Class="mb-10">
+                                <ChipsInput EnableBackspaceRemove="false" Chips='new List<string>() { "Admin", "Template", "Responsive" }'></ChipsInput>
+                            </MudStack>
+                        </MudStack>
 
                     </MudCardContent>
                 </MudCard>

@@ -9,7 +9,7 @@
                 }
                 <span style="margin: 0px 5px 0px 5px;">@chip</span>
 
-                @if (!ReadonlyChips || AllowDeleteOfReadonlyItems)
+                @if (!ReadonlyChips && EnableRemoveButton)
                 {
                     <MudIconButton Icon="@Icons.Material.Filled.Cancel" OnClick="() => RemoveChip(chip)" Size="Size.Small" Style="height: 15px; width: 15px; color: white"></MudIconButton>
                 }
@@ -17,6 +17,15 @@
         }
         <li style="flex-grow: 1; margin: 5px 5px 5px 0px;">
             <input type="text" placeholder="@PlaceholderText" @bind-value="currentInputValue" @onkeyup="OnKeyUp" @oninput="OnInput" @onkeydown="OnKeyDown" style='border: none; width: 100%; @(ShowInputOutline ? "" : "outline: none;")' @attributes="InputAttributes" />
+            @if (AllowedValues != null)
+            {
+                <ul class="dropdown-menu p-0" style="max-height: 280px; overflow-y: auto; left: 8px">
+                    @foreach (string item in AllowedValues)
+                    {
+                        <li id="@item" style="display: list-item"></li>
+                    }
+                </ul>
+            }            
         </li>
     </ul>
 </div>

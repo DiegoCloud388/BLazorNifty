@@ -66,7 +66,7 @@ namespace BlazorNifty.Components.Tags
         /// Indicates whether or not readonly items can be deleted
         /// </summary>
         [Parameter]
-        public bool AllowDeleteOfReadonlyItems { get; set; } = false;
+        public bool EnableRemoveButton { get; set; } = true;
 
         /// <summary>
         /// Indicates whether or not to show validation errors
