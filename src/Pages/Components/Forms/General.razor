@@ -433,11 +433,10 @@
                                 @if(IsFieldValid(nameof(commandCreate.StateId)))
                                 {
                                  <div class="d-flex flex-row shrink-select">
-                                    <MudSelect Margin="Margin.Dense" @bind-Value="commandCreate.StateId" For="@(() => commandCreate.StateId)"
+                                    <MudSelect Margin="Margin.Dense" ValueChanged="((value) => StateChanged(value, nameof(commandCreate.StateId)))" 
+                                               Value="commandCreate.StateId" For="@(() => commandCreate.StateId)"
                                                PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter"
-                                    T="int?" Variant="Variant.Outlined">
-                             
-                                      
+                                               T="int?" Variant="Variant.Outlined">       
                                         <MudSelectItem  Value="(int?)1">Czech republic</MudSelectItem>
                                     <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>                                                           
                                 </MudSelect>
@@ -446,11 +445,12 @@
                                 }
                                 else
                                 {
-                                    <MudSelect Margin="Margin.Dense" @bind-Value="commandCreate.StateId" For="@(() => commandCreate.StateId)"
-                                               PopoverClass="rounded"  Dense=true AnchorOrigin="Origin.BottomCenter"
-                                    T="int?" Variant="Variant.Outlined">
-                             
-                                      
+                                    
+                                    <MudSelect Margin="Margin.Dense" For="@(() => commandCreate.StateId)"
+                                               PopoverClass="rounded" ValueChanged="((value) => StateChanged(value, nameof(commandCreate.StateId)))"
+                                               Value="commandCreate.StateId" Dense=true AnchorOrigin="Origin.BottomCenter"
+                                               T="int?" Variant="Variant.Outlined">
+                
                                         <MudSelectItem  Value="(int?)1">Czech republic</MudSelectItem>
                                     <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>                                                           
                                 </MudSelect>
