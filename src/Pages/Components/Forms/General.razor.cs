@@ -22,6 +22,13 @@ namespace BlazorNifty.Pages.Components.Forms
             editContext = new EditContext(commandCreate);
         }
 
+        private void StateChanged(int? newValue, string fieldName)
+        {
+            commandCreate.StateId = newValue;
+
+            editContext.NotifyFieldChanged(editContext.Field(fieldName));
+        }
+
         private Adornment GetAdornmentIfFieldIsValid(string fieldName, bool onlyIfModified = true)
         {
             if (IsFieldValid(fieldName, onlyIfModified))
@@ -48,7 +55,10 @@ namespace BlazorNifty.Pages.Components.Forms
                 var isModified = editContext.IsModified(identifier);
 
                 if (!isModified)
+                {
                     return false;
+                }
+                   
             }
 
             var isValid = !editContext.GetValidationMessages(identifier).Any();
