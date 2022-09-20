@@ -4,26 +4,168 @@
 
 <PageShell Rounded="false" Overlapping="false">
     <ShellHeader>
-        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudBreadcrumbs Items="items" Separator=">"></MudBreadcrumbs>
         <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Validation</MudText>
         <MudText Typo="Typo.body1" Class="mb-2 page-description">Technical process where a web-form checks if the information provided by a user is correct.</MudText>
     </ShellHeader>
 
     <ShellBody>
-        
+        <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator/>
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Register customer form</MudText>
+
+                    <MudGrid Spacing="2">
+                        <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                               @* Immediate blbne s ohledem na focus kurzor. Pokud je false, tak to nevyhazuje focus kurzor*@
+                                <MudText Typo="Typo.caption"><span class="light-label">Full Name *</span></MudText>
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.FullName)))
+                                {
+                                    <MudTextField @bind-Value="commandRegisterCustomer.FullName" Immediate=true Class="success-outlined-border"
+                                        For="@(() => commandRegisterCustomer.FullName)" Margin="Margin.Dense" Variant="Variant.Outlined"
+                                        AdornmentColor="Color.Success" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Check"/>
+                                }
+                                else
+                                {
+                                    <MudTextField @bind-Value="commandRegisterCustomer.FullName" Immediate=true 
+                                    For="@(() => commandRegisterCustomer.FullName)" Margin="Margin.Dense" Variant="Variant.Outlined" />
+                                }
+                            </MudStack>
+                        </MudItem>
+
+                         <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">E-mail *</span></MudText>
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.Email)))
+                                {
+                                    <MudTextField @bind-Value="commandRegisterCustomer.Email" Immediate=true Class="success-outlined-border"
+                                              For="@(() => commandRegisterCustomer.Email)" Margin="Margin.Dense" Variant="Variant.Outlined"
+                                              AdornmentColor="Color.Success" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Check"/>
+                                }
+                                else
+                                {
+                                    <MudTextField @bind-Value="commandRegisterCustomer.Email" Immediate=true
+                                              For="@(() => commandRegisterCustomer.Email)" Margin="Margin.Dense" Variant="Variant.Outlined" />
+                                }
+                            </MudStack>
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">Birthdate *</span></MudText>
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.Birthdate)))
+                                {
+                                    <div class="d-flex flex-row shrink-picker">
+                                    <MudDatePicker Color="Color.Default" @bind-Date="commandRegisterCustomer.Birthdate"
+                                               For="@(() => commandRegisterCustomer.Birthdate)" DisableToolbar="true"
+                                               Margin="Margin.Dense" Variant="Variant.Outlined" Class="success-outlined-border"/>
+                                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n16 align-self-center" Color="Color.Success"></MudIcon>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <MudDatePicker Color="Color.Default" @bind-Date="commandRegisterCustomer.Birthdate"
+                                               For="@(() => commandRegisterCustomer.Birthdate)" DisableToolbar="true"
+                                               Margin="Margin.Dense" Variant="Variant.Outlined" />
+                                }
+                                         
+                            </MudStack>
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">Country *</span></MudText>
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.CountryId)))
+                                {
+                                    <div class="d-flex flex-row shrink-select">
+                                        <MudSelect Margin="Margin.Dense" ValueChanged="((value) => CountryChanged(value, nameof(commandRegisterCustomer.CountryId)))"
+                                               Value="commandRegisterCustomer.CountryId" For="@(() => commandRegisterCustomer.CountryId)"
+                                               PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter"
+                                               T="int?" Variant="Variant.Outlined" Class="success-outlined-border">
+                                            <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
+                                            <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
+                                        </MudSelect>
+                                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n15 align-self-center" Color="Color.Success"></MudIcon>
+                                    </div>
+                                }
+                                else
+                                {
+
+                                    <MudSelect Margin="Margin.Dense" For="@(() => commandRegisterCustomer.CountryId)"
+                                           PopoverClass="rounded" ValueChanged="((value) => CountryChanged(value, nameof(commandRegisterCustomer.CountryId)))"
+                                           Value="commandRegisterCustomer.CountryId" Dense=true AnchorOrigin="Origin.BottomCenter"
+                                           T="int?" Variant="Variant.Outlined">
+
+                                        <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
+                                        <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
+                                    </MudSelect>
+                                }
+
+                            </MudStack>
+                        </MudItem>
+
+                       
+
+                        <MudItem xs="12" sm="12" lg="12" xl="12">
+                                <MudStack Spacing="0">
+                                    <MudText Typo="Typo.caption"><span class="light-label">Gender *</span></MudText>
+                                    @if (IsFieldValid(nameof(commandRegisterCustomer.GenderId)))
+                                    {
+                                        <MudRadioGroup T="int?" SelectedOptionChanged="((value) => GenderChanged(value, nameof(commandRegisterCustomer.GenderId)))"
+                                               SelectedOption="@commandRegisterCustomer.GenderId" For="@(() => commandRegisterCustomer.GenderId)">
+                                            <MudRadio Class="radio-success ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)1)">Man</MudRadio>
+                                            <MudRadio Class="radio-success ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)2)">Woman</MudRadio>
+                                        </MudRadioGroup>
+                                    }
+                                    else
+                                    {
+                                        <MudRadioGroup T="int?" SelectedOptionChanged="((value) => GenderChanged(value, nameof(commandRegisterCustomer.GenderId)))"
+                                               SelectedOption="@commandRegisterCustomer.GenderId" For="@(() => commandRegisterCustomer.GenderId)">
+                                        <MudRadio Class="ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)1)">Man</MudRadio>
+                                        <MudRadio Class="ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)2)">Woman</MudRadio>
+                                        </MudRadioGroup>
+                                    }
+                                </MudStack>                         
+                        </MudItem>
+
+                         <MudItem xs="12" sm="12" lg="12" xl="12">
+
+                                <MudText Typo="Typo.caption"><span class="light-label">Comment</span></MudText>    
+                                    <MudTextField @bind-Value="commandRegisterCustomer.Comment" Lines="5" Immediate=true
+                                              For="@(() => commandRegisterCustomer.Comment)" Margin="Margin.Dense" Variant="Variant.Outlined" />                               
+                          
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="3" xl="3">
+                            <MudStack Justify="Justify.FlexStart" AlignItems="AlignItems.Start">
+
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.IsGdprConfirmed)))
+                                {
+                                    <div class="ml-n1 check-box-helper-text-start">
+                                        <MudCheckBox Class="checkbox-success" Dense=true Size="Size.Small"
+                                                 Label="Agree to GDPR" @bind-Checked="commandRegisterCustomer.IsGdprConfirmed" For="@(() => commandRegisterCustomer.IsGdprConfirmed)" />
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="ml-n1 check-box-helper-text-start">
+                                        <MudCheckBox Dense=true Size="Size.Small" Label="Agree to GDPR"
+                                                 @bind-Checked="commandRegisterCustomer.IsGdprConfirmed" For="@(() => commandRegisterCustomer.IsGdprConfirmed)" />
+                                    </div>
+                                }
+
+                                <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary">Register</MudButton>
+                            </MudStack>
+                        </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+            </MudCard>
+        </EditForm>
 
     </ShellBody>
 
 </PageShell>
 
-@code {
-    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
-    {
-        new BreadcrumbItem("Home", href: "#"),
-        new BreadcrumbItem("Forms", href: "#"),
-        new BreadcrumbItem("Validation", href: null, disabled: true)
-    };
-
-
-
-}

@@ -9,6 +9,12 @@ namespace BlazorNifty.Pages.Components.Forms
         private CommandCreateUser commandCreate = new ();
         private EditContext editContext;
         private string selOption = null;
+        private List<BreadcrumbItem> items = new ()
+        {
+            new BreadcrumbItem("Home", href: "#"),
+            new BreadcrumbItem("Forms", href: "#"),
+            new BreadcrumbItem("General", href: null, disabled: true)
+        };
 
 
         protected override async Task OnInitializedAsync()

@@ -183,6 +183,13 @@
     margin-right:36px;
 }
 
+.shrink-picker .mud-input-control .mud-input-control-input-container .mud-input-slot {
+    margin-right: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 
 .success-outlined-border .mud-input .mud-input-outlined-border {
     border-color: #9fcc2eff !important;
@@ -201,12 +208,12 @@
     color: #9fcc2eff;
 }
 
-.mud-input-control-boolean-input .mud-input-helper-text {
-    margin-left: 7px;
-}
-
 .helper-text-start .mud-input-control-helper-container {
     margin-left: -2.65rem
+}
+
+.check-box-helper-text-start .mud-input-control-boolean-input .mud-input-helper-text {
+    margin-left: 7px;
 }
 
    /* .radio-success .mud-icon-button:hover {
