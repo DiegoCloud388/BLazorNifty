@@ -40,12 +40,6 @@ namespace BlazorNifty.Pages.Components.Forms
 
         }
 
-        private void StateChanged(int? newValue, string fieldName)
-        {
-            commandCreate.StateId = newValue;
-            editContext.NotifyFieldChanged(editContext.Field(fieldName));
-        }
-
         private bool IsFieldValid(string fieldName, bool onlyIfModified = true)
         {
             var identifier = editContext.Field(fieldName);
