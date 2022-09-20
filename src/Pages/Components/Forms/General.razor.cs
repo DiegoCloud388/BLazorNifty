@@ -8,6 +8,7 @@ namespace BlazorNifty.Pages.Components.Forms
     {
         private CommandCreateUser commandCreate = new ();
         private EditContext editContext;
+        private string selOption = null;
 
 
         protected override async Task OnInitializedAsync()
@@ -30,6 +31,12 @@ namespace BlazorNifty.Pages.Components.Forms
 
             return Adornment.None;
 
+        }
+
+        private void StateChanged(int? newValue, string fieldName)
+        {
+            commandCreate.StateId = newValue;
+            editContext.NotifyFieldChanged(editContext.Field(fieldName));
         }
 
         private bool IsFieldValid(string fieldName, bool onlyIfModified = true)

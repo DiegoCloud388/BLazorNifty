@@ -11,6 +11,7 @@ namespace BlazorNifty.Data.Commands
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "The field User name is required.")]
+        [EmailAddress]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "The field City is required.")]
@@ -22,8 +23,7 @@ namespace BlazorNifty.Data.Commands
         [Required(ErrorMessage = "The field Zip is required.")]
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "Agree to terms and conditions must be checked")]
-        [Range(typeof(bool), "true", "true", ErrorMessage = "Agree to terms and conditions must be checked.")]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree before submitting.")]
         public bool IsGdprConfirmed { get; set; }
     }
 }
