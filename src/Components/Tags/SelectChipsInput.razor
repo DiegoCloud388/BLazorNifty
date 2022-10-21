@@ -16,7 +16,7 @@
             </li>
         }
         <li>
-            <MudAutocomplete T="string" SearchFunc="@Search" SelectOnClick="true"
+            <MudAutocomplete @ref="autocomplete" T="string" SearchFunc="@Search" SelectOnClick="true" ResetValueOnEmptyText="true"
                 Style="display: inline-flex; flex-wrap: wrap; margin-top: -15px" ValueChanged="((string s) => SelectedValue(s))">                                   
             </MudAutocomplete>        
         </li>        
