@@ -17,9 +17,7 @@
     margin-top: 13px !important
 }
 
-.mud-drawer.mud-drawer-fixed.mud-drawer-pos-left {
-  /*  background-color: var(--mud-palette-primary);*/
-   /* color: white;*/
+.mud-drawer.mud-drawer-pos-left {
     font-size: 12px;
 }
 

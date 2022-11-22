@@ -1,29 +1,74 @@
-﻿.main-content-unfixed {
-    margin-left: var(--mud-drawer-width-left);
-}
-
-.main-content-unfixed-mini {
-    margin-left: var(--mud-drawer-width-mini-left);
-}
-
-.drawer-left-unfixed-height {
+﻿.drawer-left-nonsticky {
     height: calc(100%) !important;
     min-height: calc(100vh) !important;
-    padding-top: 50px;
     overflow: initial;
 }
 
-.layout-sticky-navigation .drawer-left-unfixed-height {
-    overflow: auto;
+.layout-sticky-header .drawer-left-nonsticky:not(.mud-drawer-temporary) {
+    padding-top: calc(var(--mud-appbar-height)/1.32);
 }
 
-.layout-nonsticky-header .drawer-left-unfixed-height {
+.layout-nonsticky-header .drawer-left-nonsticky:not(.mud-drawer-temporary) {
     min-height: calc(100vh - var(--mud-appbar-height)/1.32) !important;
 }
 
 .main-content-appbar-unfixed {
     padding-top: 0px !important;
 }
+
+.mud-drawer-open-persistent-right .airhaus-sidebar {
+    background-color: transparent;
+}
+
+    .mud-drawer-open-persistent-right .airhaus-sidebar .mud-tabs-toolbar {
+        background-color: transparent;
+    }
+
+    .airhaus-sidebar.airhaus-sidebar-united {
+        background-color: var(--mud-palette-primary);
+    }
+
+        .airhaus-sidebar.airhaus-sidebar-united .mud-tabs-toolbar {
+            background-color: var(--mud-palette-primary);
+        }
+       
+
+
+.sidebar-backdrop-disabled .mud-overlay .mud-overlay-scrim.mud-overlay-dark{
+    background-color: transparent;
+}
+
+.sidebar-backdrop-disabled .mud-drawer-temporary {
+    box-shadow: 20px 20px 50px gray;
+}
+
+.layout-sticky-navigation.layout-nonsticky-header .mud-drawer.mud-drawer-pos-left {
+    position: absolute;
+    overflow: initial;
+    min-height: calc(100vh - var(--mud-appbar-height)/1.33) !important;
+}
+
+.layout-nonsticky-header .mud-drawer.mud-drawer-pos-right.mud-drawer--open {
+    position: absolute;
+    overflow: initial;
+    
+}
+
+.mud-drawer-persistent.airhaus-sidebar {
+    min-height: calc(100vh - var(--mud-appbar-height)/1.33) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .btn-settings {
     inset: 50% auto auto 0;
@@ -55,6 +100,7 @@
     z-index: 10000;
     border-bottom-left-radius: .4375rem !important;
     border-top-left-radius: .4375rem !important;
+    margin-right: 0px !important;
 }
 
     .settings-offcanvas.settings-offcanvas-show {

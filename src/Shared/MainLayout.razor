@@ -6,7 +6,7 @@
 
 <MudLayout Class="@layoutClass">
 
-    @if (firstRender)
+    @if (true)
     {
         @*Header*@
         <MudAppBar Elevation="0" Color="Color.Primary" Dense="true" Fixed="LayoutManagementService.StickyHeader">
@@ -22,35 +22,68 @@
             <MudSpacer />
             <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
             <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
-            <MudIconButton Icon="@Icons.Outlined.Settings" Color="Color.Inherit" OnClick="RightDrawerToggle" />
+            @if (@LayoutManagementService.SidebarVariant == DrawerVariant.Temporary)
+            {
+                <MudIconButton Icon="@Icons.Outlined.Settings" Color="Color.Inherit" OnClick="RightDrawerToggle" />
+            }
+
         </MudAppBar>
 
         @*Navigation*@
-        <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1" Variant="@DrawerVariant.Mini" ClipMode="DrawerClipMode.Docked" Fixed="LayoutManagementService.StickyNavigation" Class="@navigationClass">
-            @if (_leftDrawerOpen)
-            {
-                <div class="nav-menu-container">
-                    <NavMenu />
-                </div>
+        <MudDrawer @bind-Open="@_leftDrawerOpen" Elevation="1"
+               Variant="LayoutManagementService.NavigationVariant"
+               ClipMode="LayoutManagementService.NavigationClipMode"
+               Fixed="LayoutManagementService.StickyNavigation" Class="@navigationClass">
 
+            @if (!LayoutManagementService.StickyHeader && LayoutManagementService.StickyNavigation)
+            {
+                <div style="position:sticky; top: 0">
+                    @if (_leftDrawerOpen)
+                    {
+                        <div class="nav-menu-container">
+                            <NavMenu />
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="nav-menu-container">
+                            <MiniNavMenu />
+                        </div>
+                    }
+                </div>
             }
             else
             {
-                <div class="nav-menu-container">
-                    <MiniNavMenu />
-                </div>
-            }
+                @if (_leftDrawerOpen)
+                {
+                    <div class="nav-menu-container">
+                        <NavMenu />
+                    </div>
 
+                }
+                else
+                {
+                    <div class="nav-menu-container">
+                        <MiniNavMenu />
+                    </div>
+                }
+            }
         </MudDrawer>
 
         @*Sidebar*@
-        <MudDrawer @bind-Open="@_rightDrawerOpen" Elevation="0" Anchor="Anchor.End" Class="airhaus-sidebar" Variant="@DrawerVariant.Temporary">
-            @if (_rightDrawerOpen)
-            {
-                <div class="airhaus-sidebar-container">
-                    <MudTabs Elevation="0" DisableRipple="true" DisableSliderAnimation="true" Centered="true">
+        <MudDrawer @bind-Open="@LayoutManagementService.SidebarOpen"
+               Elevation="0" Anchor="Anchor.End"
+               Class="@LayoutManagementService.SidebarClass"
+               Variant="@LayoutManagementService.SidebarVariant"
+               ClipMode="@LayoutManagementService.SidebarClipMode">
 
-                        <MudTabPanel Class="simple-tab" Style="min-width: 75px; padding: 6px 2px">
+            @if (@LayoutManagementService.SidebarOpen)
+            {
+                 <div style="position:sticky; top: 0">
+                      <div class="mt-4" style="padding: 6px 2px;">
+                    <MudTabs Elevation="0" DisableRipple="true" DisableSliderAnimation="true" Centered="true">
+                        <MudTabPanel Class="simple-tab" Style="min-width: 75px;">
                             <TabContent>
                                 <MudStack AlignItems="AlignItems.Center">
                                     <MudIcon Icon="bi bi-chat" Style="font-size: 1.3rem; color: lightgray" Class="mb-1"></MudIcon>
@@ -58,6 +91,55 @@
                                 </MudStack>
                             </TabContent>
                             <ChildContent>
+
+                                <div class="ma-6">
+                                    <MudText Typo="Typo.h5" Class="mb-4"><b>Family</b></MudText>
+
+                                    <MudStack Spacing="6">
+                                        <MudStack Row="true" AlignItems="AlignItems.Center">
+                                            <MudAvatar Color="Color.Primary" Style="height:40px; width:40px; font-size:2rem;" Image="images/avatars/male5.png" Elevation="0" />
+                                            <MudStack Spacing="1">
+                                                <MudText Style="font-size: 12px" Class="text-black"><b>Stephen Tran</b></MudText>
+                                                <MudText Style="font-size: 12px">Available</MudText>
+                                            </MudStack>
+                                        </MudStack>
+
+                                        <MudStack Row="true" AlignItems="AlignItems.Center">
+                                            <MudAvatar Color="Color.Primary" Style="height:40px; width:40px; font-size:2rem;" Image="images/avatars/female4.png" Elevation="0" />
+                                            <MudStack Spacing="1">
+                                                <MudText Style="font-size: 12px" Class="text-black"><b>Betty Murphy</b></MudText>
+                                                <MudText Style="font-size: 12px">Idle</MudText>
+                                            </MudStack>
+                                        </MudStack>
+
+                                        <MudStack Row="true" AlignItems="AlignItems.Center">
+                                            <MudAvatar Color="Color.Primary" Style="height:40px; width:40px; font-size:2rem;" Image="images/avatars/female3.png" Elevation="0" />
+                                            <MudStack Spacing="1">
+                                                <MudText Style="font-size: 12px" Class="text-black"><b>Brittany Meyer</b></MudText>
+                                                <MudText Style="font-size: 12px">I think so!</MudText>
+                                            </MudStack>
+                                        </MudStack>
+
+                                        <MudStack Row="true" AlignItems="AlignItems.Center">
+                                            <MudAvatar Color="Color.Primary" Style="height:40px; width:40px; font-size:2rem;" Image="images/avatars/male4.png" Elevation="0" />
+                                            <MudStack Spacing="1">
+                                                <MudText Style="font-size: 12px" Class="text-black"><b>Jack George</b></MudText>
+                                                <MudText Style="font-size: 12px">Last seen 2 hours ago.</MudText>
+                                            </MudStack>
+                                        </MudStack>
+
+                                    </MudStack>
+
+                                    <MudText Typo="Typo.h5" Class="mb-4 mt-12"><b>Friends</b></MudText>
+
+                                    <MudText Typo="Typo.h5" Class="mb-4 mt-12"><b>News</b></MudText>
+                                    <MudText>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui consequatur ipsum porro a repellat eaque exercitationem necessitatibus esse voluptate corporis.
+                                    </MudText>
+                                </div>
+
+
+
 
                             </ChildContent>
                         </MudTabPanel>
@@ -87,10 +169,9 @@
                         </MudTabPanel>
                     </MudTabs>
                 </div>
-
-
+                 </div>
+               
             }
-
         </MudDrawer>
 
         @*Main Content*@
@@ -99,20 +180,20 @@
                 @Body
             </MudContainer>
         </MudMainContent>
-
-         @*Layout Settings*@
-        <div class="@settingsClass">
-            <MudIconButton Color="Color.Dark" Variant="Variant.Filled" Icon="@Icons.Outlined.Settings" Class="btn-settings" Size="Size.Large" OnClick="SettingsToggle">
-
-            </MudIconButton>
-            @if (settingsOpen)
-            {
-                <div class="settings-offcanvas-body">
-                    <MainLayoutSettings/>
-                </div>
-            }
-        </div>
     }
+
+    @*Layout Settings*@
+    <div class="@settingsClass">
+        <MudIconButton Color="Color.Dark" Variant="Variant.Filled" Icon="@Icons.Outlined.Settings" Class="btn-settings" Size="Size.Large" OnClick="SettingsToggle">
+
+        </MudIconButton>
+        @if (settingsOpen)
+        {
+            <div class="settings-offcanvas-body">
+                <MainLayoutSettings />
+            </div>
+        }
+    </div>
 
     <MudOverlay Visible="settingsOpen" DarkBackground="true" AutoClose="true" ZIndex="9999" OnClick="SettingsToggle"></MudOverlay>
 </MudLayout>

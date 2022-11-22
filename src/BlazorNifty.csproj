@@ -4,10 +4,12 @@
 	  <TargetFramework>net6.0</TargetFramework>
 	  <Nullable>enable</Nullable>
 	  <ImplicitUsings>enable</ImplicitUsings>
+	  <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="6.0.15" />
+    <PackageReference Include="Blazored.TextEditor" Version="1.0.8" />
+	  <PackageReference Include="MudBlazor" Version="6.0.15" />
   </ItemGroup>
 
   <ItemGroup>
