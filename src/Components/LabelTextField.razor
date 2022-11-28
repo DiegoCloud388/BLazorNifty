@@ -1,0 +1,43 @@
+﻿@typeparam T
+@inherits MudTextField<T>
+
+<MudStack Row=@InlineOrientation AlignItems="@AlignItemsOfComponent" Spacing="@SpacingAfterLabel">
+
+   @if (@InlineOrientation)
+   {
+       <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
+            <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle"><span class="light-label">@LabelText</span></MudText>
+       </MudItem>
+
+       <MudItem xs="12 - LabelXs" sm="12 - LabelSm" md="12 - LabelMd" lg="12 - LabelLg" xl="12 - LabelXl" xxl="12 - LabelXxl">
+           <MudTextField T="@T"  Margin="@Margin" Variant="@Variant"></MudTextField>
+        </MudItem>
+    }
+    else
+    {      
+        <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle"><span class="light-label">@LabelText</span></MudText>
+
+        if (IsFieldValid())
+        {
+            string? extendedBaseClass = ExtendBaseClassIfValid != null ? $"{Class} {ExtendBaseClassIfValid}" : Class;
+
+            if (ShowTickIfValid)
+            {
+                <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
+                  Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant"
+                  AdornmentColor="@TickColorIfValid" FullWidth=true Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Check" />
+            }
+            else
+            {
+                <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
+                  Class="@extendedBaseClass" For="@For" FullWidth=true Margin="@Margin" Variant="@Variant" />
+            }
+        }
+        else
+        {
+            <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
+                  For="@For" Class="@Class" FullWidth=true Margin="@Margin" Variant="@Variant" />
+        }     
+   }
+
+</MudStack>

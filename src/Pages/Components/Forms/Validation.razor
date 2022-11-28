@@ -1,4 +1,6 @@
-﻿@page "/forms/validation"
+﻿@using BlazorNifty.Components
+
+@page "/forms/validation"
 
 <PageTitle>Validation</PageTitle>
 
@@ -34,22 +36,21 @@
                                 }
                             </MudStack>
                         </MudItem>
-
+                        
                          <MudItem xs="12" sm="6" lg="6" xl="6">
-                            <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">E-mail *</span></MudText>
-                                @if (IsFieldValid(nameof(commandRegisterCustomer.Email)))
-                                {
-                                    <MudTextField @bind-Value="commandRegisterCustomer.Email" Immediate=true Class="success-outlined-border"
-                                              For="@(() => commandRegisterCustomer.Email)" Margin="Margin.Dense" Variant="Variant.Outlined"
-                                              AdornmentColor="Color.Success" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Check"/>
-                                }
-                                else
-                                {
-                                    <MudTextField @bind-Value="commandRegisterCustomer.Email" Immediate=true
-                                              For="@(() => commandRegisterCustomer.Email)" Margin="Margin.Dense" Variant="Variant.Outlined" />
-                                }
-                            </MudStack>
+                                 <LabelTextField @bind-Value="commandRegisterCustomer.Email" 
+                                            For="@(() => commandRegisterCustomer.Email)"
+                                            Margin="Margin.Dense" 
+                                            Variant="Variant.Outlined"
+                                            LabelText="E-mail *"
+                                            InlineOrientation=false                                             
+                                            PropertyName="@nameof(commandRegisterCustomer.Email)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="success-outlined-border"
+                                            ShowTickIfValid=true
+                                            TickColorIfValid = "Color.Success"
+                                            LabelTypo="Typo.caption"                                          
+                                            AlignItemsOfComponent="AlignItems.Start"/>                                                     
                         </MudItem>
 
                         <MudItem xs="12" sm="6" lg="6" xl="6">
