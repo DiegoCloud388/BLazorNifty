@@ -1,0 +1,28 @@
+﻿@using BlazorNifty.Components.Wizards
+
+<MudStack Row="true" AlignItems="AlignItems.Center">
+    <MudText Typo="Typo.body2">First name</MudText>
+    <MudTextField T="string" @bind-Value="Wizard.Model.FirstName" Variant="Variant.Outlined" aria-label="name"></MudTextField>
+
+    <MudText Typo="Typo.body2">Last name</MudText>
+    <MudTextField T="string" @bind-Value="Wizard.Model.LastName" Variant="Variant.Outlined" aria-label="name"></MudTextField>
+</MudStack>
+
+<MudStack Row="true" AlignItems="AlignItems.Center">
+    <MudText Typo="Typo.body2">Company</MudText>
+    <MudTextField T="string" @bind-Value="Wizard.Model.Company" Variant="Variant.Outlined"></MudTextField>
+</MudStack>
+
+<MudStack Row="true" AlignItems="AlignItems.Center">
+    <MudText Typo="Typo.body2">Member type</MudText>
+    <MudRadioGroup T="string">
+        <MudRadio T="string">Free</MudRadio>
+        <MudRadio T="string">Personal</MudRadio>
+        <MudRadio T="string">Bussiness</MudRadio>
+    </MudRadioGroup> 
+</MudStack>
+
+@code {
+    [CascadingParameter]
+    private Wizard<TestWizardModel> Wizard { get; set; }
+}

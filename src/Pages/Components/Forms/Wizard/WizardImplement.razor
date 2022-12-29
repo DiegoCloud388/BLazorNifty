@@ -1,0 +1,71 @@
+﻿@page "/forms/wizard"
+@using BlazorNifty.Components.Wizards
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedSessionStorage BrowserStorage 
+
+<PageTitle>Wizard</PageTitle>
+
+<PageShell Rounded="true" Overlapping="true">
+    <ShellHeader>
+        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Wizard</MudText>
+        <MudText Typo="Typo.body1" Class="mb-2 page-description">A user interface design pattern that enables untrained users to achieve a goal through a series of steps.</MudText>
+    </ShellHeader>
+
+    <ShellBody>
+        <MudGrid Spacing="2" Style="height: 440px">
+            <MudItem xs="4" sm="4" md="4">
+                <MudCard Elevation="4">
+                    <MudCardContent Style="background-color: rgb(3,169,244); border-radius: 4px">
+                        <MudStack Row="false" AlignItems="AlignItems.Center" Justify="Justify.Center" Class="pt-12 pb-12 mt-12 mb-12">
+                            <MudText Typo="Typo.h3"><b>Register Today</b></MudText>
+                            <MudText Typo="Typo.body2" Style="color: white">Members get 50% more points, so register today and start earning points for savings on great rewards!</MudText>
+                            <MudButton Variant="Variant.Filled" Style="color: white">Learn More...</MudButton>
+                        </MudStack>                        
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="8" sm="8" md="8">
+                <MudCard Elevation="4">
+                    <MudCardContent>
+                        <MudStack>
+                            <Wizard TModel="TestWizardModel" Model="testWizardModel">
+                                <WizardStep TModel="TestWizardModel">                                                         
+                                    <WizardAccountStep></WizardAccountStep>
+                                </WizardStep>
+
+                                <WizardStep TModel="TestWizardModel">
+                                    <WizardProfileStep></WizardProfileStep>
+                                </WizardStep>
+
+                                <WizardStep TModel="TestWizardModel">
+                                     <div class="row">
+                                        <p>The final step has been reached. Thank you \o/</p>
+                                    </div>
+                                </WizardStep>
+                            </Wizard>
+                        </MudStack>                        
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+
+        <MudGrid>
+
+        </MudGrid>
+    </ShellBody>
+
+</PageShell>
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Forms", href: "#"),
+        new BreadcrumbItem("Wizard", href: null, disabled: true)
+    };
+
+    private TestWizardModel testWizardModel = new TestWizardModel();
+}
+
