@@ -16,6 +16,12 @@ namespace BlazorNifty.Components.Wizards
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        [Parameter]
+        public string? Name { get; set; }
+
         protected override void OnInitialized()
         {
             Parent.AddStep(this);

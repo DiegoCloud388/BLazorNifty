@@ -30,19 +30,19 @@
                 <MudCard Elevation="4">
                     <MudCardContent>
                         <MudStack>
-                            <Wizard TModel="TestWizardModel" Model="testWizardModel">
-                                <WizardStep TModel="TestWizardModel">                                                         
+                            <Wizard TModel="TestWizardModel" OnSubmit="Submit" Model="testWizardModel">
+                                <WizardHeaderWithIcons></WizardHeaderWithIcons>
+
+                                <WizardStep TModel="TestWizardModel" Name="Account">
                                     <WizardAccountStep></WizardAccountStep>
                                 </WizardStep>
 
-                                <WizardStep TModel="TestWizardModel">
+                                <WizardStep TModel="TestWizardModel" Name="Profile">
                                     <WizardProfileStep></WizardProfileStep>
                                 </WizardStep>
 
-                                <WizardStep TModel="TestWizardModel">
-                                     <div class="row">
-                                        <p>The final step has been reached. Thank you \o/</p>
-                                    </div>
+                                <WizardStep TModel="TestWizardModel" Name="Finish">                                                                   
+                                    <WizardFinishStep></WizardFinishStep>
                                 </WizardStep>
                             </Wizard>
                         </MudStack>                        
@@ -67,5 +67,10 @@
     };
 
     private TestWizardModel testWizardModel = new TestWizardModel();
+
+    private void Submit()
+    {
+        testWizardModel.Email = "test.test@test.cz";
+    }
 }
 

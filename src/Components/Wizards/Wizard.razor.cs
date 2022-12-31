@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System.Windows.Input;
 
 namespace BlazorNifty.Components.Wizards
 {
     public partial class Wizard<TModel>
     {
         /// <summary>
-        /// List of <see cref="WizardStep" /> added to the Wizard
+        /// List of <see cref="WizardStep{TModel}" /> added to the Wizard
         /// </summary>
         protected internal List<WizardStep<TModel>> Steps = new List<WizardStep<TModel>>();
 
@@ -13,13 +14,18 @@ namespace BlazorNifty.Components.Wizards
         /// The ChildContent container for <see cref="WizardStep"/>
         /// </summary>
         [Parameter]
-        public RenderFragment<TModel> ChildContent { get; set; }
+        public RenderFragment<TModel>? ChildContent { get; set; }
 
         /// <summary>
-        /// The Active <see cref="WizardStep"/>
+        /// The container for <see cref="WizardHeader"/>
+        /// </summary>
+        public WizardHeader? HeaderContent { get; set; }
+
+        /// <summary>
+        /// The Active <see cref="WizardStep{TModel}"/>
         /// </summary>
         [Parameter]
-        public WizardStep<TModel> ActiveStep { get; set; }
+        public WizardStep<TModel>? ActiveStep { get; set; }
 
         /// <summary>
         /// The Index number of the <see cref="ActiveStep"/>
@@ -34,6 +40,22 @@ namespace BlazorNifty.Components.Wizards
         public TModel Model { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [Parameter]
+        public EventCallback OnSubmit { get; set; }
+
+        /// <summary>
+        /// Gets or sets the command to be executed when clicked on a button.
+        /// </summary>
+        [Parameter] public ICommand SubmitCommand { get; set; }
+
+        /// <summary>
+        /// Reflects the parameter to pass to the CommandProperty upon execution.
+        /// </summary>
+        [Parameter] public object SubmitCommandParameter { get; set; }
+
+        /// <summary>
         /// Determines whether the Wizard is in the last step
         /// </summary>
         public bool IsLastStep { get; set; }
@@ -45,12 +67,16 @@ namespace BlazorNifty.Components.Wizards
         /// <returns></returns>
         public int StepsIndex(WizardStep<TModel> step) => StepsIndexInternal(step);
 
+
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
             {
-                SetActive(Steps[0]);
-                StateHasChanged();
+                if (Steps.Count != 0)
+                {
+                    SetActive(Steps[0]);
+                    StateHasChanged();
+                }                
             }
         }
 
@@ -66,9 +92,14 @@ namespace BlazorNifty.Components.Wizards
                 SetActive(Steps[ActiveStepIndex + 1]);
         }
 
-        private void GoSubmit()
+        protected async Task SubmitHandler()
         {
+            await OnSubmit.InvokeAsync(null);
 
+            if (SubmitCommand?.CanExecute(SubmitCommandParameter) ?? false)
+            {
+                SubmitCommand.Execute(SubmitCommandParameter);
+            }
         }
 
         private void SetActive(WizardStep<TModel> step)

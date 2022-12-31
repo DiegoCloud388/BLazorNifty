@@ -1,5 +1,12 @@
-﻿<h3>WizardFinishStep</h3>
+﻿@using BlazorNifty.Components.Wizards
+
+@inherits Wizard<TestWizardModel>
+
+<div class="row">
+    <p>The final step has been reached. Thank you \o/</p>
+</div>
 
 @code {
-
+    [CascadingParameter]
+    private Wizard<TestWizardModel> Wizard { get; set; }
 }

@@ -1,17 +1,8 @@
-﻿<MudStack Row="true" AlignItems="AlignItems.Center">
-    <MudText Typo="Typo.body2">Username</MudText>
-    <MudTextField T="string" Variant="Variant.Outlined" aria-label="name"></MudTextField>
-</MudStack>
+﻿<MudTabs @ref="mudTabs" Outlined="true">
+    <MudTabPanel Text="Account" Icon="@Icons.Filled.Info"></MudTabPanel>
+    <MudTabPanel Text="Profile" Icon="@Icons.Filled.Person"></MudTabPanel>
+</MudTabs>
 
-<MudStack Row="true" AlignItems="AlignItems.Center">
-    <MudText Typo="Typo.body2">Email</MudText>
-    <MudTextField T="string" Variant="Variant.Outlined" aria-label="email"></MudTextField>
-</MudStack>
-
-<MudStack Row="true" AlignItems="AlignItems.Center">
-    <MudText Typo="Typo.body2">Password</MudText>
-    <MudTextField T="string" Variant="Variant.Outlined" aria-label="password"></MudTextField>
-
-    <MudText Typo="Typo.body2">Retry password</MudText>
-    <MudTextField T="string" Variant="Variant.Outlined" aria-label="password"></MudTextField>
-</MudStack>
+@code {
+    private MudTabs mudTabs = new MudTabs();
+}
