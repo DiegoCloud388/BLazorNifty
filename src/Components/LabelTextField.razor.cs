@@ -8,7 +8,13 @@ namespace BlazorNifty.Components
     {
         [Parameter] public bool InlineOrientation { get; set; }
 
-        [Parameter] public AlignItems AlignItemsOfComponent { get; set; } = AlignItems.Center;
+        [Parameter] public AlignItems StackAlign { get; set; } = AlignItems.Center;
+
+        [Parameter] public Justify StackJustify { get; set; } = Justify.FlexStart;
+
+        [Parameter] public bool ReverseStack { get; set; }        
+
+        [Parameter] public string? StackClass { get; set; }
 
         [Parameter] public string? LabelClass { get; set; }
 
@@ -36,7 +42,7 @@ namespace BlazorNifty.Components
 
         [Parameter] public string? ExtendBaseClassIfValid  { get; set; }
 
-        [Parameter] public int SpacingAfterLabel { get; set; } = 0;
+        [Parameter] public int SpacingAfterLabel { get; set; } = 0;     
 
         [Parameter] public EditContext MyEditContext { get; set; }
 

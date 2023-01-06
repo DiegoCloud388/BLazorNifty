@@ -183,6 +183,23 @@
     margin-right:36px;
 }
 
+/*.text-input-tick-margin .mud-input-control {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-input-tick-margin {
+    margin-right: 36px;
+}*/
+
+/*.text-input-tick-margin .mud-input-adornment {
+    margin-right: -20px;
+}*/
+    .text-input-tick-margin .mud-input-control .mud-input-control-input-container .mud-input-slot {
+    margin-right: 28px;
+}
+
 .shrink-picker .mud-input-control .mud-input-control-input-container .mud-input-slot {
     margin-right: 5px;
     overflow: hidden;

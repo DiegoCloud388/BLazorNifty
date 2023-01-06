@@ -20,24 +20,45 @@
 
                     <MudGrid Spacing="2">
                         <MudItem xs="12" sm="6" lg="6" xl="6">
-                            <MudStack Spacing="0">
-                               @* Immediate blbne s ohledem na focus kurzor. Pokud je false, tak to nevyhazuje focus kurzor*@
-                                <MudText Typo="Typo.caption"><span class="light-label">Full Name *</span></MudText>
-                                @if (IsFieldValid(nameof(commandRegisterCustomer.FullName)))
-                                {
-                                    <MudTextField @bind-Value="commandRegisterCustomer.FullName" Immediate=true Class="success-outlined-border"
-                                        For="@(() => commandRegisterCustomer.FullName)" Margin="Margin.Dense" Variant="Variant.Outlined"
-                                        AdornmentColor="Color.Success" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Check"/>
-                                }
-                                else
-                                {
-                                    <MudTextField @bind-Value="commandRegisterCustomer.FullName" Immediate=true 
-                                    For="@(() => commandRegisterCustomer.FullName)" Margin="Margin.Dense" Variant="Variant.Outlined" />
-                                }
-                            </MudStack>
+                             <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
+                                            For="@(() => commandRegisterCustomer.FullName)"
+                                            Margin="Margin.Dense" 
+                                            Variant="Variant.Outlined"
+                                            LabelText="Full Name *"
+                                            InlineOrientation=true                                             
+                                            PropertyName="@nameof(commandRegisterCustomer.FullName)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="success-outlined-border"
+                                            ShowTickIfValid=true
+                                            TickColorIfValid = "Color.Success"
+                                            LabelTypo="Typo.caption"                                          
+                                            StackAlign="AlignItems.Center"
+                                            Adornment="Adornment.End"
+                                            AdornmentIcon="@Icons.Material.Filled.VerifiedUser"
+                                            Clearable=false
+                                            StackClass="mt-5"
+                                            LabelXl="2"
+                                            />           
                         </MudItem>
                         
                          <MudItem xs="12" sm="6" lg="6" xl="6">
+                             @*<LabelTextField @bind-Value="commandRegisterCustomer.Email" 
+                                            For="@(() => commandRegisterCustomer.Email)"
+                                            Margin="Margin.Dense" 
+                                            Variant="Variant.Outlined"
+                                            LabelText="E-mail *"
+                                            InlineOrientation=true                                             
+                                            PropertyName="@nameof(commandRegisterCustomer.Email)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="success-outlined-border"
+                                            ShowTickIfValid=true
+                                            TickColorIfValid = "Color.Success"
+                                            LabelTypo="Typo.caption"                                          
+                                            StackAlign="AlignItems.Center"
+                                            StackClass="mt-5"
+                                            Adornment="Adornment.Start"
+                                            AdornmentIcon="@Icons.Material.Filled.Email"                                            
+                                            />                          *@    
                                  <LabelTextField @bind-Value="commandRegisterCustomer.Email" 
                                             For="@(() => commandRegisterCustomer.Email)"
                                             Margin="Margin.Dense" 
@@ -50,7 +71,10 @@
                                             ShowTickIfValid=true
                                             TickColorIfValid = "Color.Success"
                                             LabelTypo="Typo.caption"                                          
-                                            AlignItemsOfComponent="AlignItems.Start"/>                                                     
+                                            StackAlign="AlignItems.Baseline"
+                                            Adornment="Adornment.End"
+                                            AdornmentIcon="@Icons.Material.Filled.Email"                                         
+                                            />  @* Clearable=true      *@                                            
                         </MudItem>
 
                         <MudItem xs="12" sm="6" lg="6" xl="6">
