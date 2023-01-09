@@ -14,18 +14,10 @@
     <ShellBody>
         <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator/>
-
-        @*<MudCard Class="mb-2">
-            <MudCardHeader>
-                <MudText Typo="Typo.h5">Component parameters for demo using</MudText>
-            </MudCardHeader>*@
-
-                <MudExpansionPanels Class="my-2">
-                   
-                    <MudExpansionPanel Text="Component parameters for demo using" IsInitiallyExpanded=true>
-                        
-                            <MudStack Row=true AlignItems="AlignItems.Start" Class="ml-n4">
-                                
+               
+        <MudExpansionPanels Class="my-2">                
+                    <MudExpansionPanel Text="Component parameters for demo using" IsInitiallyExpanded=true>                      
+                            <MudStack Row=true AlignItems="AlignItems.Start" Class="ml-n4">                               
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@inlineOrientation" Label="Inline orientation" Color="Color.Primary"/>
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@reverseStack" Label="Reverse" Color="Color.Primary" />
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@lightLabel" Label="Light label" Color="Color.Primary" />                              
@@ -37,42 +29,15 @@
                                     </MudStack>
                         <MudNumericField @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
                          <MudNumericField @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
-                           </MudStack>          
+                      </MudStack>          
     </MudExpansionPanel>
-              
-
 </MudExpansionPanels>
-
-           
-               
-               
-                
-           
             <MudCard>
                 <MudCardContent>
                     <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Register customer form</MudText>
 
                     <MudGrid Spacing="2">
-                        <MudItem xs="12" sm="6" lg="6" xl="6">
-                            @* <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
-                                            For="@(() => commandRegisterCustomer.FullName)"
-                                            Margin="Margin.Dense" 
-                                            Variant="Variant.Outlined"
-                                            LabelText="Full Name *"
-                                            InlineOrientation=true                                             
-                                            PropertyName="@nameof(commandRegisterCustomer.FullName)"
-                                            MyEditContext="@editContext"
-                                            ExtendBaseClassIfValid="success-outlined-border"
-                                            ShowTickIfValid=true
-                                            TickColorIfValid = "Color.Success"
-                                            LabelTypo="Typo.caption"                                          
-                                            StackAlign="AlignItems.Center"
-                                            Adornment="Adornment.End"
-                                            AdornmentIcon="@Icons.Material.Filled.VerifiedUser"
-                                            Clearable=false
-                                            StackClass="mt-5"
-                                            LabelXl="2"
-                                            />         *@  
+                        <MudItem xs="12" sm="6" lg="6" xl="6"> 
                                              <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
                                             For="@(() => commandRegisterCustomer.FullName)"
                                             Margin="Margin.Dense"
@@ -90,29 +55,10 @@
                                             ReverseStack=@reverseStack
                                             LightLabel=@lightLabel
                                             LabelXl="@labelXl"
-                                            LabelXxl="@labelXxl"
-                                            
-                                             />         
+                                            LabelXxl="@labelXxl" />         
                         </MudItem>
                         
-                         <MudItem xs="12" sm="6" lg="6" xl="6">
-                             @*<LabelTextField @bind-Value="commandRegisterCustomer.Email" 
-                                            For="@(() => commandRegisterCustomer.Email)"
-                                            Margin="Margin.Dense" 
-                                            Variant="Variant.Outlined"
-                                            LabelText="E-mail *"
-                                            InlineOrientation=true                                             
-                                            PropertyName="@nameof(commandRegisterCustomer.Email)"
-                                            MyEditContext="@editContext"
-                                            ExtendBaseClassIfValid="success-outlined-border"
-                                            ShowTickIfValid=true
-                                            TickColorIfValid = "Color.Success"
-                                            LabelTypo="Typo.caption"                                          
-                                            StackAlign="AlignItems.Center"
-                                            StackClass="mt-5"
-                                            Adornment="Adornment.Start"
-                                            AdornmentIcon="@Icons.Material.Filled.Email"                                            
-                                            />                          *@    
+                         <MudItem xs="12" sm="6" lg="6" xl="6">  
                                  <LabelTextField @bind-Value="commandRegisterCustomer.Email" 
                                             For="@(() => commandRegisterCustomer.Email)"
                                             Margin="Margin.Dense" 
@@ -135,7 +81,6 @@
                                             AdornmentIcon="@Icons.Material.Filled.Email"                                         
                                             />  @* Clearable=true      *@                                            
                         </MudItem>
-
                         <MudItem xs="12" sm="6" lg="6" xl="6">
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">Birthdate *</span></MudText>
