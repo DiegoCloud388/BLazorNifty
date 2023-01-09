@@ -14,13 +14,47 @@
     <ShellBody>
         <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator/>
+
+        @*<MudCard Class="mb-2">
+            <MudCardHeader>
+                <MudText Typo="Typo.h5">Component parameters for demo using</MudText>
+            </MudCardHeader>*@
+
+                <MudExpansionPanels Class="my-2">
+                   
+                    <MudExpansionPanel Text="Component parameters for demo using" IsInitiallyExpanded=true>
+                        
+                            <MudStack Row=true AlignItems="AlignItems.Start" Class="ml-n4">
+                                
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@inlineOrientation" Label="Inline orientation" Color="Color.Primary"/>
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@reverseStack" Label="Reverse" Color="Color.Primary" />
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@lightLabel" Label="Light label" Color="Color.Primary" />                              
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessTickIfValid" Label="Show tick if valid" Color="Color.Primary" />
+                                     
+                                    <MudStack Row=true Class="mt-2 ml-3" Spacing="5">                                      
+                                             <MudText Typo="Typo.body1">Spacing after label</MudText>
+                                            <MudSlider @bind-Value="@spacingAfterLabel" Style="width:150px" TickMarks=true ValueLabel="true" Step="1" Min="0" Max="16" />                                                                              
+                                    </MudStack>
+                        <MudNumericField @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
+                         <MudNumericField @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
+                           </MudStack>          
+    </MudExpansionPanel>
+              
+
+</MudExpansionPanels>
+
+           
+               
+               
+                
+           
             <MudCard>
                 <MudCardContent>
                     <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Register customer form</MudText>
 
                     <MudGrid Spacing="2">
                         <MudItem xs="12" sm="6" lg="6" xl="6">
-                             <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
+                            @* <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
                                             For="@(() => commandRegisterCustomer.FullName)"
                                             Margin="Margin.Dense" 
                                             Variant="Variant.Outlined"
@@ -38,7 +72,27 @@
                                             Clearable=false
                                             StackClass="mt-5"
                                             LabelXl="2"
-                                            />           
+                                            />         *@  
+                                             <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
+                                            For="@(() => commandRegisterCustomer.FullName)"
+                                            Margin="Margin.Dense"
+                                            Variant="Variant.Outlined"
+                                            LabelText="Full Name *"
+                                            InlineOrientation=@inlineOrientation                                             
+                                            PropertyName="@nameof(commandRegisterCustomer.FullName)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="success-outlined-border"
+                                            ShowTickIfValid=@showSuccessTickIfValid
+                                            TickColorIfValid = "Color.Success"
+                                            SpacingAfterLabel="@spacingAfterLabel"
+                                            LabelTypo="Typo.caption"                                          
+                                            StackAlign="AlignItems.Baseline"
+                                            ReverseStack=@reverseStack
+                                            LightLabel=@lightLabel
+                                            LabelXl="@labelXl"
+                                            LabelXxl="@labelXxl"
+                                            
+                                             />         
                         </MudItem>
                         
                          <MudItem xs="12" sm="6" lg="6" xl="6">
@@ -64,14 +118,19 @@
                                             Margin="Margin.Dense" 
                                             Variant="Variant.Outlined"
                                             LabelText="E-mail *"
-                                            InlineOrientation=false                                             
+                                            InlineOrientation=@inlineOrientation
                                             PropertyName="@nameof(commandRegisterCustomer.Email)"
                                             MyEditContext="@editContext"
                                             ExtendBaseClassIfValid="success-outlined-border"
-                                            ShowTickIfValid=true
+                                            ShowTickIfValid=@showSuccessTickIfValid
                                             TickColorIfValid = "Color.Success"
+                                            SpacingAfterLabel="@spacingAfterLabel"
                                             LabelTypo="Typo.caption"                                          
                                             StackAlign="AlignItems.Baseline"
+                                            ReverseStack=@reverseStack
+                                            LightLabel=@lightLabel
+                                            LabelXl="@labelXl"
+                                            LabelXxl="@labelXxl"
                                             Adornment="Adornment.End"
                                             AdornmentIcon="@Icons.Material.Filled.Email"                                         
                                             />  @* Clearable=true      *@                                            

@@ -3,10 +3,6 @@
 
 <MudStack Row=@InlineOrientation AlignItems="@StackAlign" Spacing="@SpacingAfterLabel" Class="@StackClass" Justify="@StackJustify" Reverse="@ReverseStack">
 
-    <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
-            <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle"><span class="light-label">@LabelText</span></MudText>
-    </MudItem>
-
    @{ 
         var isFieldValid = IsFieldValid();
         string? extendedBaseClass = !string.IsNullOrEmpty(ExtendBaseClassIfValid) && isFieldValid ? $"{Class} {ExtendBaseClassIfValid}" : Class;
@@ -14,7 +10,16 @@
     
    @if (InlineOrientation)
    {
-        if (isFieldValid && ShowTickIfValid)
+      <MudGrid>    
+          
+        <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
+           <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
+                @if(LightLabel) { <span class="light-label">@LabelText</span> }
+                else { @LabelText }
+            </MudText>
+        </MudItem>  
+
+        @if (isFieldValid && ShowTickIfValid)
         {                        
                 <MudItem xs="12 - LabelXs" sm="12 - LabelSm" md="12 - LabelMd" lg="12 - LabelLg" xl="12 - LabelXl" xxl="12 - LabelXxl">
                     <div class="d-flex flex-row align-start text-input-tick-margin" style="width:100%">
@@ -61,7 +66,7 @@
             </MudItem>        
         }
         else
-        {
+        {           
             <MudItem xs="12 - LabelXs" sm="12 - LabelSm" md="12 - LabelMd" lg="12 - LabelLg" xl="12 - LabelXl" xxl="12 - LabelXxl">
                 <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
                       Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=true
@@ -80,10 +85,17 @@
                       Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
                       Validation="@Validation" />
             </MudItem>
-        }      
+        } 
+
+        </MudGrid>
    }
    else
    {
+        <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
+                @if(LightLabel) { <span class="light-label">@LabelText</span> }
+                else { @LabelText }
+        </MudText>
+
         if (isFieldValid && ShowTickIfValid)
         {
                 <div class="d-flex flex-row align-start text-input-tick-margin" style="width:100%">
@@ -104,11 +116,12 @@
                       Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
                       Validation="@Validation" />
 
+                    
                     @if (Adornment == Adornment.End)
                     {
                         if (Clearable == true)
                         {
-                            <MudIcon Icon="@Icons.Filled.Check" Style="margin-left: -95px; margin-top: 8px;" Color="@TickColorIfValid"></MudIcon>
+                            <MudIcon Icon="@Icons.Filled.Check" Style="margin-left: -95px; margin-top: 8px;" Color="@TickColorIfValid"></MudIcon>                                                                    
                         }
                         else
                         {
@@ -123,7 +136,7 @@
                     }
                     else
                     {
-                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n9 mt-2" Color="@TickColorIfValid"></MudIcon>
+                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n9 mt-4" Color="@TickColorIfValid"></MudIcon>
                     }
                 }
             </div>

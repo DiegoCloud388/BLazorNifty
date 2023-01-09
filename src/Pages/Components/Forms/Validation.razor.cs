@@ -6,6 +6,16 @@ namespace BlazorNifty.Pages.Components.Forms
 {
     public partial class Validation
     {
+        #region Fields for component parameters demo
+        private bool inlineOrientation;
+        private bool showSuccessTickIfValid = true;
+        private int spacingAfterLabel;
+        private bool reverseStack;
+        private bool lightLabel = true;
+        private int labelXl = 1;
+        private int labelXxl = 1;
+        #endregion
+
         private List<BreadcrumbItem> items = new ()
         {
             new BreadcrumbItem("Home", href: "#"),

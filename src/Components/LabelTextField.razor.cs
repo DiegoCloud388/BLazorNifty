@@ -12,7 +12,9 @@ namespace BlazorNifty.Components
 
         [Parameter] public Justify StackJustify { get; set; } = Justify.FlexStart;
 
-        [Parameter] public bool ReverseStack { get; set; }        
+        [Parameter] public bool ReverseStack { get; set; }
+
+        [Parameter] public bool LightLabel { get; set; } = true;
 
         [Parameter] public string? StackClass { get; set; }
 
