@@ -1,23 +1,25 @@
 ﻿@typeparam T
 @inherits MudTextField<T>
 
-<MudStack Row=@InlineOrientation AlignItems="@StackAlign" Spacing="@SpacingAfterLabel" Class="@StackClass" Justify="@StackJustify" Reverse="@ReverseStack">
+<MudStack Row=@InlineOrientation AlignItems="@LabelAlign" Spacing="@SpacingAfterLabel" Class="@StackClass" Reverse="@ReverseStack">
 
    @{ 
         var isFieldValid = IsFieldValid();
         string? extendedBaseClass = !string.IsNullOrEmpty(ExtendBaseClassIfValid) && isFieldValid ? $"{Class} {ExtendBaseClassIfValid}" : Class;
-    }
-    
+    }     
+
    @if (InlineOrientation)
    {
-      <MudGrid>    
-          
-        <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
-           <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
-                @if(LightLabel) { <span class="light-label">@LabelText</span> }
-                else { @LabelText }
-            </MudText>
-        </MudItem>  
+        if (!string.IsNullOrEmpty(LabelText))
+        {
+             <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
+               <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
+                    @if(LightLabel) { <span class="light-label">@LabelText</span> }
+                    else { @LabelText }
+                </MudText>
+            </MudItem>  
+        }
+       
 
         @if (isFieldValid && ShowTickIfValid)
         {                        
@@ -85,16 +87,17 @@
                       Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
                       Validation="@Validation" />
             </MudItem>
-        } 
-
-        </MudGrid>
-   }
+        }        
+   } 
    else
    {
-        <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
-                @if(LightLabel) { <span class="light-label">@LabelText</span> }
-                else { @LabelText }
-        </MudText>
+       if (!string.IsNullOrEmpty(LabelText))
+       {
+            <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
+                    @if(LightLabel) { <span class="light-label">@LabelText</span> }
+                    else { @LabelText }
+            </MudText>
+       }
 
         if (isFieldValid && ShowTickIfValid)
         {
@@ -161,5 +164,4 @@
                   Validation="@Validation" />
         }    
    }
-
 </MudStack>

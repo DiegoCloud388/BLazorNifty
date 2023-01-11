@@ -16,25 +16,69 @@
         <DataAnnotationsValidator/>
                
         <MudExpansionPanels Class="my-2">                
-                    <MudExpansionPanel Text="Component parameters for demo using" IsInitiallyExpanded=true>                      
-                            <MudStack Row=true AlignItems="AlignItems.Start" Class="ml-n4">                               
+                    <MudExpansionPanel Text="Component parameters for demo using" IsInitiallyExpanded=true>
+                    <MudStack Row=true>
+                        <MudGrid>
+                        
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@inlineOrientation" Label="Inline orientation" Color="Color.Primary"/>
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@reverseStack" Label="Reverse" Color="Color.Primary" />
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@lightLabel" Label="Light label" Color="Color.Primary" />                              
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessTickIfValid" Label="Show tick if valid" Color="Color.Primary" />
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessBorderIfValid" Label="Success border if valid" Color="Color.Primary" />
                                      
-                                    <MudStack Row=true Class="mt-2 ml-3" Spacing="5">                                      
+                                    <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
                                              <MudText Typo="Typo.body1">Spacing after label</MudText>
                                             <MudSlider @bind-Value="@spacingAfterLabel" Style="width:150px" TickMarks=true ValueLabel="true" Step="1" Min="0" Max="16" />                                                                              
                                     </MudStack>
-                        <MudNumericField @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
-                         <MudNumericField @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
-                      </MudStack>          
+
+                                <MudItem xs="6" sm="3" lg="2" xl="1">
+                            <MudNumericField @bind-Value="@labelLg" Label="Label Lg" Variant="Variant.Outlined" Step="1" />
+                        </MudItem>
+
+                       <MudItem xs="6" sm="3" lg="2" xl="1">
+                            <MudNumericField @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
+                          </MudItem>
+
+                            <MudItem xs="6" sm="3" lg="2" xl="1">
+                            <MudNumericField @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
+                            </MudItem>
+
+                            <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
+                                             <MudText Typo="Typo.body1">Label align</MudText>
+                                            <MudSelect Margin="Margin.Dense" 
+                                           PopoverClass="rounded" @bind-Value="@labelAlign"
+                                           Dense=true AnchorOrigin="Origin.BottomCenter"
+                                           T="AlignItems" Variant="Variant.Outlined">
+                                    <MudSelectItem Value="AlignItems.Start">Start</MudSelectItem>
+                                    <MudSelectItem Value="AlignItems.Center">Center</MudSelectItem>
+                                    <MudSelectItem Value="AlignItems.End">End</MudSelectItem>
+                                      <MudSelectItem Value="AlignItems.Baseline">Baseline</MudSelectItem>
+                                    </MudSelect>                                                                            
+                                    </MudStack>
+
+                            @*<MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">
+                                <MudText Typo="Typo.body1">Stack justify</MudText>
+                                <MudSelect Margin="Margin.Dense"
+                                           PopoverClass="rounded" @bind-Value="@stackJustify"
+                                           Dense=true AnchorOrigin="Origin.BottomCenter"
+                                           T="Justify" Variant="Variant.Outlined">
+                                    <MudSelectItem Value="Justify.FlexStart">Start</MudSelectItem>
+                                    <MudSelectItem Value="Justify.Center">Center</MudSelectItem>
+                                    <MudSelectItem Value="Justify.FlexEnd">End</MudSelectItem>
+                                    <MudSelectItem Value="Justify.SpaceAround">Space Around</MudSelectItem>
+                                    <MudSelectItem Value="Justify.SpaceBetween">Space Between</MudSelectItem>
+                                    <MudSelectItem Value="Justify.SpaceEvenly">Space Evenly</MudSelectItem>
+                                </MudSelect>
+                            </MudStack>*@
+                    </MudGrid>
+                      </MudStack>
     </MudExpansionPanel>
 </MudExpansionPanels>
             <MudCard>
                 <MudCardContent>
                     <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Register customer form</MudText>
+
+                    @{ string borderClassIfValid = showSuccessBorderIfValid ? "success-outlined-border" : null; }
 
                     <MudGrid Spacing="2">
                         <MudItem xs="12" sm="6" lg="6" xl="6"> 
@@ -46,14 +90,15 @@
                                             InlineOrientation=@inlineOrientation                                             
                                             PropertyName="@nameof(commandRegisterCustomer.FullName)"
                                             MyEditContext="@editContext"
-                                            ExtendBaseClassIfValid="success-outlined-border"
+                                            ExtendBaseClassIfValid="@borderClassIfValid"
                                             ShowTickIfValid=@showSuccessTickIfValid
                                             TickColorIfValid = "Color.Success"
                                             SpacingAfterLabel="@spacingAfterLabel"
-                                            LabelTypo="Typo.caption"                                          
-                                            StackAlign="AlignItems.Baseline"
+                                            LabelTypo="Typo.caption"
+                                            LabelAlign="@labelAlign"
                                             ReverseStack=@reverseStack
                                             LightLabel=@lightLabel
+                                            LabelLg="@labelLg"
                                             LabelXl="@labelXl"
                                             LabelXxl="@labelXxl" />         
                         </MudItem>
@@ -67,20 +112,23 @@
                                             InlineOrientation=@inlineOrientation
                                             PropertyName="@nameof(commandRegisterCustomer.Email)"
                                             MyEditContext="@editContext"
-                                            ExtendBaseClassIfValid="success-outlined-border"
+                                            ExtendBaseClassIfValid="@borderClassIfValid"
                                             ShowTickIfValid=@showSuccessTickIfValid
                                             TickColorIfValid = "Color.Success"
                                             SpacingAfterLabel="@spacingAfterLabel"
-                                            LabelTypo="Typo.caption"                                          
-                                            StackAlign="AlignItems.Baseline"
+                                            LabelTypo="Typo.caption"
+                                            LabelAlign="@labelAlign"
                                             ReverseStack=@reverseStack
                                             LightLabel=@lightLabel
+                                            LabelLg="@labelLg"
                                             LabelXl="@labelXl"
                                             LabelXxl="@labelXxl"
                                             Adornment="Adornment.End"
                                             AdornmentIcon="@Icons.Material.Filled.Email"                                         
-                                            />  @* Clearable=true      *@                                            
+                                            />  @* Clearable=true      *@   
+                                           
                         </MudItem>
+
                         <MudItem xs="12" sm="6" lg="6" xl="6">
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption"><span class="light-label">Birthdate *</span></MudText>

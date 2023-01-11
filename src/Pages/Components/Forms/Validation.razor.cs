@@ -9,11 +9,15 @@ namespace BlazorNifty.Pages.Components.Forms
         #region Fields for component parameters demo
         private bool inlineOrientation;
         private bool showSuccessTickIfValid = true;
+        private bool showSuccessBorderIfValid = true;
         private int spacingAfterLabel;
         private bool reverseStack;
         private bool lightLabel = true;
+        private int labelLg = 1;
         private int labelXl = 1;
         private int labelXxl = 1;
+        private AlignItems labelAlign = AlignItems.Baseline;
+        //private Justify stackJustify = Justify.FlexStart;
         #endregion
 
         private List<BreadcrumbItem> items = new ()

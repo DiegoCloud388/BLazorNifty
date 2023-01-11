@@ -8,9 +8,9 @@ namespace BlazorNifty.Components
     {
         [Parameter] public bool InlineOrientation { get; set; }
 
-        [Parameter] public AlignItems StackAlign { get; set; } = AlignItems.Center;
+        [Parameter] public AlignItems LabelAlign { get; set; } = AlignItems.Baseline;
 
-        [Parameter] public Justify StackJustify { get; set; } = Justify.FlexStart;
+        //[Parameter] public Justify StackJustify { get; set; } = Justify.FlexStart;
 
         [Parameter] public bool ReverseStack { get; set; }
 
