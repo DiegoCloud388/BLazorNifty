@@ -14,7 +14,7 @@ namespace BlazorNifty.Components.Wizards
         /// The ChildContent container for <see cref="WizardStep"/>
         /// </summary>
         [Parameter]
-        public RenderFragment<TModel>? ChildContent { get; set; }
+        public RenderFragment<TModel> ChildContent { get; set; }
 
         /// <summary>
         /// The container for <see cref="WizardHeader"/>

@@ -5,13 +5,13 @@ namespace BlazorNifty.Components.Wizards
     public partial class WizardStep<TModel>
     {
         /// <summary>
-        /// The <see cref="Wizard"/> container
+        /// The <see cref="Wizard<typeparamref name="TModel"/> container
         /// </summary>
         [CascadingParameter]
         protected internal Wizard<TModel> Parent { get; set; }
 
         /// <summary>
-        /// The Child Content of the current <see cref="WizardStep"/>
+        /// The Child Content of the current <see cref="WizardStep<typeparamref name="TModel"/>
         /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }

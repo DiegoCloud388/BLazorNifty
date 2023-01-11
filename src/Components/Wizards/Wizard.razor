@@ -4,9 +4,18 @@
 
 <CascadingValue Value="this">
     <CascadingValue Value="this.Model" TValue="TModel">
-        <div id="container-fluid">
-            <WizardHeader></WizardHeader>
+        <div>
+            <ul class="nav mud-nav-group">
+                <MudSlider T="int" Step="35" TickMarks="true" Value="10" TickMarkLabels="Steps.Select(e => e.Name).ToArray()"></MudSlider>
+@*                @foreach(var step in Steps)
+                {
+                    <a>@step.Name</a>
+                }*@
+                <MudDivider/>
+            </ul>
+        </div>
 
+        <div id="container-fluid">            
             @ChildContent(Model)
         </div>
 

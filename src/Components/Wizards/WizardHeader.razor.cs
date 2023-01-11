@@ -11,9 +11,10 @@ namespace BlazorNifty.Components.Wizards
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Parameter]
+        public int ActiveStepIndex { get; set; }
     }
 }
