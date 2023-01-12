@@ -17,7 +17,7 @@
                         <MudText>Striped rows</MudText>
                     </MudCardHeader>
                     <MudCardContent>
-                        <MudTable Items="@Customers" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                        <MudTable Items="@Customers" Hover="false" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
                             <HeaderContent>
                                 <MudTh>Invoice</MudTh>
                                 <MudTh>User</MudTh>
@@ -43,7 +43,7 @@
                         <MudText>Bordered table</MudText>
                     </MudCardHeader>
                     <MudCardContent>
-                        <MudTable Items="@Customers" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                        <MudTable Items="@Customers" Hover="false" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
                             <HeaderContent>
                                 <MudTh>#</MudTh>
                                 <MudTh>User</MudTh>
@@ -52,7 +52,148 @@
                             </HeaderContent>
                             <RowTemplate>
                                 <MudTd DataLabel="Invoice">@(context.Invoice - 53450)</MudTd>
+                                    <MudTd DataLabel="User">@context.User</MudTd>
+                                    <MudTd DataLabel="Plan">
+                                    @switch (context.Plan)
+                                    {
+                                        case Plans.Bussines:
+
+                                            <MudBadge Content="@("Bussines")" Color="Color.Success" Overlap=" true" />
+                                            break;
+
+                                        case Plans.Personal:
+
+                                            <MudBadge Content="@("Personal")" Color="Color.Info" Overlap="true" />
+                                            break;
+
+                                        case Plans.Trial:
+
+                                            <MudBadge Content="@("Trial")" Color="Color.Warning" Overlap="true" />
+                                            break;
+
+                                        default:
+                                            <MudBadge Content="@("?")" Overlap="true" />
+
+                                            break;
+
+                                    }
+
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Hover table</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTable Items="@Devices" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                            <HeaderContent>
+                                <MudTh>Device</MudTh>
+                                <MudTh>Name</MudTh>
+                                <MudTh>Value</MudTh>
+
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="Device">
+                                    <MudIcon Icon="@context.Icon" />
+                                </MudTd>
+                                <MudTd DataLabel="Name">
+                                    <MudText>@context.Name</MudText>
+                                    <MudText Typo="Typo.caption">Last 7 days: 4.234k</MudText>
+                                </MudTd>
+
+                                <MudTd DataLabel="Value">
+
+                                    <MudText Color="context.Color">@String.Format("{0:P2}",context.Value)</MudText>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <MudText>Small table</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTable Dense="true" Items="@Customers" Hover="false" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                            <HeaderContent>
+                                <MudTh>Invoice</MudTh>
+                                <MudTh>User</MudTh>
+                                <MudTh>Amount</MudTh>
+
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="Invoice">Order #@context.Invoice</MudTd>
                                 <MudTd DataLabel="User">@context.User</MudTd>
+                                <MudTd DataLabel="Amount">
+                                    @String.Format("{0:C2}",context.Amount)
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+
+            <MudItem xs="12" sm="12">
+                <MudCard Outlined="true">
+                    <MudCardHeader Class="d-flex justify-space-between">
+                        <MudStack>
+                         
+                                <MudText>Table with toolbar</MudText>
+                                <MudToolBar DisableGutters=true>
+                                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary">Add New</MudButton>
+                                    <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+                                    <MudButtonGroup Color="Color.Transparent" Variant="Variant.Outlined">
+                                        <MudIconButton Icon="@Icons.Material.Outlined.Warning" Color="Color.Inherit" />
+                                        <MudIconButton Icon="@Icons.Material.Outlined.Delete" Color="Color.Inherit" />
+                                    </MudButtonGroup>
+                                </MudToolBar>
+                         
+                        </MudStack>
+
+                        <MudStack Row="true">
+                            <MudTextField @bind-Value="@_normalText" Variant="Variant.Outlined" Margin="Margin.None" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" />
+                            <div>
+                                <MudIconButton Icon="@Icons.Material.Outlined.CloudUpload" Color="Color.Default" />
+                                <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="Dropdown" Color="Color.Transparent" Variant="Variant.Outlined">
+                                    <MudMenuItem>Action</MudMenuItem>
+                                    <MudMenuItem>Another action</MudMenuItem>
+                                    <MudMenuItem>Somethind else here</MudMenuItem>
+                                    <MudDivider></MudDivider>
+                                    <MudMenuItem>Separated link</MudMenuItem>
+                                </MudMenu>
+                            </div>
+                        </MudStack>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTable Items="@Customers" Hover="false" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                            <HeaderContent>
+                                <MudTh>Invoice</MudTh>
+                                <MudTh>User</MudTh>
+                                <MudTh>Order date</MudTh>
+                                <MudTh>Amount</MudTh>
+                                <MudTh>Plan</MudTh>
+
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="Invoice">Order #@context.Invoice</MudTd>
+                                <MudTd DataLabel="User">@context.User</MudTd>
+                                <MudTd DataLabel="Order date">@context.OrderDate</MudTd>
+                                <MudTd DataLabel="Amount">
+                                    @String.Format("{0:C2}",context.Amount)
+                                </MudTd>
+
                                 <MudTd DataLabel="Plan">
                                     @switch (context.Plan)
                                     {
@@ -74,22 +215,21 @@
                                         default:
                                             <MudBadge Content="@("?")" Overlap="true" />
 
-                                        break;
+                                            break;
 
                                     }
 
-
-
                                 </MudTd>
                             </RowTemplate>
+
+                            <PagerContent  >
+                                <MudPagination Rectangular="true" Color="Color.Primary" Variant="Variant.Filled" Count="6" Class="pa-4" />
+                            </PagerContent>
                         </MudTable>
 
                     </MudCardContent>
                 </MudCard>
             </MudItem>
-
-
-
         </MudGrid>
 
     </ShellBody>
@@ -97,6 +237,8 @@
 </PageShell>
 
 @code {
+
+    string _normalText = "Search..";
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
         new BreadcrumbItem("Home", href: "#"),
@@ -106,12 +248,21 @@
 
     private IEnumerable<Customer> Customers = new List<Customer>()
     {
-        new Customer { Amount = 24.98, Invoice = 53451, User =  "Scott S. Calabrese", Plan=Plans.Bussines},
-        new Customer { Amount = 564.00, Invoice = 53452, User =  "Teresa L. Doe", Plan=Plans.Personal},
-        new Customer { Amount = 58.87, Invoice = 53453, User =  "Steve N. Horton", Plan=Plans.Trial},
-        new Customer { Amount = 97.50, Invoice = 53454, User =  "Charles S. Boyle", Plan=Plans.Bussines},
-        new Customer { Amount = 12.79, Invoice = 53455, User =  "Lucy Doe", Plan=Plans.Trial},
-        new Customer { Amount = 249.99, Invoice = 53456, User =  "Michael Bunr", Plan=Plans.Personal},
+        new Customer { Amount = 24.98, Invoice = 53451, User =  "Scott S. Calabrese", Plan=Plans.Bussines, OrderDate=DateTime.Today.AddDays(-2.0)},
+        new Customer { Amount = 564.00, Invoice = 53452, User =  "Teresa L. Doe", Plan=Plans.Personal, OrderDate=DateTime.Today.AddDays(-6.0)},
+        new Customer { Amount = 58.87, Invoice = 53453, User =  "Steve N. Horton", Plan=Plans.Trial, OrderDate=DateTime.Today.AddDays(+2.0)},
+        new Customer { Amount = 97.50, Invoice = 53454, User =  "Charles S. Boyle", Plan=Plans.Bussines, OrderDate=DateTime.Today.AddDays(-7.0)},
+        new Customer { Amount = 12.79, Invoice = 53455, User =  "Lucy Doe", Plan=Plans.Trial, OrderDate=DateTime.Today.AddDays(-123.0)},
+        new Customer { Amount = 249.99, Invoice = 53456, User =  "Michael Bunr", Plan=Plans.Personal, OrderDate=DateTime.Today.AddDays(-687.0)},
+
+    };
+
+    private IEnumerable<Device> Devices = new List<Device>()
+    {
+      new() {Name = "Desktop", Value = -0.2876, Icon =Icons.Outlined.DesktopWindows, Color = Color.Error},
+      new() {Name = "Laptop", Value = -0.855, Icon =Icons.Outlined.Laptop, Color = Color.Warning},
+      new() {Name = "Tablet", Value = 0.5856, Icon =Icons.Outlined.Tablet, Color = Color.Success},
+      new() {Name = "Smartphone", Value = 0.3576, Icon =Icons.Outlined.Smartphone, Color = Color.Success},
 
     };
 
@@ -123,6 +274,17 @@
         public string? User { get; set; }
         public double Amount { get; set; }
         public Plans Plan { get; set; }
+        public DateTime  OrderDate { get; set; }
+
+    }
+
+    class Device
+    {
+        public string? Name { get; set; }
+        public string? Icon { get; set; }
+        public double Value { get; set; }
+        public Color Color { get; set; }
+
 
     }
 
