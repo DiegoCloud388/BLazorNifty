@@ -1,0 +1,241 @@
+﻿.light-label {
+    color: #75868f;
+}
+
+.font-weight-bold {
+    font-weight:bold;
+}
+
+.horizontal-required-mark {
+    height: 13px;
+    width: 13px;
+    margin-left: 4px;
+    margin-bottom: -2px;
+}
+
+.left-icon-addition {
+    border: 1px solid #bdbdbdff;
+    border-radius: 4px;
+    display: flex;
+    align-content: center;
+    padding: 0.2895rem 0.55rem;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right-width: 0px;
+    margin-top: 3px;
+}
+
+.left-dropdown-addition.mud-menu .mud-button {
+    padding: 0.3359rem 0.55rem;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-top: 3px;
+}
+
+.left-dropdown-addition.mud-menu {
+    display: flex;
+    align-self: flex-start;
+}
+
+.right-outlined-dropdown-addition.mud-menu .mud-button {
+    padding: 0.2735rem 0.55rem;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-top: 3px;
+}
+
+.right-outlined-dropdown-addition.mud-menu {
+    display: flex;
+    align-self: flex-start;
+}
+
+.right-dropdown-addition.mud-menu .mud-button {
+    margin-top: 3px;
+    padding: 0.3359rem 0.55rem;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-top: 3px;
+}
+
+.right-dropdown-addition.mud-menu {
+    display: flex;
+    align-self: flex-start;
+}
+
+.left-button-addition.mud-button {
+    margin-top: 3px;
+    padding: 0.3359rem 0.55rem;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.left-checkbox-addition .mud-checkbox {
+    border: 1px solid #bdbdbdff;
+    border-radius: 4px;
+    padding: 0.165rem 0.55rem;
+    margin-top: 3px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right-width: 0px;
+}
+
+.left-radio-addition .mud-radio {
+    border: 1px solid #bdbdbdff;
+    border-radius: 4px;
+    padding: 0.165rem 0.55rem;
+    margin-top: 3px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right-width: 0px;
+}
+
+.right-button-addition.mud-button {
+    margin-top: 3px;
+    padding: 0.3359rem 0.55rem;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.middle-button-addition.mud-button {
+    margin-top: 3px;
+    padding: 0.3359rem 0.55rem;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.row-start {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.right-icon-addition {
+    border: 1px solid #bdbdbdff;
+    border-radius: 4px;
+    display: flex;
+    align-content: center;
+    padding: 0.2895rem 0.55rem;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left-width: 0px;
+    margin-top: 3px;
+}
+
+.middle-icon-addition {
+    border: 1px solid #bdbdbdff;
+    display: flex;
+    align-content: center;
+    padding: 0.2895rem 0.55rem;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    margin-top: 3px;
+}
+
+.right-text-addition {
+    border: 1px solid #bdbdbdff;
+    border-radius: 4px;
+    padding: 0.3364rem 0.55rem;
+    margin-top: 3px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left-width: 0px;
+}
+
+.input-left-border-radius-0 .mud-input .mud-input-outlined-border {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.input-right-border-radius-0 .mud-input .mud-input-outlined-border {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.input-left-border-0 .mud-input .mud-input-outlined-border {
+    border-left-width: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.input-right-border-0 .mud-input .mud-input-outlined-border {
+    border-right-width: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.checkbox-success .mud-checkbox .mud-typography, .checkbox-success .mud-checkbox .mud-button-root {
+    color: #9fcc2eff;
+}
+
+.shrink-select .mud-select   {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+    .shrink-select .mud-input-control .mud-input-control-input-container .mud-input-slot {
+        margin-right:22px;
+    }
+
+.shrink-select {
+    margin-right:36px;
+}
+
+/*.text-input-tick-margin .mud-input-control {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-input-tick-margin {
+    margin-right: 36px;
+}*/
+
+/*.text-input-tick-margin .mud-input-adornment {
+    margin-right: -20px;
+}*/
+    .text-input-tick-margin .mud-input-control .mud-input-control-input-container .mud-input-slot {
+    margin-right: 28px;
+}
+
+.shrink-picker .mud-input-control .mud-input-control-input-container .mud-input-slot {
+    margin-right: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.success-outlined-border .mud-input .mud-input-outlined-border {
+    border-color: #9fcc2eff !important;
+}
+
+.success-outlined-border .mud-input:hover .mud-input-outlined-border {
+    border-color: #9fcc2eff !important;
+}
+
+
+.radio-success .mud-icon-button {
+    color: #9fcc2eff;
+}
+
+.radio-success .mud-typography {
+    color: #9fcc2eff;
+}
+
+.helper-text-start .mud-input-control-helper-container {
+    margin-left: -2.65rem
+}
+
+.check-box-helper-text-start .mud-input-control-boolean-input .mud-input-helper-text {
+    margin-left: 7px;
+}
+
+   /* .radio-success .mud-icon-button:hover {
+        background-color: #9fcc2eff;
+    }*/
+
+
+

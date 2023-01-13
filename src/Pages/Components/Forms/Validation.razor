@@ -1,29 +1,248 @@
-﻿@page "/forms/validation"
+﻿@using BlazorNifty.Components
+
+@page "/forms/validation"
 
 <PageTitle>Validation</PageTitle>
 
 <PageShell Rounded="false" Overlapping="false">
     <ShellHeader>
-        <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+        <MudBreadcrumbs Items="items" Separator=">"></MudBreadcrumbs>
         <MudText Typo="Typo.h2" Class="page-title" GutterBottom="true">Validation</MudText>
         <MudText Typo="Typo.body1" Class="mb-2 page-description">Technical process where a web-form checks if the information provided by a user is correct.</MudText>
     </ShellHeader>
 
     <ShellBody>
-        
+        <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator/>
+               
+        <MudExpansionPanels Class="my-2">                
+                    <MudExpansionPanel Text="Component parameters for demo using" IsInitiallyExpanded=true>
+                    <MudStack Row=true>
+                        <MudGrid>
+                        
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@inlineOrientation" Label="Inline orientation" Color="Color.Primary"/>
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@reverseStack" Label="Reverse" Color="Color.Primary" />
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@lightLabel" Label="Light label" Color="Color.Primary" />                              
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessTickIfValid" Label="Show tick if valid" Color="Color.Primary" />
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessBorderIfValid" Label="Success border if valid" Color="Color.Primary" />
+                                     
+                                    <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
+                                             <MudText Typo="Typo.body1">Spacing after label</MudText>
+                                            <MudSlider @bind-Value="@spacingAfterLabel" Style="width:150px" TickMarks=true ValueLabel="true" Step="1" Min="0" Max="16" />                                                                              
+                                    </MudStack>
+
+                                <MudItem xs="6" sm="3" lg="2" xl="1">
+                            <MudNumericField @bind-Value="@labelLg" Label="Label Lg" Variant="Variant.Outlined" Step="1" />
+                        </MudItem>
+
+                       <MudItem xs="6" sm="3" lg="2" xl="1">
+                            <MudNumericField @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
+                          </MudItem>
+
+                            <MudItem xs="6" sm="3" lg="2" xl="1">
+                            <MudNumericField @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
+                            </MudItem>
+
+                            <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
+                                             <MudText Typo="Typo.body1">Label align</MudText>
+                                            <MudSelect Margin="Margin.Dense" 
+                                           PopoverClass="rounded" @bind-Value="@labelAlign"
+                                           Dense=true AnchorOrigin="Origin.BottomCenter"
+                                           T="AlignItems" Variant="Variant.Outlined">
+                                    <MudSelectItem Value="AlignItems.Start">Start</MudSelectItem>
+                                    <MudSelectItem Value="AlignItems.Center">Center</MudSelectItem>
+                                    <MudSelectItem Value="AlignItems.End">End</MudSelectItem>
+                                      <MudSelectItem Value="AlignItems.Baseline">Baseline</MudSelectItem>
+                                    </MudSelect>                                                                            
+                                    </MudStack>
+
+                            @*<MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">
+                                <MudText Typo="Typo.body1">Stack justify</MudText>
+                                <MudSelect Margin="Margin.Dense"
+                                           PopoverClass="rounded" @bind-Value="@stackJustify"
+                                           Dense=true AnchorOrigin="Origin.BottomCenter"
+                                           T="Justify" Variant="Variant.Outlined">
+                                    <MudSelectItem Value="Justify.FlexStart">Start</MudSelectItem>
+                                    <MudSelectItem Value="Justify.Center">Center</MudSelectItem>
+                                    <MudSelectItem Value="Justify.FlexEnd">End</MudSelectItem>
+                                    <MudSelectItem Value="Justify.SpaceAround">Space Around</MudSelectItem>
+                                    <MudSelectItem Value="Justify.SpaceBetween">Space Between</MudSelectItem>
+                                    <MudSelectItem Value="Justify.SpaceEvenly">Space Evenly</MudSelectItem>
+                                </MudSelect>
+                            </MudStack>*@
+                    </MudGrid>
+                      </MudStack>
+    </MudExpansionPanel>
+</MudExpansionPanels>
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.h5" Class="mb-3 mud-weight-bold font-weight-bold">Register customer form</MudText>
+
+                    @{ string borderClassIfValid = showSuccessBorderIfValid ? "success-outlined-border" : null; }
+
+                    <MudGrid Spacing="2">
+                        <MudItem xs="12" sm="6" lg="6" xl="6"> 
+                                             <LabelTextField @bind-Value="commandRegisterCustomer.FullName" 
+                                            For="@(() => commandRegisterCustomer.FullName)"
+                                            Margin="Margin.Dense"
+                                            Variant="Variant.Outlined"
+                                            LabelText="Full Name *"
+                                            InlineOrientation=@inlineOrientation                                             
+                                            PropertyName="@nameof(commandRegisterCustomer.FullName)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="@borderClassIfValid"
+                                            ShowTickIfValid=@showSuccessTickIfValid
+                                            TickColorIfValid = "Color.Success"
+                                            SpacingAfterLabel="@spacingAfterLabel"
+                                            LabelTypo="Typo.caption"
+                                            LabelAlign="@labelAlign"
+                                            ReverseStack=@reverseStack
+                                            LightLabel=@lightLabel
+                                            LabelLg="@labelLg"
+                                            LabelXl="@labelXl"
+                                            LabelXxl="@labelXxl" />         
+                        </MudItem>
+                        
+                         <MudItem xs="12" sm="6" lg="6" xl="6">  
+                                 <LabelTextField @bind-Value="commandRegisterCustomer.Email" 
+                                            For="@(() => commandRegisterCustomer.Email)"
+                                            Margin="Margin.Dense" 
+                                            Variant="Variant.Outlined"
+                                            LabelText="E-mail *"
+                                            InlineOrientation=@inlineOrientation
+                                            PropertyName="@nameof(commandRegisterCustomer.Email)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="@borderClassIfValid"
+                                            ShowTickIfValid=@showSuccessTickIfValid
+                                            TickColorIfValid = "Color.Success"
+                                            SpacingAfterLabel="@spacingAfterLabel"
+                                            LabelTypo="Typo.caption"
+                                            LabelAlign="@labelAlign"
+                                            ReverseStack=@reverseStack
+                                            LightLabel=@lightLabel
+                                            LabelLg="@labelLg"
+                                            LabelXl="@labelXl"
+                                            LabelXxl="@labelXxl"
+                                            Adornment="Adornment.End"
+                                            AdornmentIcon="@Icons.Material.Filled.Email"                                         
+                                            />  @* Clearable=true      *@   
+                                           
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">Birthdate *</span></MudText>
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.Birthdate)))
+                                {
+                                    <div class="d-flex flex-row shrink-picker">
+                                    <MudDatePicker Color="Color.Default" @bind-Date="commandRegisterCustomer.Birthdate"
+                                               For="@(() => commandRegisterCustomer.Birthdate)" DisableToolbar="true"
+                                               Margin="Margin.Dense" Variant="Variant.Outlined" Class="success-outlined-border"/>
+                                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n16 align-self-center" Color="Color.Success"></MudIcon>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <MudDatePicker Color="Color.Default" @bind-Date="commandRegisterCustomer.Birthdate"
+                                               For="@(() => commandRegisterCustomer.Birthdate)" DisableToolbar="true"
+                                               Margin="Margin.Dense" Variant="Variant.Outlined" />
+                                }
+                                         
+                            </MudStack>
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="6" xl="6">
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption"><span class="light-label">Country *</span></MudText>
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.CountryId)))
+                                {
+                                    <div class="d-flex flex-row shrink-select">
+                                        <MudSelect Margin="Margin.Dense" ValueChanged="((value) => CountryChanged(value, nameof(commandRegisterCustomer.CountryId)))"
+                                               Value="commandRegisterCustomer.CountryId" For="@(() => commandRegisterCustomer.CountryId)"
+                                               PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter"
+                                               T="int?" Variant="Variant.Outlined" Class="success-outlined-border">
+                                            <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
+                                            <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
+                                        </MudSelect>
+                                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n15 align-self-center" Color="Color.Success"></MudIcon>
+                                    </div>
+                                }
+                                else
+                                {
+
+                                    <MudSelect Margin="Margin.Dense" For="@(() => commandRegisterCustomer.CountryId)"
+                                           PopoverClass="rounded" ValueChanged="((value) => CountryChanged(value, nameof(commandRegisterCustomer.CountryId)))"
+                                           Value="commandRegisterCustomer.CountryId" Dense=true AnchorOrigin="Origin.BottomCenter"
+                                           T="int?" Variant="Variant.Outlined">
+
+                                        <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
+                                        <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
+                                    </MudSelect>
+                                }
+
+                            </MudStack>
+                        </MudItem>
+
+                       
+
+                        <MudItem xs="12" sm="12" lg="12" xl="12">
+                                <MudStack Spacing="0">
+                                    <MudText Typo="Typo.caption"><span class="light-label">Gender *</span></MudText>
+                                    @if (IsFieldValid(nameof(commandRegisterCustomer.GenderId)))
+                                    {
+                                        <MudRadioGroup T="int?" SelectedOptionChanged="((value) => GenderChanged(value, nameof(commandRegisterCustomer.GenderId)))"
+                                               SelectedOption="@commandRegisterCustomer.GenderId" For="@(() => commandRegisterCustomer.GenderId)">
+                                            <MudRadio Class="radio-success ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)1)">Man</MudRadio>
+                                            <MudRadio Class="radio-success ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)2)">Woman</MudRadio>
+                                        </MudRadioGroup>
+                                    }
+                                    else
+                                    {
+                                        <MudRadioGroup T="int?" SelectedOptionChanged="((value) => GenderChanged(value, nameof(commandRegisterCustomer.GenderId)))"
+                                               SelectedOption="@commandRegisterCustomer.GenderId" For="@(() => commandRegisterCustomer.GenderId)">
+                                        <MudRadio Class="ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)1)">Man</MudRadio>
+                                        <MudRadio Class="ml-n1-half" Size="Size.Small" Dense="true" Option="@((int?)2)">Woman</MudRadio>
+                                        </MudRadioGroup>
+                                    }
+                                </MudStack>                         
+                        </MudItem>
+
+                         <MudItem xs="12" sm="12" lg="12" xl="12">
+
+                                <MudText Typo="Typo.caption"><span class="light-label">Comment</span></MudText>    
+                                    <MudTextField @bind-Value="commandRegisterCustomer.Comment" Lines="5" Immediate=true
+                                              For="@(() => commandRegisterCustomer.Comment)" Margin="Margin.Dense" Variant="Variant.Outlined" />                               
+                          
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" lg="3" xl="3">
+                            <MudStack Justify="Justify.FlexStart" AlignItems="AlignItems.Start">
+
+                                @if (IsFieldValid(nameof(commandRegisterCustomer.IsGdprConfirmed)))
+                                {
+                                    <div class="ml-n1 check-box-helper-text-start">
+                                        <MudCheckBox Class="checkbox-success" Dense=true Size="Size.Small"
+                                                 Label="Agree to GDPR" @bind-Checked="commandRegisterCustomer.IsGdprConfirmed" For="@(() => commandRegisterCustomer.IsGdprConfirmed)" />
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="ml-n1 check-box-helper-text-start">
+                                        <MudCheckBox Dense=true Size="Size.Small" Label="Agree to GDPR"
+                                                 @bind-Checked="commandRegisterCustomer.IsGdprConfirmed" For="@(() => commandRegisterCustomer.IsGdprConfirmed)" />
+                                    </div>
+                                }
+
+                                <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary">Register</MudButton>
+                            </MudStack>
+                        </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+            </MudCard>
+        </EditForm>
 
     </ShellBody>
 
 </PageShell>
 
-@code {
-    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
-    {
-        new BreadcrumbItem("Home", href: "#"),
-        new BreadcrumbItem("Forms", href: "#"),
-        new BreadcrumbItem("Validation", href: null, disabled: true)
-    };
-
-
-
-}
