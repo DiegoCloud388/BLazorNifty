@@ -1,0 +1,11 @@
+﻿<MudTabs @ref="mudTabs" Outlined="true">
+    <MudTabPanel Text="Account" Icon="@Icons.Filled.Info"></MudTabPanel>
+    <MudTabPanel Text="Profile" Icon="@Icons.Filled.Person"></MudTabPanel>
+</MudTabs>
+
+@code {
+    private MudTabs mudTabs = new MudTabs();
+
+    [Parameter]
+    public int ActiveStepIndex { get; set; }
+}
