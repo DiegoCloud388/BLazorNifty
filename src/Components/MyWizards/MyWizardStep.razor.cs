@@ -1,26 +1,22 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+using System.Windows.Input;
 
-namespace BlazorNifty.Components.Wizards
+namespace BlazorNifty.Components.MyWizards
 {
-    public partial class WizardStep<TModel>
+    public partial class MyWizardStep
     {
-        /// <summary>
-        /// The <see cref="Wizard<typeparamref name="TModel"/> container
-        /// </summary>
         [CascadingParameter]
-        protected internal Wizard<TModel> Parent { get; set; }
+        public MyWizard Parent { get; set; }
 
-        /// <summary>
-        /// The Child Content of the current <see cref="WizardStep<typeparamref name="TModel"/>
-        /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         [Parameter]
-        public string? Name { get; set; }
+        public string? Label { get; set; }
+
+        [Parameter]
+        public Func<bool>? OnValidSubmit { get; set; }
 
         protected override void OnInitialized()
         {
@@ -41,6 +37,7 @@ namespace BlazorNifty.Components.Wizards
         {
             return Parent.ActiveStep == this;
         }
+
 
     }
 }

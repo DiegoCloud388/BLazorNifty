@@ -1,5 +1,5 @@
 ﻿@page "/forms/wizard"
-@using BlazorNifty.Components.Wizards
+@using BlazorNifty.Components.MyWizards
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 @inject ProtectedSessionStorage BrowserStorage 
 
@@ -30,21 +30,69 @@
                 <MudCard Elevation="4">
                     <MudCardContent>
                         <MudStack>
-                            <Wizard TModel="TestWizardModel" OnSubmit="Submit" Model="testWizardModel">
-@*                                <WizardHeaderWithIcons></WizardHeaderWithIcons>
-*@
-                                <WizardStep TModel="TestWizardModel" Name="Account">
-                                    <WizardAccountStep></WizardAccountStep>
-                                </WizardStep>
+                            <MyWizard OnSubmit="Submit">
+                                <MyWizardSteps>                                    
+                                    <MyWizardStep Label="First Step" OnValidSubmit="FirstStepHandleValidSubmit">
+                                        <EditForm EditContext="firstStepEditContext">
+                                            <DataAnnotationsValidator />
 
-                                <WizardStep TModel="TestWizardModel" Name="Profile">
-                                    <WizardProfileStep></WizardProfileStep>
-                                </WizardStep>
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Username</MudText>
+                                                <MudTextField T="string" @bind-Value="firstStepWizardModel.UserName" For="@(() => firstStepWizardModel.UserName)" 
+                                                    Variant="Variant.Outlined" aria-label="name"></MudTextField>
+                                            </MudStack>
 
-                                <WizardStep TModel="TestWizardModel" Name="Finish">                                                                   
-                                    <WizardFinishStep></WizardFinishStep>
-                                </WizardStep>
-                            </Wizard>
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Email</MudText>
+                                                <MudTextField T="string" @bind-Value="firstStepWizardModel.Email" For="@(() => firstStepWizardModel.Email)" 
+                                                    Variant="Variant.Outlined" aria-label="email"></MudTextField>
+                                            </MudStack>
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Password</MudText>
+                                                <MudTextField T="string" @bind-Value="firstStepWizardModel.Password" For="@(() => firstStepWizardModel.Password)" 
+                                                    Variant="Variant.Outlined" aria-label="password"></MudTextField>
+
+                                                <MudText Typo="Typo.body2">Retry password</MudText>
+                                                <MudTextField T="string" @bind-Value="firstStepWizardModel.RetypePassword" For="@(() => firstStepWizardModel.RetypePassword)" 
+                                                    Variant="Variant.Outlined" aria-label="password"></MudTextField>
+                                            </MudStack>
+                                        </EditForm>
+                                    </MyWizardStep>                                 
+                                    <MyWizardStep Label="Second Step" OnValidSubmit="SecondStepHandleValidSubmit">
+                                        <EditForm EditContext="secondStepEditContext">
+                                            <DataAnnotationsValidator />
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">First name</MudText>
+                                                <MudTextField T="string" @bind-Value="secondStepWizardModel.FirstName" For="@(() => secondStepWizardModel.FirstName)" 
+                                                    Variant="Variant.Outlined" aria-label="name"></MudTextField>
+
+                                                <MudText Typo="Typo.body2">Last name</MudText>
+                                                <MudTextField T="string" @bind-Value="secondStepWizardModel.LastName" For="@(() => secondStepWizardModel.LastName)" 
+                                                    Variant="Variant.Outlined" aria-label="name"></MudTextField>
+                                            </MudStack>
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Company</MudText>
+                                                <MudTextField T="string" @bind-Value="secondStepWizardModel.Company" Variant="Variant.Outlined"></MudTextField>
+                                            </MudStack>
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Member type</MudText>
+                                                <MudRadioGroup T="string">
+                                                    <MudRadio T="string">Free</MudRadio>
+                                                    <MudRadio T="string">Personal</MudRadio>
+                                                    <MudRadio T="string">Bussiness</MudRadio>
+                                                </MudRadioGroup> 
+                                            </MudStack>
+                                        </EditForm>
+                                    </MyWizardStep>
+
+                                    <MyWizardStep>
+                                    </MyWizardStep>
+                                </MyWizardSteps>
+                            </MyWizard>
                         </MudStack>                        
                     </MudCardContent>
                 </MudCard>
@@ -66,11 +114,39 @@
         new BreadcrumbItem("Wizard", href: null, disabled: true)
     };
 
-    private TestWizardModel testWizardModel = new TestWizardModel();
+    private EditContext? firstStepEditContext;
+    private EditContext? secondStepEditContext;
+
+    private FirstStepWizardModel firstStepWizardModel = new FirstStepWizardModel();
+    private SecondStepWizardModel secondStepWizardModel = new SecondStepWizardModel();
+
+    protected override void OnInitialized()
+    {
+        firstStepEditContext = new(firstStepWizardModel);
+        secondStepEditContext = new(secondStepWizardModel);
+    }
+
+    private bool FirstStepHandleValidSubmit()
+    {
+        if(firstStepEditContext != null && firstStepEditContext.Validate())        
+            return true;        
+
+        else        
+            return false;        
+    }
+
+    private bool SecondStepHandleValidSubmit()
+    {
+        if(secondStepEditContext != null && secondStepEditContext.Validate())        
+            return true;        
+
+        else        
+            return false;        
+    }
 
     private void Submit()
     {
-        testWizardModel.Email = "test.test@test.cz";
+        firstStepWizardModel.Email = "test.test@test.cz";
     }
 }
 

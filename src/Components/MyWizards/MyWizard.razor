@@ -1,0 +1,26 @@
+﻿<CascadingValue Value="this">
+    <div id="container-fluid">
+        @ChildContent
+    </div>
+
+    <div class="align-self-md-end">
+        <MudStack Row="true">
+            @if(ActiveStepIndex != 0)
+            {
+                <MudButton Variant="Variant.Filled" Class="ml-2" Style="background-color:rgb(228, 233, 242)"
+                    OnClick="GoBack">Previous</MudButton>
+            }
+
+            @if(IsLastStep)
+            {
+                <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Success" Size="Size.Medium"
+                    ButtonType="ButtonType.Submit" OnClick="SubmitHandler">Submit</MudButton>
+            }
+            else
+            {
+                <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Primary" Size="Size.Medium" 
+                    ButtonType="ButtonType.Submit" OnClick="GoNext">Next</MudButton>
+            }
+        </MudStack>
+    </div>
+</CascadingValue>
