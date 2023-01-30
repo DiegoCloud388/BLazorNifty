@@ -25,6 +25,8 @@
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@lightLabel" Label="Light label" Color="Color.Primary" />                              
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessTickIfValid" Label="Show tick if valid" Color="Color.Primary" />
                                  <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@showSuccessBorderIfValid" Label="Success border if valid" Color="Color.Primary" />
+                                 <MudSwitch LabelPosition="LabelPosition.Start" @bind-Checked="@clearable" Label="Clearable" Color="Color.Primary" />
+                            
                                      
                                     <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
                                              <MudText Typo="Typo.body1">Spacing after label</MudText>
@@ -32,15 +34,15 @@
                                     </MudStack>
 
                                 <MudItem xs="6" sm="3" lg="2" xl="1">
-                            <MudNumericField @bind-Value="@labelLg" Label="Label Lg" Variant="Variant.Outlined" Step="1" />
+                                <MudNumericField Margin="Margin.Dense" @bind-Value="@labelLg" Label="Label Lg" Variant="Variant.Outlined" Step="1" />
                         </MudItem>
 
                        <MudItem xs="6" sm="3" lg="2" xl="1">
-                            <MudNumericField @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
+                            <MudNumericField Margin="Margin.Dense" @bind-Value="@labelXl" Label="Label Xl" Variant="Variant.Outlined" Step="1" />
                           </MudItem>
 
                             <MudItem xs="6" sm="3" lg="2" xl="1">
-                            <MudNumericField @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
+                                <MudNumericField Margin="Margin.Dense" @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
                             </MudItem>
 
                             <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
@@ -53,6 +55,7 @@
                                     <MudSelectItem Value="AlignItems.Center">Center</MudSelectItem>
                                     <MudSelectItem Value="AlignItems.End">End</MudSelectItem>
                                       <MudSelectItem Value="AlignItems.Baseline">Baseline</MudSelectItem>
+                                    <MudSelectItem Value="AlignItems.Stretch">Stretch</MudSelectItem>
                                     </MudSelect>                                                                            
                                     </MudStack>
 
@@ -100,7 +103,10 @@
                                             LightLabel=@lightLabel
                                             LabelLg="@labelLg"
                                             LabelXl="@labelXl"
-                                            LabelXxl="@labelXxl" />         
+                                            LabelXxl="@labelXxl"
+                                            Clearable=@clearable
+                                            LabelStyle="width:350px;"
+                                            FixedLabelWidth=true/>
                         </MudItem>
                         
                          <MudItem xs="12" sm="6" lg="6" xl="6">  
@@ -124,8 +130,8 @@
                                             LabelXl="@labelXl"
                                             LabelXxl="@labelXxl"
                                             Adornment="Adornment.End"
-                                            AdornmentIcon="@Icons.Material.Filled.Email"                                         
-                                            />  @* Clearable=true      *@   
+                                            AdornmentIcon="@Icons.Material.Filled.Email" 
+                                            Clearable=@clearable /> 
                                            
                         </MudItem>
 
@@ -152,35 +158,35 @@
                         </MudItem>
 
                         <MudItem xs="12" sm="6" lg="6" xl="6">
-                            <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption"><span class="light-label">Country *</span></MudText>
-                                @if (IsFieldValid(nameof(commandRegisterCustomer.CountryId)))
-                                {
-                                    <div class="d-flex flex-row shrink-select">
-                                        <MudSelect Margin="Margin.Dense" ValueChanged="((value) => CountryChanged(value, nameof(commandRegisterCustomer.CountryId)))"
-                                               Value="commandRegisterCustomer.CountryId" For="@(() => commandRegisterCustomer.CountryId)"
-                                               PopoverClass="rounded" Dense=true AnchorOrigin="Origin.BottomCenter"
-                                               T="int?" Variant="Variant.Outlined" Class="success-outlined-border">
-                                            <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
+                            <LabelSelect @bind-Value="commandRegisterCustomer.CountryId"
+                                         For="@(() => commandRegisterCustomer.CountryId)"
+                                         T="int?"
+                                         Dense=true                                        
+                                            Margin="Margin.Dense"
+                                            Variant="Variant.Outlined"
+                                            LabelText="Country *"
+                                            AnchorOrigin="Origin.BottomCenter"
+                                            PopoverClass="rounded"
+                                            InlineOrientation=@inlineOrientation                                             
+                                            PropertyName="@nameof(commandRegisterCustomer.CountryId)"
+                                            MyEditContext="@editContext"
+                                            ExtendBaseClassIfValid="@borderClassIfValid"
+                                            ShowTickIfValid=@showSuccessTickIfValid
+                                            TickColorIfValid = "Color.Success"
+                                            SpacingAfterLabel="@spacingAfterLabel"
+                                            LabelTypo="Typo.caption"
+                                            LabelAlign="@labelAlign"
+                                            ReverseStack=@reverseStack
+                                            LightLabel=@lightLabel
+                                            LabelLg="@labelLg"
+                                            LabelXl="@labelXl"
+                                            LabelXxl="@labelXxl"
+                                            Clearable=@clearable
+                                            Immediate=true>
+
+                                <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
                                             <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
-                                        </MudSelect>
-                                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n15 align-self-center" Color="Color.Success"></MudIcon>
-                                    </div>
-                                }
-                                else
-                                {
-
-                                    <MudSelect Margin="Margin.Dense" For="@(() => commandRegisterCustomer.CountryId)"
-                                           PopoverClass="rounded" ValueChanged="((value) => CountryChanged(value, nameof(commandRegisterCustomer.CountryId)))"
-                                           Value="commandRegisterCustomer.CountryId" Dense=true AnchorOrigin="Origin.BottomCenter"
-                                           T="int?" Variant="Variant.Outlined">
-
-                                        <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
-                                        <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
-                                    </MudSelect>
-                                }
-
-                            </MudStack>
+                            </LabelSelect>       
                         </MudItem>
 
                        

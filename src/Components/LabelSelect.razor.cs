@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using static MudBlazor.CategoryTypes;
 
 namespace BlazorNifty.Components
 {
-    public partial class LabelTextField<T> : MudTextField<T>
+    public partial class LabelSelect<T> : MudSelect<T>
     {
         [Parameter] public bool InlineOrientation { get; set; }
 
@@ -42,28 +43,13 @@ namespace BlazorNifty.Components
 
         [Parameter] public Color TickColorIfValid { get; set; } = Color.Success;
 
-        [Parameter] public string? ExtendBaseClassIfValid  { get; set; }
+        [Parameter] public string? ExtendBaseClassIfValid { get; set; }
 
-        [Parameter] public int SpacingAfterLabel { get; set; } = 0;     
+        [Parameter] public int SpacingAfterLabel { get; set; } = 0;
 
         [Parameter] public EditContext MyEditContext { get; set; }
 
         [Parameter] public string? PropertyName { get; set; }
-
-        [Parameter] public bool FixedLabelWidth { get; set; }
-
-
-
-        //private Adornment GetAdornmentIfFieldIsValid(bool onlyIfModified = true)
-        //{
-        //    if (IsFieldValid(onlyIfModified))
-        //    {
-        //        return Adornment.End;
-        //    }
-
-        //    return Adornment.None;
-
-        //}
 
         private bool IsFieldValid(bool onlyIfModified = true)
         {
@@ -87,12 +73,34 @@ namespace BlazorNifty.Components
             return true;
         }
 
-        private int GetBreakPoint(int labelBreakPoint)
+        private string GetMarginOffsetForShrink()
         {
-            if (FixedLabelWidth || labelBreakPoint == 12)
-                return 12;
+            string marginClass;
 
-            return 12 - labelBreakPoint;
+            if (Adornment == Adornment.End)
+            {
+                if (Clearable == true)
+                {
+                    marginClass = "mr-15";
+                }
+                else
+                {
+                    marginClass = "mr-9";
+                }
+            }
+            else
+            {
+                if (Clearable == true)
+                {
+                    marginClass = "mr-9";
+                }
+                else
+                {
+                    marginClass = "mr-3";
+                }
+            }
+
+            return $"{marginClass} d-flex flex-row shrink-select align-self-stretch";
         }
     }
 }

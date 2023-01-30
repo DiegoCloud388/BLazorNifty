@@ -12,15 +12,25 @@
    {
         if (!string.IsNullOrEmpty(LabelText))
         {
-             <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
+            @*if (FixedLabelWidth)
+            {
                <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
                     @if(LightLabel) { <span class="light-label">@LabelText</span> }
                     else { @LabelText }
                 </MudText>
-            </MudItem>  
+            }
+            else
+            {*@
+                  <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
+                       <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
+                            @if(LightLabel) { <span class="light-label">@LabelText</span> }
+                            else { @LabelText }
+                        </MudText>
+                  </MudItem>  
+           @* }*@
+           
         }
        
-
         @if (isFieldValid && ShowTickIfValid)
         {                        
                 <MudItem xs="12 - LabelXs" sm="12 - LabelSm" md="12 - LabelMd" lg="12 - LabelLg" xl="12 - LabelXl" xxl="12 - LabelXxl">
@@ -92,11 +102,11 @@
    else
    {
        if (!string.IsNullOrEmpty(LabelText))
-       {
-            <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
-                    @if(LightLabel) { <span class="light-label">@LabelText</span> }
-                    else { @LabelText }
-            </MudText>
+       {                 
+                       <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
+                            @if(LightLabel) { <span class="light-label">@LabelText</span> }
+                            else { @LabelText }
+                        </MudText>           
        }
 
         if (isFieldValid && ShowTickIfValid)
