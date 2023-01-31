@@ -10,8 +10,6 @@ namespace BlazorNifty.Components
 
         [Parameter] public AlignItems LabelAlign { get; set; } = AlignItems.Baseline;
 
-        //[Parameter] public Justify StackJustify { get; set; } = Justify.FlexStart;
-
         [Parameter] public bool ReverseStack { get; set; }
 
         [Parameter] public bool LightLabel { get; set; } = true;
@@ -26,18 +24,6 @@ namespace BlazorNifty.Components
 
         [Parameter] public string? LabelText { get; set; }
 
-        [Parameter] public int LabelXs { get; set; } = 12;
-
-        [Parameter] public int LabelSm { get; set; } = 6;
-
-        [Parameter] public int LabelMd { get; set; } = 4;
-
-        [Parameter] public int LabelLg { get; set; } = 2;
-
-        [Parameter] public int LabelXl { get; set; } = 1;
-
-        [Parameter] public int LabelXxl { get; set; } = 1;
-
         [Parameter] public bool ShowTickIfValid { get; set; } = true;
 
         [Parameter] public Color TickColorIfValid { get; set; } = Color.Success;
@@ -50,9 +36,7 @@ namespace BlazorNifty.Components
 
         [Parameter] public string? PropertyName { get; set; }
 
-        [Parameter] public bool FixedLabelWidth { get; set; }
-
-
+        [Parameter] public string? FixedLabelWidth { get; set; }
 
         //private Adornment GetAdornmentIfFieldIsValid(bool onlyIfModified = true)
         //{
@@ -87,12 +71,12 @@ namespace BlazorNifty.Components
             return true;
         }
 
-        private int GetBreakPoint(int labelBreakPoint)
-        {
-            if (FixedLabelWidth || labelBreakPoint == 12)
-                return 12;
+        //private int GetBreakPoint(int labelBreakPoint)
+        //{
+        //    if (FixedLabelWidth || labelBreakPoint == 12)
+        //        return 12;
 
-            return 12 - labelBreakPoint;
-        }
+        //    return 12 - labelBreakPoint;
+        //}
     }
 }

@@ -33,7 +33,7 @@
                                             <MudSlider @bind-Value="@spacingAfterLabel" Style="width:150px" TickMarks=true ValueLabel="true" Step="1" Min="0" Max="16" />                                                                              
                                     </MudStack>
 
-                                <MudItem xs="6" sm="3" lg="2" xl="1">
+@*                                <MudItem xs="6" sm="3" lg="2" xl="1">
                                 <MudNumericField Margin="Margin.Dense" @bind-Value="@labelLg" Label="Label Lg" Variant="Variant.Outlined" Step="1" />
                         </MudItem>
 
@@ -43,7 +43,7 @@
 
                             <MudItem xs="6" sm="3" lg="2" xl="1">
                                 <MudNumericField Margin="Margin.Dense" @bind-Value="@labelXxl" Label="Label Xxl" Variant="Variant.Outlined" Step="1" />
-                            </MudItem>
+                            </MudItem>*@
 
                             <MudStack Row=true Class="ml-3" AlignItems="AlignItems.Center" Spacing="5">                                      
                                              <MudText Typo="Typo.body1">Label align</MudText>
@@ -89,7 +89,7 @@
                                             For="@(() => commandRegisterCustomer.FullName)"
                                             Margin="Margin.Dense"
                                             Variant="Variant.Outlined"
-                                            LabelText="Full Name *"
+                                            LabelText="Full NameFull NameFull NameFull NameFull NameFull NameFull Name *"
                                             InlineOrientation=@inlineOrientation                                             
                                             PropertyName="@nameof(commandRegisterCustomer.FullName)"
                                             MyEditContext="@editContext"
@@ -101,12 +101,8 @@
                                             LabelAlign="@labelAlign"
                                             ReverseStack=@reverseStack
                                             LightLabel=@lightLabel
-                                            LabelLg="@labelLg"
-                                            LabelXl="@labelXl"
-                                            LabelXxl="@labelXxl"
                                             Clearable=@clearable
-                                            LabelStyle="width:350px;"
-                                            FixedLabelWidth=true/>
+                                            /> @*FixedLabelWidth="100px"*@
                         </MudItem>
                         
                          <MudItem xs="12" sm="6" lg="6" xl="6">  
@@ -126,9 +122,6 @@
                                             LabelAlign="@labelAlign"
                                             ReverseStack=@reverseStack
                                             LightLabel=@lightLabel
-                                            LabelLg="@labelLg"
-                                            LabelXl="@labelXl"
-                                            LabelXxl="@labelXxl"
                                             Adornment="Adornment.End"
                                             AdornmentIcon="@Icons.Material.Filled.Email" 
                                             Clearable=@clearable /> 
@@ -156,6 +149,10 @@
                                          
                             </MudStack>
                         </MudItem>
+@*
+                                                                    LabelLg="@labelLg"
+                                            LabelXl="@labelXl"
+                                            LabelXxl="@labelXxl"*@
 
                         <MudItem xs="12" sm="6" lg="6" xl="6">
                             <LabelSelect @bind-Value="commandRegisterCustomer.CountryId"
@@ -178,14 +175,10 @@
                                             LabelAlign="@labelAlign"
                                             ReverseStack=@reverseStack
                                             LightLabel=@lightLabel
-                                            LabelLg="@labelLg"
-                                            LabelXl="@labelXl"
-                                            LabelXxl="@labelXxl"
                                             Clearable=@clearable
                                             Immediate=true>
-
-                                <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
-                                            <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
+                                    <MudSelectItem Value="(int?)1">Czech republic</MudSelectItem>
+                                    <MudSelectItem Value="(int?)2">Slovakia</MudSelectItem>
                             </LabelSelect>       
                         </MudItem>
 
