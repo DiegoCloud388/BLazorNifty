@@ -1,46 +1,47 @@
 ﻿@typeparam T
 @inherits MudTextField<T>
 
-<MudStack Row=@InlineOrientation AlignItems="@LabelAlign" Spacing="@SpacingAfterLabel" Class="@StackClass" Reverse="@ReverseStack">
+@{ 
+    var isFieldValid = IsFieldValid();
+    string? extendedBaseClass = !string.IsNullOrEmpty(ExtendBaseClassIfValid) && isFieldValid ? $"{Class} {ExtendBaseClassIfValid}" : Class;
+}     
 
-   @{ 
-        var isFieldValid = IsFieldValid();
-        string? extendedBaseClass = !string.IsNullOrEmpty(ExtendBaseClassIfValid) && isFieldValid ? $"{Class} {ExtendBaseClassIfValid}" : Class;
-    }     
+ <MudStack Row=@InlineOrientation AlignItems="@LabelAlign" Spacing="@SpacingAfterLabel" Class="@StackClass" Reverse="@ReverseStack">
 
-   @if (InlineOrientation)
-   {
-        if (!string.IsNullOrEmpty(LabelText))
-        {
-             <MudItem xs="LabelXs" sm="LabelSm" md="LabelMd" lg="LabelLg" xl="LabelXl" xxl="LabelXxl">
-               <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
-                    @if(LightLabel) { <span class="light-label">@LabelText</span> }
-                    else { @LabelText }
+            @if (!string.IsNullOrEmpty(LabelText))
+            {
+                var lblStyle = !string.IsNullOrEmpty(FixedLabelWidth) ? $"width:{FixedLabelWidth};{LabelStyle}" : LabelStyle;
+                <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@lblStyle">
+                    @if (LightLabel)
+                    { 
+                        <span class="light-label">@LabelText</span> 
+                    }
+                    else
+                    { 
+                        @LabelText 
+                    }
                 </MudText>
-            </MudItem>  
-        }
-       
+            }
 
-        @if (isFieldValid && ShowTickIfValid)
-        {                        
-                <MudItem xs="12 - LabelXs" sm="12 - LabelSm" md="12 - LabelMd" lg="12 - LabelLg" xl="12 - LabelXl" xxl="12 - LabelXxl">
-                    <div class="d-flex flex-row align-start text-input-tick-margin" style="width:100%">
+            @if (isFieldValid && ShowTickIfValid)
+            {                        
+                <div class="d-flex flex-row align-start text-input-tick-margin" style="width:100%">
                     <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
-                      Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=true
-                      Adornment="@Adornment" AdornmentIcon="@AdornmentIcon" AdornmentAriaLabel="@AdornmentAriaLabel"
-                      AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
-                      AutoFocus=@AutoFocus Clearable=@Clearable Converter="@Converter" Counter="@Counter"
-                      Culture="@Culture" DebounceInterval="@DebounceInterval" Disabled=@Disabled
-                      DisableUnderLine=@DisableUnderLine Error=@Error ErrorId="@ErrorId"
-                      ErrorText="@ErrorText" Format="@Format" HelperText="@HelperText" HelperTextOnFocus=@HelperTextOnFocus
-                      IconSize="@IconSize" InputMode="@InputMode" InputType="@InputType" KeyDownPreventDefault=@KeyDownPreventDefault
-                      KeyPressPreventDefault=@KeyPressPreventDefault KeyUpPreventDefault=@KeyUpPreventDefault Label="@Label" Lines="@Lines"
-                      Mask="@Mask" MaxLength="@MaxLength" OnAdornmentClick="@OnAdornmentClick" OnBlur="@OnBlur" OnClearButtonClick="@OnClearButtonClick"
-                      OnDebounceIntervalElapsed="@OnDebounceIntervalElapsed" OnInternalInputChanged="@OnInternalInputChanged" OnKeyDown="@OnKeyDown"
-                      OnKeyPress="@OnKeyPress" OnKeyUp="@OnKeyUp" OnlyValidateIfDirty=@OnlyValidateIfDirty Pattern="@Pattern"
-                      Placeholder="@Placeholder" ReadOnly=@ReadOnly Required=@Required RequiredError="@RequiredError" Style="@Style"
-                      Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
-                      Validation="@Validation" />
+                                  Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=@(!InlineOrientation)
+                                  Adornment="@Adornment" AdornmentIcon="@AdornmentIcon" AdornmentAriaLabel="@AdornmentAriaLabel"
+                                  AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
+                                  AutoFocus=@AutoFocus Clearable=@Clearable Converter="@Converter" Counter="@Counter"
+                                  Culture="@Culture" DebounceInterval="@DebounceInterval" Disabled=@Disabled
+                                  DisableUnderLine=@DisableUnderLine Error=@Error ErrorId="@ErrorId"
+                                  ErrorText="@ErrorText" Format="@Format" HelperText="@HelperText" HelperTextOnFocus=@HelperTextOnFocus
+                                  IconSize="@IconSize" InputMode="@InputMode" InputType="@InputType" KeyDownPreventDefault=@KeyDownPreventDefault
+                                  KeyPressPreventDefault=@KeyPressPreventDefault KeyUpPreventDefault=@KeyUpPreventDefault Label="@Label" Lines="@Lines"
+                                  Mask="@Mask" MaxLength="@MaxLength" OnAdornmentClick="@OnAdornmentClick" OnBlur="@OnBlur" OnClearButtonClick="@OnClearButtonClick"
+                                  OnDebounceIntervalElapsed="@OnDebounceIntervalElapsed" OnInternalInputChanged="@OnInternalInputChanged" OnKeyDown="@OnKeyDown"
+                                  OnKeyPress="@OnKeyPress" OnKeyUp="@OnKeyUp" OnlyValidateIfDirty=@OnlyValidateIfDirty Pattern="@Pattern"
+                                  Placeholder="@Placeholder" ReadOnly=@ReadOnly Required=@Required RequiredError="@RequiredError" Style="@Style"
+                                  Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
+                                  Validation="@Validation" />
 
                     @if (Adornment == Adornment.End)
                     {
@@ -62,106 +63,27 @@
                         else
                         {
                             <MudIcon Icon="@Icons.Filled.Check" Class="ml-n9 mt-2" Color="@TickColorIfValid"></MudIcon>
-                        }    
+                        }
                     }
-                </div>
-            </MudItem>        
-        }
-        else
-        {           
-            <MudItem xs="12 - LabelXs" sm="12 - LabelSm" md="12 - LabelMd" lg="12 - LabelLg" xl="12 - LabelXl" xxl="12 - LabelXxl">
+                </div>       
+            }
+            else
+            {
                 <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
-                      Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=true
-                      Adornment="@Adornment" AdornmentIcon="@AdornmentIcon" AdornmentAriaLabel="@AdornmentAriaLabel"
-                      AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
-                      AutoFocus=@AutoFocus Clearable=@Clearable Converter="@Converter" Counter="@Counter"
-                      Culture="@Culture" DebounceInterval="@DebounceInterval" Disabled=@Disabled
-                      DisableUnderLine=@DisableUnderLine Error=@Error ErrorId="@ErrorId"
-                      ErrorText="@ErrorText" Format="@Format" HelperText="@HelperText" HelperTextOnFocus=@HelperTextOnFocus
-                      IconSize="@IconSize" InputMode="@InputMode" InputType="@InputType" KeyDownPreventDefault=@KeyDownPreventDefault
-                      KeyPressPreventDefault=@KeyPressPreventDefault KeyUpPreventDefault=@KeyUpPreventDefault Label="@Label" Lines="@Lines"
-                      Mask="@Mask" MaxLength="@MaxLength" OnAdornmentClick="@OnAdornmentClick" OnBlur="@OnBlur" OnClearButtonClick="@OnClearButtonClick"
-                      OnDebounceIntervalElapsed="@OnDebounceIntervalElapsed" OnInternalInputChanged="@OnInternalInputChanged" OnKeyDown="@OnKeyDown"
-                      OnKeyPress="@OnKeyPress" OnKeyUp="@OnKeyUp" OnlyValidateIfDirty=@OnlyValidateIfDirty Pattern="@Pattern"
-                      Placeholder="@Placeholder" ReadOnly=@ReadOnly Required=@Required RequiredError="@RequiredError" Style="@Style"
-                      Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
-                      Validation="@Validation" />
-            </MudItem>
-        }        
-   } 
-   else
-   {
-       if (!string.IsNullOrEmpty(LabelText))
-       {
-            <MudText Class="@LabelClass" Typo="@LabelTypo" Style="@LabelStyle">
-                    @if(LightLabel) { <span class="light-label">@LabelText</span> }
-                    else { @LabelText }
-            </MudText>
-       }
-
-        if (isFieldValid && ShowTickIfValid)
-        {
-                <div class="d-flex flex-row align-start text-input-tick-margin" style="width:100%">
-                    <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
-                      Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=true
-                      Adornment="@Adornment" AdornmentIcon="@AdornmentIcon" AdornmentAriaLabel="@AdornmentAriaLabel"
-                      AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
-                      AutoFocus=@AutoFocus Clearable=@Clearable Converter="@Converter" Counter="@Counter"
-                      Culture="@Culture" DebounceInterval="@DebounceInterval" Disabled=@Disabled
-                      DisableUnderLine=@DisableUnderLine Error=@Error ErrorId="@ErrorId"
-                      ErrorText="@ErrorText" Format="@Format" HelperText="@HelperText" HelperTextOnFocus=@HelperTextOnFocus
-                      IconSize="@IconSize" InputMode="@InputMode" InputType="@InputType" KeyDownPreventDefault=@KeyDownPreventDefault
-                      KeyPressPreventDefault=@KeyPressPreventDefault KeyUpPreventDefault=@KeyUpPreventDefault Label="@Label" Lines="@Lines"
-                      Mask="@Mask" MaxLength="@MaxLength" OnAdornmentClick="@OnAdornmentClick" OnBlur="@OnBlur" OnClearButtonClick="@OnClearButtonClick"
-                      OnDebounceIntervalElapsed="@OnDebounceIntervalElapsed" OnInternalInputChanged="@OnInternalInputChanged" OnKeyDown="@OnKeyDown"
-                      OnKeyPress="@OnKeyPress" OnKeyUp="@OnKeyUp" OnlyValidateIfDirty=@OnlyValidateIfDirty Pattern="@Pattern"
-                      Placeholder="@Placeholder" ReadOnly=@ReadOnly Required=@Required RequiredError="@RequiredError" Style="@Style"
-                      Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
-                      Validation="@Validation" />
-
-                    
-                    @if (Adornment == Adornment.End)
-                    {
-                        if (Clearable == true)
-                        {
-                            <MudIcon Icon="@Icons.Filled.Check" Style="margin-left: -95px; margin-top: 8px;" Color="@TickColorIfValid"></MudIcon>                                                                    
-                        }
-                        else
-                        {
-                            <MudIcon Icon="@Icons.Filled.Check" Class="ml-n16 mt-2" Color="@TickColorIfValid"></MudIcon>
-                        }
-                    }        
-                else
-                {
-                    if (Clearable == true)
-                    {
-                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n14 mt-2" Color="@TickColorIfValid"></MudIcon>
-                    }
-                    else
-                    {
-                        <MudIcon Icon="@Icons.Filled.Check" Class="ml-n9 mt-2" Color="@TickColorIfValid"></MudIcon>
-                    }
-                }
-            </div>
-        }
-        else
-        {
-            <MudTextField T="@T" Value="@Value" ValueChanged="@ValueChanged" Immediate=@Immediate
-                  Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=true
-                  Adornment="@Adornment" AdornmentIcon="@AdornmentIcon" AdornmentAriaLabel="@AdornmentAriaLabel"
-                  AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
-                  AutoFocus=@AutoFocus Clearable=@Clearable Converter="@Converter" Counter="@Counter"
-                  Culture="@Culture" DebounceInterval="@DebounceInterval" Disabled=@Disabled
-                  DisableUnderLine=@DisableUnderLine Error=@Error ErrorId="@ErrorId"
-                  ErrorText="@ErrorText" Format="@Format" HelperText="@HelperText" HelperTextOnFocus=@HelperTextOnFocus
-                  IconSize="@IconSize" InputMode="@InputMode" InputType="@InputType" KeyDownPreventDefault=@KeyDownPreventDefault
-                  KeyPressPreventDefault=@KeyPressPreventDefault KeyUpPreventDefault=@KeyUpPreventDefault Label="@Label" Lines="@Lines"
-                  Mask="@Mask" MaxLength="@MaxLength" OnAdornmentClick="@OnAdornmentClick" OnBlur="@OnBlur" OnClearButtonClick="@OnClearButtonClick"
-                  OnDebounceIntervalElapsed="@OnDebounceIntervalElapsed" OnInternalInputChanged="@OnInternalInputChanged" OnKeyDown="@OnKeyDown"
-                  OnKeyPress="@OnKeyPress" OnKeyUp="@OnKeyUp" OnlyValidateIfDirty=@OnlyValidateIfDirty Pattern="@Pattern"
-                  Placeholder="@Placeholder" ReadOnly=@ReadOnly Required=@Required RequiredError="@RequiredError" Style="@Style"
-                  Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
-                  Validation="@Validation" />
-        }    
-   }
-</MudStack>
+                  Class="@extendedBaseClass" For="@For" Margin="@Margin" Variant="@Variant" FullWidth=@(!InlineOrientation)
+                          Adornment="@Adornment" AdornmentIcon="@AdornmentIcon" AdornmentAriaLabel="@AdornmentAriaLabel"
+                          AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
+                          AutoFocus=@AutoFocus Clearable=@Clearable Converter="@Converter" Counter="@Counter"
+                          Culture="@Culture" DebounceInterval="@DebounceInterval" Disabled=@Disabled
+                          DisableUnderLine=@DisableUnderLine Error=@Error ErrorId="@ErrorId"
+                          ErrorText="@ErrorText" Format="@Format" HelperText="@HelperText" HelperTextOnFocus=@HelperTextOnFocus
+                          IconSize="@IconSize" InputMode="@InputMode" InputType="@InputType" KeyDownPreventDefault=@KeyDownPreventDefault
+                          KeyPressPreventDefault=@KeyPressPreventDefault KeyUpPreventDefault=@KeyUpPreventDefault Label="@Label" Lines="@Lines"
+                          Mask="@Mask" MaxLength="@MaxLength" OnAdornmentClick="@OnAdornmentClick" OnBlur="@OnBlur" OnClearButtonClick="@OnClearButtonClick"
+                          OnDebounceIntervalElapsed="@OnDebounceIntervalElapsed" OnInternalInputChanged="@OnInternalInputChanged" OnKeyDown="@OnKeyDown"
+                          OnKeyPress="@OnKeyPress" OnKeyUp="@OnKeyUp" OnlyValidateIfDirty=@OnlyValidateIfDirty Pattern="@Pattern"
+                          Placeholder="@Placeholder" ReadOnly=@ReadOnly Required=@Required RequiredError="@RequiredError" Style="@Style"
+                          Tag="@Tag" Text="@Text" TextChanged="@TextChanged" TextUpdateSuppression=@TextUpdateSuppression UserAttributes="@UserAttributes"
+                          Validation="@Validation" />      
+            }
+ </MudStack>

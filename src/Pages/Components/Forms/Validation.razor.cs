@@ -17,6 +17,7 @@ namespace BlazorNifty.Pages.Components.Forms
         private int labelXl = 1;
         private int labelXxl = 1;
         private AlignItems labelAlign = AlignItems.Baseline;
+        private bool clearable;
         //private Justify stackJustify = Justify.FlexStart;
         #endregion
 
