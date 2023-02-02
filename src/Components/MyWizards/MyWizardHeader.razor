@@ -1,5 +1,31 @@
-﻿<h3>MyWizardHeader</h3>
+﻿@if(ChildContent != null)
+{
+    @ChildContent
+}
+else
+{
+    <div class="card">
+        <div class="card-header bg-success bg-opacity-75" style="--fowiz-primary-color:rgba(0,0,0,.4)">
+            <ul id="_dm-progWizardSteps" class="step-progress my-4">                 
+                @for(int i = 1; i <= Parent.Steps.Count; i++)
+                {
+                    int i_local = i;
+                    var step = Parent.Steps[i - 1];
 
-@code {
-
+                    if(Parent.ActiveStep == step)
+                    {
+                        <li class="active" data-step="@step.Title" @key="step">
+                            <span class="step-label">@step.Title</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li data-step="@step.Title" @key="step">
+                            <span class="step-label" >@step.Title</span>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
 }

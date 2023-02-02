@@ -13,10 +13,13 @@ namespace BlazorNifty.Components.MyWizards
         public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        public string? Label { get; set; }
+        public string? Title { get; set; }
 
         [Parameter]
-        public Func<bool>? OnValidSubmit { get; set; }
+        public bool ValidateStep { get; set; } = true;
+
+        [Parameter]
+        public EditContext? StepEditContext { get; set; }
 
         protected override void OnInitialized()
         {
@@ -38,6 +41,13 @@ namespace BlazorNifty.Components.MyWizards
             return Parent.ActiveStep == this;
         }
 
+        public bool StepHandleValidSubmit()
+        {
+            if (StepEditContext != null && StepEditContext.Validate())
+                return true;
 
+            else
+                return false;
+        }
     }
 }

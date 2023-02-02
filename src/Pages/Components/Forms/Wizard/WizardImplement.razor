@@ -31,8 +31,10 @@
                     <MudCardContent>
                         <MudStack>
                             <MyWizard OnSubmit="Submit">
+                                <MyWizardHeader>
+                                </MyWizardHeader>
                                 <MyWizardSteps>                                    
-                                    <MyWizardStep Label="First Step" OnValidSubmit="FirstStepHandleValidSubmit">
+                                    <MyWizardStep Title="Account" StepEditContext="firstStepEditContext">
                                         <EditForm EditContext="firstStepEditContext">
                                             <DataAnnotationsValidator />
 
@@ -44,7 +46,7 @@
 
                                             <MudStack Row="true" AlignItems="AlignItems.Center">
                                                 <MudText Typo="Typo.body2">Email</MudText>
-                                                <MudTextField T="string" @bind-Value="firstStepWizardModel.Email" For="@(() => firstStepWizardModel.Email)" 
+                                                <MudTextField T="string" @bind-Value="firstStepWizardModel.Email" For="@(() => firstStepWizardModel.Email)" Immediate="true"
                                                     Variant="Variant.Outlined" aria-label="email"></MudTextField>
                                             </MudStack>
 
@@ -59,7 +61,7 @@
                                             </MudStack>
                                         </EditForm>
                                     </MyWizardStep>                                 
-                                    <MyWizardStep Label="Second Step" OnValidSubmit="SecondStepHandleValidSubmit">
+                                    <MyWizardStep Title="Profile" StepEditContext="secondStepEditContext" ValidateStep="false">
                                         <EditForm EditContext="secondStepEditContext">
                                             <DataAnnotationsValidator />
 
@@ -69,7 +71,7 @@
                                                     Variant="Variant.Outlined" aria-label="name"></MudTextField>
 
                                                 <MudText Typo="Typo.body2">Last name</MudText>
-                                                <MudTextField T="string" @bind-Value="secondStepWizardModel.LastName" For="@(() => secondStepWizardModel.LastName)" 
+                                                <MudTextField T="string" @bind-Value="secondStepWizardModel.LastName" For="@(() => secondStepWizardModel.LastName)" Immediate="true"
                                                     Variant="Variant.Outlined" aria-label="name"></MudTextField>
                                             </MudStack>
 
@@ -89,7 +91,11 @@
                                         </EditForm>
                                     </MyWizardStep>
 
-                                    <MyWizardStep>
+                                    <MyWizardStep Title="Address">
+
+                                    </MyWizardStep>
+
+                                    <MyWizardStep Title="Finish">
                                     </MyWizardStep>
                                 </MyWizardSteps>
                             </MyWizard>
@@ -124,24 +130,6 @@
     {
         firstStepEditContext = new(firstStepWizardModel);
         secondStepEditContext = new(secondStepWizardModel);
-    }
-
-    private bool FirstStepHandleValidSubmit()
-    {
-        if(firstStepEditContext != null && firstStepEditContext.Validate())        
-            return true;        
-
-        else        
-            return false;        
-    }
-
-    private bool SecondStepHandleValidSubmit()
-    {
-        if(secondStepEditContext != null && secondStepEditContext.Validate())        
-            return true;        
-
-        else        
-            return false;        
     }
 
     private void Submit()

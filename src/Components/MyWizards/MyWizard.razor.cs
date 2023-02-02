@@ -110,16 +110,24 @@ namespace BlazorNifty.Components.MyWizards
 
         private void GoNext()
         {
-            if (ActiveStep.OnValidSubmit != null)
+            if (ActiveStep != null)
             {
-                bool isValid = ActiveStep.OnValidSubmit.Invoke();
+                if (ActiveStep.ValidateStep)
+                {
+                    bool isValid = ActiveStep.StepHandleValidSubmit();
 
-                if (isValid)
+                    if (isValid)
+                    {
+                        if (ActiveStepIndex < Steps.Count - 1)
+                            SetActive(Steps[ActiveStepIndex + 1]);
+                    }
+                }
+                else
                 {
                     if (ActiveStepIndex < Steps.Count - 1)
                         SetActive(Steps[ActiveStepIndex + 1]);
                 }
-            }                 
+            }
         }
 
         protected async Task SubmitHandler()
