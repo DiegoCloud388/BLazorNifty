@@ -1,5 +1,33 @@
-﻿<h3>WizardAddressStep</h3>
+﻿@using BlazorNifty.Components.MyWizards;
+
+@if(Parent != null)
+{
+    <EditForm EditContext="Parent.StepEditContext">
+        <DataAnnotationsValidator />
+
+        <MudStack Row="true" AlignItems="AlignItems.Center">
+            <MudText Typo="Typo.body2">Address</MudText>
+            <MudTextField T="string" @bind-Value="addressStepWizardModel.Address" Variant="Variant.Outlined" aria-label="name"></MudTextField>
+        </MudStack>
+
+        <MudStack Row="true" AlignItems="AlignItems.Center">
+            <MudText Typo="Typo.body2">Address 2</MudText>
+            <MudTextField T="string" @bind-Value="addressStepWizardModel.Address2" Variant="Variant.Outlined" aria-label="email"></MudTextField>
+        </MudStack>
+
+        <MudStack Row="true" AlignItems="AlignItems.Center">
+            <MudText Typo="Typo.body2">Password</MudText>
+            <MudTextField T="string" @bind-Value="addressStepWizardModel.City" Variant="Variant.Outlined" aria-label="password"></MudTextField>
+
+            <MudText Typo="Typo.body2">Retry password</MudText>
+            <MudTextField T="string" Variant="Variant.Outlined" aria-label="password"></MudTextField>
+        </MudStack>
+    </EditForm>
+}
 
 @code {
+    [CascadingParameter]
+    public MyWizardStep Parent { get; set; }
 
+    private AddressStepWizardModel addressStepWizardModel = new();
 }

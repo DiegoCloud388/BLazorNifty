@@ -33,7 +33,7 @@
                             <MyWizard OnSubmit="Submit">
                                 <MyWizardHeader>
                                 </MyWizardHeader>
-                                <MyWizardSteps>                                    
+                                <MyWizardSteps>
                                     <MyWizardStep Title="Account" StepEditContext="firstStepEditContext">
                                         <EditForm EditContext="firstStepEditContext">
                                             <DataAnnotationsValidator />
@@ -91,11 +91,12 @@
                                         </EditForm>
                                     </MyWizardStep>
 
-                                    <MyWizardStep Title="Address">
-
+                                    <MyWizardStep Title="Address" StepEditContext="addressStepEditContext" ValidateStep="true">
+                                        <WizardAddressStep></WizardAddressStep>
                                     </MyWizardStep>
 
-                                    <MyWizardStep Title="Finish">
+                                    <MyWizardStep Title="Finish" ValidateStep="false">
+                                        <WizardFinishStep></WizardFinishStep>
                                     </MyWizardStep>
                                 </MyWizardSteps>
                             </MyWizard>
@@ -122,6 +123,7 @@
 
     private EditContext? firstStepEditContext;
     private EditContext? secondStepEditContext;
+    private EditContext? addressStepEditContext;
 
     private FirstStepWizardModel firstStepWizardModel = new FirstStepWizardModel();
     private SecondStepWizardModel secondStepWizardModel = new SecondStepWizardModel();
