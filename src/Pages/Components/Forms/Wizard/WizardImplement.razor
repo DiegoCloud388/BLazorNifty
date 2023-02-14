@@ -30,9 +30,9 @@
                 <MudCard Elevation="4">
                     <MudCardContent>
                         <MudStack>
-                            <MyWizard OnSubmit="Submit">
-                                <MyWizardHeader>
-                                </MyWizardHeader>
+                            <MyWizard OnSubmit="Submit" BackButtonTitle="Zpět" NextButtonTitle="Dále" SubmitButtonTitle="Odeslat" 
+                                IsBackOnFinishEnabled=false>
+                                <MyWizardHeader></MyWizardHeader>
                                 <MyWizardSteps>
                                     <MyWizardStep Title="Account" StepEditContext="firstStepEditContext">
                                         <EditForm EditContext="firstStepEditContext">
@@ -90,6 +90,29 @@
                                             </MudStack>
                                         </EditForm>
                                     </MyWizardStep>
+                                    <MyWizardStep Title="Address" StepEditContext="addressStepEditContext" ValidateStep="true">
+                                        <EditForm EditContext="addressStepEditContext">
+                                            <DataAnnotationsValidator />
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Address</MudText>
+                                                <MudTextField T="string" @bind-Value="addressStepWizardModel.Address" Variant="Variant.Outlined" aria-label="name"></MudTextField>
+                                            </MudStack>
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Address 2</MudText>
+                                                <MudTextField T="string" @bind-Value="addressStepWizardModel.Address2" Variant="Variant.Outlined" aria-label="email"></MudTextField>
+                                            </MudStack>
+
+                                            <MudStack Row="true" AlignItems="AlignItems.Center">
+                                                <MudText Typo="Typo.body2">Password</MudText>
+                                                <MudTextField T="string" @bind-Value="addressStepWizardModel.City" Variant="Variant.Outlined" aria-label="password"></MudTextField>
+
+                                                <MudText Typo="Typo.body2">Retry password</MudText>
+                                                <MudTextField T="string" Variant="Variant.Outlined" aria-label="password"></MudTextField>
+                                            </MudStack>
+                                        </EditForm>
+                                    </MyWizardStep>
                                     <MyWizardStep Title="Finish">
                                         <EditForm EditContext="finishStepEditContext">
                                             <MudText Typo="Typo.h3">Thank you</MudText>
@@ -124,13 +147,15 @@
     private EditContext? addressStepEditContext;
     private EditContext? finishStepEditContext;
 
-    private FirstStepWizardModel firstStepWizardModel = new FirstStepWizardModel();
-    private SecondStepWizardModel secondStepWizardModel = new SecondStepWizardModel();
+    private FirstStepWizardModel firstStepWizardModel = new ();
+    private SecondStepWizardModel secondStepWizardModel = new ();
+    private AddressStepWizardModel addressStepWizardModel = new();
 
     protected override void OnInitialized()
     {
         firstStepEditContext = new(firstStepWizardModel);
         secondStepEditContext = new(secondStepWizardModel);
+        addressStepEditContext = new(addressStepWizardModel);
 
         var finishStepWizardModel = new { firstStepWizardModel, secondStepWizardModel };
         finishStepEditContext = new(finishStepWizardModel);

@@ -35,6 +35,30 @@ namespace BlazorNifty.Components.MyWizards
         public int ActiveStepIndex { get; set; }
 
         /// <summary>
+        /// Next button title
+        /// </summary>
+        [Parameter]
+        public string NextButtonTitle { get; set; } = "Next";
+
+        /// <summary>
+        /// Back button title
+        /// </summary>
+        [Parameter]
+        public string BackButtonTitle { get; set; } = "Previous";
+
+        /// <summary>
+        /// Submit button title
+        /// </summary>
+        [Parameter]
+        public string SubmitButtonTitle { get; set; } = "Submit";
+
+        /// <summary>
+        /// If you want disable back button on finish step set on false.
+        /// </summary>
+        [Parameter]
+        public bool IsBackOnFinishEnabled { get; set; } = true;
+
+        /// <summary>
         /// 
         /// </summary>
         [Parameter]
@@ -62,6 +86,11 @@ namespace BlazorNifty.Components.MyWizards
         /// Determines whether the Wizard is in the last step
         /// </summary>
         public bool IsLastStep { get; set; }
+
+        /// <summary>
+        /// Determines whether the back button is enabled.
+        /// </summary>
+        public bool IsBackButtonEnabled { get; set; }
 
         public int StepsIndex(MyWizardStep step) => StepsIndexInternal(step);
 
@@ -97,9 +126,18 @@ namespace BlazorNifty.Components.MyWizards
             ActiveStepIndex = StepsIndex(step);
 
             if (ActiveStepIndex == Steps.Count - 1)
+            {
                 IsLastStep = true;
+
+                if(!IsBackOnFinishEnabled)                
+                    IsBackButtonEnabled = false;                
+            }
+                
             else
+            {
                 IsLastStep = false;
+                IsBackButtonEnabled = true;
+            }
         }
 
         private void GoBack()

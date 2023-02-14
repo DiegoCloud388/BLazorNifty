@@ -21,6 +21,9 @@ namespace BlazorNifty.Components.MyWizards
         [Parameter]
         public EditContext? StepEditContext { get; set; }
 
+        [Parameter]
+        public EventCallback<EditContext> OnStepEditContext { get; set; }
+
         protected override void OnInitialized()
         {
             Parent.AddStep(this);
@@ -48,6 +51,11 @@ namespace BlazorNifty.Components.MyWizards
 
             else
                 return false;
+        }
+
+        public void OnStepEditContextSelectedChanged(EditContext selectedContext)
+        {
+            OnStepEditContext.InvokeAsync(selectedContext);
         }
     }
 }

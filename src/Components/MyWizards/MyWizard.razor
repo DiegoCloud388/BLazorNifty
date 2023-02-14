@@ -7,21 +7,21 @@
 
     <div class="card-footer align-self-md-end">
         <MudStack Row="true">
-            @if (ActiveStepIndex != 0)
+            @if (ActiveStepIndex != 0 && IsBackButtonEnabled)
             {
                 <MudButton Variant="Variant.Filled" Class="ml-2" Style="background-color:rgb(228, 233, 242)"
-                       OnClick="GoBack">Previous</MudButton>
+                       OnClick="GoBack">@BackButtonTitle</MudButton>
             }
 
             @if (IsLastStep)
             {
                 <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Success" Size="Size.Medium"
-                       ButtonType="ButtonType.Submit" OnClick="SubmitHandler">Submit</MudButton>
+                       ButtonType="ButtonType.Submit" OnClick="SubmitHandler">@SubmitButtonTitle</MudButton>
             }
             else
             {
                 <MudButton Variant="Variant.Filled" Class="ml-2" Color="Color.Primary" Size="Size.Medium"
-                       ButtonType="ButtonType.Submit" OnClick="GoNext">Next</MudButton>
+                       ButtonType="ButtonType.Submit" OnClick="GoNext">@NextButtonTitle</MudButton>
             }
         </MudStack>
     </div>
