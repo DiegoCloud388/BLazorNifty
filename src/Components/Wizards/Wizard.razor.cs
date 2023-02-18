@@ -1,31 +1,32 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Windows.Input;
 
 namespace BlazorNifty.Components.Wizards
 {
-    public partial class Wizard<TModel>
+    public partial class Wizard
     {
         /// <summary>
-        /// List of <see cref="WizardStep{TModel}" /> added to the Wizard
+        /// 
         /// </summary>
-        protected internal List<WizardStep<TModel>> Steps = new List<WizardStep<TModel>>();
+        protected internal List<WizardStep> Steps = new List<WizardStep>();
 
         /// <summary>
-        /// The ChildContent container for <see cref="WizardStep"/>
+        /// 
         /// </summary>
         [Parameter]
-        public RenderFragment<TModel> ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         /// <summary>
-        /// The container for <see cref="WizardHeader"/>
+        /// 
         /// </summary>
-        public WizardHeader? HeaderContent { get; set; }
+        [Parameter] public string? Width { get; set; }
 
         /// <summary>
-        /// The Active <see cref="WizardStep{TModel}"/>
+        /// The Active <see cref="WizardStep"/>
         /// </summary>
         [Parameter]
-        public WizardStep<TModel>? ActiveStep { get; set; }
+        public WizardStep? ActiveStep { get; set; }
 
         /// <summary>
         /// The Index number of the <see cref="ActiveStep"/>
@@ -34,10 +35,28 @@ namespace BlazorNifty.Components.Wizards
         public int ActiveStepIndex { get; set; }
 
         /// <summary>
-        /// 
+        /// Next button title
         /// </summary>
         [Parameter]
-        public TModel Model { get; set; }
+        public string NextButtonTitle { get; set; } = "Next";
+
+        /// <summary>
+        /// Back button title
+        /// </summary>
+        [Parameter]
+        public string BackButtonTitle { get; set; } = "Previous";
+
+        /// <summary>
+        /// Submit button title
+        /// </summary>
+        [Parameter]
+        public string SubmitButtonTitle { get; set; } = "Submit";
+
+        /// <summary>
+        /// If you want disable back button on finish step set on false.
+        /// </summary>
+        [Parameter]
+        public bool IsBackOnFinishEnabled { get; set; } = true;
 
         /// <summary>
         /// 
@@ -48,12 +67,20 @@ namespace BlazorNifty.Components.Wizards
         /// <summary>
         /// Gets or sets the command to be executed when clicked on a button.
         /// </summary>
-        [Parameter] public ICommand SubmitCommand { get; set; }
+        [Parameter] 
+        public ICommand SubmitCommand { get; set; }
 
         /// <summary>
         /// Reflects the parameter to pass to the CommandProperty upon execution.
         /// </summary>
-        [Parameter] public object SubmitCommandParameter { get; set; }
+        [Parameter] 
+        public object SubmitCommandParameter { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Parameter]
+        public EventCallback OnValidSubmit { get; set; }
 
         /// <summary>
         /// Determines whether the Wizard is in the last step
@@ -61,12 +88,11 @@ namespace BlazorNifty.Components.Wizards
         public bool IsLastStep { get; set; }
 
         /// <summary>
-        /// Retrieves the index of the current <see cref="WizardStep"/> in the Step List
+        /// Determines whether the back button is enabled.
         /// </summary>
-        /// <param name="step">The WizardStep</param>
-        /// <returns></returns>
-        public int StepsIndex(WizardStep<TModel> step) => StepsIndexInternal(step);
+        public bool IsBackButtonEnabled { get; set; }
 
+        public int StepsIndex(WizardStep step) => StepsIndexInternal(step);
 
         protected override void OnAfterRender(bool firstRender)
         {
@@ -76,7 +102,41 @@ namespace BlazorNifty.Components.Wizards
                 {
                     SetActive(Steps[0]);
                     StateHasChanged();
-                }                
+                }
+            }
+        }
+
+        protected internal void AddStep(WizardStep step)
+        {
+            Steps.Add(step);
+        }
+
+        private int StepsIndexInternal(WizardStep step)
+        {
+            if (step == null)
+                throw new ArgumentNullException(nameof(step));
+
+            return Steps.IndexOf(step);
+        }
+
+        private void SetActive(WizardStep step)
+        {
+            ActiveStep = step ?? throw new ArgumentNullException(nameof(step));
+
+            ActiveStepIndex = StepsIndex(step);
+
+            if (ActiveStepIndex == Steps.Count - 1)
+            {
+                IsLastStep = true;
+
+                if(!IsBackOnFinishEnabled)                
+                    IsBackButtonEnabled = false;                
+            }
+                
+            else
+            {
+                IsLastStep = false;
+                IsBackButtonEnabled = true;
             }
         }
 
@@ -88,8 +148,24 @@ namespace BlazorNifty.Components.Wizards
 
         private void GoNext()
         {
-            if(ActiveStepIndex < Steps.Count - 1)
-                SetActive(Steps[ActiveStepIndex + 1]);
+            if (ActiveStep != null)
+            {
+                if (ActiveStep.ValidateStep)
+                {
+                    bool isValid = ActiveStep.StepHandleValidSubmit();
+
+                    if (isValid)
+                    {
+                        if (ActiveStepIndex < Steps.Count - 1)
+                            SetActive(Steps[ActiveStepIndex + 1]);
+                    }
+                }
+                else
+                {
+                    if (ActiveStepIndex < Steps.Count - 1)
+                        SetActive(Steps[ActiveStepIndex + 1]);
+                }
+            }
         }
 
         protected async Task SubmitHandler()
@@ -102,33 +178,5 @@ namespace BlazorNifty.Components.Wizards
             }
         }
 
-        private void SetActive(WizardStep<TModel> step)
-        {
-            ActiveStep = step ?? throw new ArgumentNullException(nameof(step));
-
-            ActiveStepIndex = StepsIndex(step);
-
-            if (ActiveStepIndex == Steps.Count - 1)
-                IsLastStep = true;
-            else
-                IsLastStep = false;
-        }
-
-        private int StepsIndexInternal(WizardStep<TModel> step)
-        {
-            if (step == null)
-                throw new ArgumentNullException(nameof(step));
-
-            return Steps.IndexOf(step);
-        }
-
-        /// <summary>
-        /// Adds a <see cref="WizardStep"/> to the WizardStep list
-        /// </summary>
-        /// <param name="step"></param>
-        protected internal void AddStep(WizardStep<TModel> step)
-        {
-            Steps.Add(step);
-        }
     }
 }
