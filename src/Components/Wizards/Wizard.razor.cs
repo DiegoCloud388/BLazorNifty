@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Components.Forms;
 using System.Windows.Input;
 
-namespace BlazorNifty.Components.MyWizards
+namespace BlazorNifty.Components.Wizards
 {
-    public partial class MyWizard
+    public partial class Wizard
     {
         /// <summary>
         /// 
         /// </summary>
-        protected internal List<MyWizardStep> Steps = new List<MyWizardStep>();
+        protected internal List<WizardStep> Steps = new List<WizardStep>();
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace BlazorNifty.Components.MyWizards
         /// The Active <see cref="WizardStep"/>
         /// </summary>
         [Parameter]
-        public MyWizardStep? ActiveStep { get; set; }
+        public WizardStep? ActiveStep { get; set; }
 
         /// <summary>
         /// The Index number of the <see cref="ActiveStep"/>
@@ -92,7 +92,7 @@ namespace BlazorNifty.Components.MyWizards
         /// </summary>
         public bool IsBackButtonEnabled { get; set; }
 
-        public int StepsIndex(MyWizardStep step) => StepsIndexInternal(step);
+        public int StepsIndex(WizardStep step) => StepsIndexInternal(step);
 
         protected override void OnAfterRender(bool firstRender)
         {
@@ -106,12 +106,12 @@ namespace BlazorNifty.Components.MyWizards
             }
         }
 
-        protected internal void AddStep(MyWizardStep step)
+        protected internal void AddStep(WizardStep step)
         {
             Steps.Add(step);
         }
 
-        private int StepsIndexInternal(MyWizardStep step)
+        private int StepsIndexInternal(WizardStep step)
         {
             if (step == null)
                 throw new ArgumentNullException(nameof(step));
@@ -119,7 +119,7 @@ namespace BlazorNifty.Components.MyWizards
             return Steps.IndexOf(step);
         }
 
-        private void SetActive(MyWizardStep step)
+        private void SetActive(WizardStep step)
         {
             ActiveStep = step ?? throw new ArgumentNullException(nameof(step));
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace BlazorNifty.Components.MyWizards
+namespace BlazorNifty.Components.Wizards
 {
-    public partial class MyWizardSteps
+    public partial class WizardSteps
     {
         [Parameter]
         public RenderFragment ChildContent { get; set; }

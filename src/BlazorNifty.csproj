@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\MyWizards\**" />
+    <Content Remove="Components\MyWizards\**" />
+    <EmbeddedResource Remove="Components\MyWizards\**" />
+    <None Remove="Components\MyWizards\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.TextEditor" Version="1.0.8" />
 	  <PackageReference Include="MudBlazor" Version="6.0.15" />
   </ItemGroup>

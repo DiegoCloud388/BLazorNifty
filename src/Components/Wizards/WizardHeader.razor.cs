@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace BlazorNifty.Components.MyWizards
+namespace BlazorNifty.Components.Wizards
 {
-    public partial class MyWizardHeader
+    public partial class WizardHeader
     {
         [CascadingParameter]
-        public MyWizard Parent { get; set; }
+        public Wizard Parent { get; set; }
 
         [Parameter]
         public RenderFragment? ChildContent { get; set; }

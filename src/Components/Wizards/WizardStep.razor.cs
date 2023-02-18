@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Components.Forms;
 using System.Windows.Input;
 
-namespace BlazorNifty.Components.MyWizards
+namespace BlazorNifty.Components.Wizards
 {
-    public partial class MyWizardStep
+    public partial class WizardStep
     {
         [CascadingParameter]
-        public MyWizard Parent { get; set; }
+        public Wizard Parent { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }

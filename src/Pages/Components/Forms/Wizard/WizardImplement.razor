@@ -1,5 +1,5 @@
 ﻿@page "/forms/wizard"
-@using BlazorNifty.Components.MyWizards
+@using BlazorNifty.Components.Wizards
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 @inject ProtectedSessionStorage BrowserStorage 
 
@@ -30,11 +30,11 @@
                 <MudCard Elevation="4">
                     <MudCardContent>
                         <MudStack>
-                            <MyWizard OnSubmit="Submit" BackButtonTitle="Zpět" NextButtonTitle="Dále" SubmitButtonTitle="Odeslat" 
-                                IsBackOnFinishEnabled=false>
-                                <MyWizardHeader></MyWizardHeader>
-                                <MyWizardSteps>
-                                    <MyWizardStep Title="Account" StepEditContext="firstStepEditContext">
+                            <Wizard OnSubmit="Submit" BackButtonTitle="Zpět" NextButtonTitle="Dále" SubmitButtonTitle="Odeslat" 
+                                    IsBackOnFinishEnabled=false>
+                                <WizardHeader></WizardHeader>
+                                <WizardSteps>
+                                    <WizardStep Title="Account" StepEditContext="firstStepEditContext">
                                         <EditForm EditContext="firstStepEditContext">
                                             <DataAnnotationsValidator />
 
@@ -60,8 +60,8 @@
                                                     Variant="Variant.Outlined" aria-label="password"></MudTextField>
                                             </MudStack>
                                         </EditForm>
-                                    </MyWizardStep>                                 
-                                    <MyWizardStep Title="Profile" StepEditContext="secondStepEditContext" ValidateStep="false">
+                                    </WizardStep>                                 
+                                    <WizardStep Title="Profile" StepEditContext="secondStepEditContext" ValidateStep="false">
                                         <EditForm EditContext="secondStepEditContext">
                                             <DataAnnotationsValidator />
 
@@ -89,8 +89,8 @@
                                                 </MudRadioGroup> 
                                             </MudStack>
                                         </EditForm>
-                                    </MyWizardStep>
-                                    <MyWizardStep Title="Address" StepEditContext="addressStepEditContext" ValidateStep="true">
+                                    </WizardStep>
+                                    <WizardStep Title="Address" StepEditContext="addressStepEditContext" ValidateStep="true">
                                         <EditForm EditContext="addressStepEditContext">
                                             <DataAnnotationsValidator />
 
@@ -112,15 +112,15 @@
                                                 <MudTextField T="string" Variant="Variant.Outlined" aria-label="password"></MudTextField>
                                             </MudStack>
                                         </EditForm>
-                                    </MyWizardStep>
-                                    <MyWizardStep Title="Finish">
+                                    </WizardStep>
+                                    <WizardStep Title="Finish">
                                         <EditForm EditContext="finishStepEditContext">
                                             <MudText Typo="Typo.h3">Thank you</MudText>
                                             <MudText Typo="Typo.body1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</MudText>
                                         </EditForm>
-                                    </MyWizardStep>
-                                </MyWizardSteps>
-                            </MyWizard>
+                                    </WizardStep>
+                                </WizardSteps>
+                            </Wizard>
                         </MudStack>                        
                     </MudCardContent>
                 </MudCard>
